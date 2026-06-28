@@ -86,7 +86,7 @@ function Aurora({ color, dir }) {
     south:[g("110%","90%","55%","110%",0.60),g("70%","60%","95%","85%",0.36),g("60%","55%","20%","105%",0.24)],
     west: [g("95%","85%","110%","60%",0.52),g("65%","55%","100%","95%",0.32),g("55%","50%","85%","25%",0.20)],
   };
-  return React.createElement("div", {style:{position:"absolute",inset:0,pointerEvents:"none",zIndex:0,background:(maps[dir]||maps.east).join(",")}});
+return <div style={{position:"absolute",inset:0,pointerEvents:"none",zIndex:0,background:(maps[dir]||maps.east).join(",")}}/>;
 }
 
 // ─── SHARED UI ────────────────────────────────────────────────────────────────
