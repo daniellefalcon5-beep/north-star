@@ -1,7 +1,6 @@
-import { useState } from `react”;
+import { useState } from "react”;
 
-const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap');`;
-
+const FONTS = "";
 const C = {
 bg:      “#080C12”,
 bone:    “#F8F6F0”,
