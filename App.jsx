@@ -702,10 +702,10 @@ function Landing({onNavigate}) {
       <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"column",alignItems:"center",gap:6}}>
+            display:"flex",flexDirection:"column",alignItems:"center",gap:3}}>
           <div style={nameStyle}>{name}</div>
           {tagline&&<div style={tagStyle}>{tagline}</div>}
-          <div style={{...cardStyle,marginTop:6}}>{card}</div>
+          <div style={{...cardStyle,marginTop:10}}>{card}</div>
         </button>
       </div>
     );
@@ -786,19 +786,19 @@ function Landing({onNavigate}) {
 
           {/* N — Territory */}
           <DirLabel dir="north" name="Place" tagline="Find your neighborhood." 
-            top="22%" left="50%" transform="translateX(-50%)"/>
+            bottom="calc(50% + 38px)" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
           <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="right" horizontal={true}
-            top="50%" left="22%" transform="translateY(-50%)" align="left"/>
+            top="50%" right="calc(50% + 38px)" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
           <DirLabel dir="east" name="Season" tagline="See what's happening." align="left" horizontal={true}
-            top="50%" left="auto" right="22%" transform="translateY(-50%)" align="right"/>
+            top="50%" left="calc(50% + 38px)" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
           <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully." 
-            bottom="22%" left="50%" transform="translateX(-50%)"/>
+            top="calc(50% + 38px)" left="50%" transform="translateX(-50%)"/>
 
           {/* Star — center, glowing, no cross lines */}
           <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
