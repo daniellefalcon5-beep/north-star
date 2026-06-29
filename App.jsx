@@ -252,12 +252,16 @@ const DATA = {
   festivals:[
     {name:"Twin Cities Pride",detail:"Late June · Free · Downtown Minneapolis",note:"Largest free Pride festival in the country. The whole city comes out.",url:"https://tcpride.org"},
     {name:"Stone Arch Bridge Festival",detail:"June · Free · St. Anthony Main",note:"200+ artists, culinary market, live music along West River Pkwy. Right in St. Anthony Main.",url:"https://stonearchbridgefestival.com"},
+    {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://minneapolisfestival.org"},
+    {name:"Minneapolis Aquatennial",detail:"Late July · Free · Downtown + lakes",note:"Minneapolis's signature summer celebration. Torchlight Parade, milk carton boat races on Bde Maka Ska, fireworks over the river.",url:"https://aquatennial.com"},
+    {name:"Basilica Block Party",detail:"Late July · Basilica of St. Mary",note:"Two-night outdoor music festival in the shadow of the Basilica. One of the city's best summer music events.",url:"https://blockparty.thebasilica.org"},
+    {name:"Minnesota Fringe Festival",detail:"Aug 6–16 · Multiple venues",note:"1,000+ artists, 50 venues. The largest performing arts fringe in the Midwest. Buy a $5 Fringe Button.",url:"https://fringefestival.org"},
     {name:"Uptown Art Fair",detail:"Aug 7–9 · Free · Lake of the Isles Pkwy",note:"300 artists on the parkway bordering CID and Kenwood. The fair draws the neighborhood out — you see exactly who lives here.",url:"https://uptownartfair.com"},
     {name:"Powderhorn Art Fair",detail:"Aug 15–17 · Free · Powderhorn Park",note:"More community-rooted than Uptown. More diverse.",url:"https://powderhornartfair.com"},
-    {name:"Minnesota Fringe Festival",detail:"Aug 6–16 · Multiple venues",note:"1,000+ artists, 50 venues. The largest performing arts fringe in the Midwest. Buy a $5 Fringe Button.",url:"https://fringefestival.org"},
     {name:"Open Streets Uptown",detail:"Aug 24 · Lyndale Ave 22nd–42nd",note:"Lyndale Ave goes car-free. Walk the spine of the neighborhood without a windshield.",url:"https://openstreetsmpls.org"},
-    {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://minneapolisfestival.org"},
     {name:"Minnesota State Fair",detail:"Aug 28–Sept 7 · Fairgrounds",note:"1.9M visitors. The ritual that makes Minneapolis locals out of newcomers. Go at least once.",url:"https://mnstatefair.org"},
+    {name:"Art-A-Whirl",detail:"May · Northeast Minneapolis · Free",note:"Largest open studio tour in the country. 600+ artists open their Northeast studios. The NE arts district at its best.",url:"https://nemaa.org/art-a-whirl"},
+    {name:"Mill City Farmers Market Opening Day",detail:"May · Mill District",note:"The market's opening weekend draws the whole neighborhood. The first Saturday of the season has an energy the rest don't.",url:"https://millcityfarmersmarket.org"},
   ],
   cinema:[
     {name:"Trylon Cinema",detail:"2820 E 33rd St · South Minneapolis",note:"90 seats, no ads, no trailers. Classic films, foreign cinema, director retrospectives. Tickets $8. First-come, first-served.",url:"https://trylon.org"},
@@ -278,7 +282,7 @@ const DATA = {
     {name:"Mill City Museum",detail:"704 S 2nd St · Mill District",note:"Carved out of the ruins of the world's largest flour mill. Minneapolis's own story told in the building where it happened.",url:"https://millcitymuseum.org"},
     {name:"Weisman Art Museum",detail:"333 E River Rd · U of M Campus · Free",note:"Frank Gehry building on the Mississippi bluff. Free. The building alone is worth seeing from the river.",url:"https://wam.umn.edu"},
     {name:"American Swedish Institute",detail:"2600 Park Ave · South Minneapolis",note:"1908 mansion turned Nordic cultural center. Changing exhibitions plus a permanent collection of Nordic design.",url:"https://asimn.org"},
-    {name:"The Bakken Museum",detail:"3537 Zenith Ave S · West BMS · Free Fridays",note:"On the west shore of Bde Maka Ska. Science, electricity, and Frankenstein in a historic mansion. Unusual and genuinely interesting.",url:"https://thebakken.org"},
+    {name:"The Bakken Museum",detail:"3537 Zenith Ave S · West BMS · Free Fridays",note:"On the west shore of Bde Maka Ska. Science, electricity, and Frankenstein in a historic mansion.",url:"https://thebakken.org"},
     {name:"Northrup King Building",detail:"1500 Jackson St NE · Northeast",note:"150+ artists and designers in a converted seed warehouse. Open Saturdays. The heart of the NE arts district.",url:"https://northrupkingbuilding.com"},
   ],
   
@@ -309,20 +313,22 @@ const DATA = {
       note:"Live music, fitness classes, puppet theater. Very neighborhood."},
   ],
   makers:[
-    {name:"Alemar Cheese",detail:"Mankato · Artisan cheesemaker",
+    {name:"Alemar Cheese",detail:"Mankato · Find at Mill City Market",
       note:"Minnesota's finest artisan cheese. The Bent River camembert is the one to try. Find at Mill City Market and specialty grocers."},
-    {name:"Bare Honey",detail:"Minneapolis · Raw local honey",
+    {name:"Bare Honey",detail:"Minneapolis · Farmers markets + specialty stores",
       note:"Raw honey from Minneapolis-area apiaries. Seasonal varietals."},
-    {name:"Baker's Field",detail:"NE Minneapolis · Mill-to-table bread",
+    {name:"Baker's Field",detail:"Northeast Minneapolis · Mill-to-table",
       note:"Grain milled on-site, baked daily. Minnesota-grown wheat."},
-    {name:"Copperwing Distillery",detail:"St. Louis Park · Small-batch spirits",
+    {name:"Copperwing Distillery",detail:"St. Louis Park · Tours available",
       note:"Minnesota whiskey and vodka. Tours available. A genuine local spirit."},
-    {name:"Indeed Brewing",detail:"NE Minneapolis · Anchor brewery",
+    {name:"Indeed Brewing",detail:"Northeast Minneapolis · Taproom + patio",
       note:"Northeast's anchor brewery. The patio is essential in summer. The social fabric of the neighborhood."},
-    {name:"Bauhaus Brew Labs",detail:"NE Minneapolis · German-influenced",
+    {name:"Bauhaus Brew Labs",detail:"Northeast Minneapolis · German-influenced",
       note:"German-influenced. The space is worth seeing."},
     {name:"Kramarczuk's",detail:"215 E Hennepin Ave · NE Minneapolis · Since 1954",
       note:"Ukrainian sausage, deli, and bakery in Northeast. James Beard America's Classic 2013. Smoked sausages made in-house."},
+    {name:"Broder's Pasta Bar",detail:"50th & Penn · Southwest Minneapolis",
+      note:"Family-owned Italian pasta bar in Southwest Minneapolis since 1994. The pasta is made in-house. A neighborhood institution."},
   ],
   coffee:[
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
@@ -468,7 +474,7 @@ function TerritoryPage({onBack}) {
   );
 
   return (
-    <DirPage dir="north" title="Place" subhead="Find where you belong."
+    <DirPage dir="north" title="Place" subhead="Find your neighborhood."
       bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}
       items={[
         {label:"Neighborhoods",sub:"Collections by lifestyle and place",id:"neighborhoods"},
@@ -566,7 +572,7 @@ function BodyPage({onBack}) {
   );
 
   return (
-    <DirPage dir="west" title="Move" subhead="Move through the city."
+    <DirPage dir="west" title="Move" subhead="Find your rhythm."
       bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={onBack}
       items={[
         {label:"Movement",sub:"Lakes · Trails · Studio · Paddle",id:"movement"},
@@ -612,21 +618,25 @@ function AboutPage({onBack}) {
 function Landing({onNavigate}) {
   const [hov,setHov] = useState(null);
 
-  const DirLabel = ({dir,name,tagline,top,left,right,bottom,transform,align="center"}) => (
+  const DirLabel = ({dir,name,top,left,right,bottom,transform,align="center",horizontal=false}) => (
     <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:align}}>
       <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
         style={{background:"transparent",border:"none",cursor:"pointer",
-          display:"flex",flexDirection:"column",alignItems:align==="left"?"flex-start":align==="right"?"flex-end":"center",gap:5}}>
-        <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>{dir==="north"?"N":dir==="east"?"E":dir==="south"?"S":"W"}</Cap>
-        <div style={{width:4,height:4,borderRadius:"50%",
-          background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,
-          transition:"background 0.2s"}}/>
+          display:"flex",
+          flexDirection:horizontal?"row":"column",
+          alignItems:"center",
+          gap:horizontal?6:4}}>
+        {/* For horizontal (E/W): cardinal letter points toward star = comes first for W, last for E */}
+        {horizontal && align==="left" && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>{dir==="west"?"W":"E"}</Cap>}
+        {horizontal && align==="left" && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
         <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
           textTransform:"uppercase",lineHeight:1,
           color:hov===dir?C.bone:{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir],
           transition:"color 0.2s"}}>{name}</div>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:11,color:C.bone2,
-          opacity:0.55,lineHeight:1.45,marginTop:1,maxWidth:110}}>{tagline}</div>
+        {horizontal && align==="right" && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
+        {horizontal && align==="right" && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>E</Cap>}
+        {!horizontal && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
+        {!horizontal && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>{dir==="north"?"N":"S"}</Cap>}
       </button>
     </div>
   );
@@ -662,19 +672,19 @@ function Landing({onNavigate}) {
         <div style={{flex:1,position:"relative"}}>
 
           {/* N — Territory */}
-          <DirLabel dir="north" name="Place" tagline="Explore neighborhoods. Find what's yours."
+          <DirLabel dir="north" name="Place" 
             top="6%" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
-          <DirLabel dir="west" name="Move" tagline={"Move through\nthe city."}
+          <DirLabel dir="west" name="Move" align="left" horizontal={true}
             top="50%" left="6%" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
-          <DirLabel dir="east" name="Season" tagline={"See what's\nhappening now."}
+          <DirLabel dir="east" name="Season" align="right" horizontal={true}
             top="50%" right="6%" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
-          <DirLabel dir="south" name="Gather" tagline={"Gather well.\nEat beautifully."}
+          <DirLabel dir="south" name="Gather" 
             bottom="18%" left="50%" transform="translateX(-50%)"/>
 
           {/* Star — center, glowing, no cross lines */}
