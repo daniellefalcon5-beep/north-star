@@ -680,7 +680,7 @@ function AboutPage({onBack}) {
 function Landing({onNavigate}) {
   const [hov,setHov] = useState(null);
 
-  const DirLabel = ({dir,name,tagline,top,left,right,bottom,transform,align="center"}) => {
+  const DirLabel = ({dir,name,tagline,style={}}) => {
     const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
     const card = dir==="north"?"N":dir==="east"?"E":dir==="south"?"S":"W";
     const cardStyle = {
@@ -699,7 +699,7 @@ function Landing({onNavigate}) {
 
     // N: large N closest to star (bottom), Place + tagline above
     if(dir==="north") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
+      <div style={{...style}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"column",alignItems:"center",gap:3}}>
@@ -712,7 +712,7 @@ function Landing({onNavigate}) {
 
     // S: large S closest to star (top), Gather + tagline below
     if(dir==="south") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
+      <div style={{...style}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"column",alignItems:"center",gap:6}}>
@@ -726,7 +726,7 @@ function Landing({onNavigate}) {
     // E: star is to E's LEFT, so: E letter first (closest to star), then name to the right
     // tagline centered below the full row — same as N/S
     if(dir==="east") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform:transform+" translateY(-50%)",display:"flex",flexDirection:"column",alignItems:"center",width:180}}>
+      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-start",width:160}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-start"}}>
@@ -740,7 +740,7 @@ function Landing({onNavigate}) {
     // W: star is to W's RIGHT, so: name to the left, W letter closest to star
     // tagline centered below the full row — same as N/S
     return (
-      <div style={{position:"absolute",top,left,right,bottom,transform:transform+" translateY(-50%)",display:"flex",flexDirection:"column",alignItems:"center",width:180}}>
+      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-end",width:160}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-end"}}>
@@ -782,21 +782,21 @@ function Landing({onNavigate}) {
         {/* Compass space — directions floating, no graphic */}
         <div style={{flex:1,position:"relative"}}>
 
-          {/* N — Territory */}
-          <DirLabel dir="north" name="Place" tagline="Find your neighborhood." 
-            bottom="calc(50% + 38px)" left="50%" transform="translateX(-50%)"/>
+          {/* N — top center, N letter closest to star below */}
+          <DirLabel dir="north" name="Place" tagline="Find your neighborhood."
+            style={{position:"absolute",bottom:"calc(50% + 48px)",left:"50%",transform:"translateX(-50%)",textAlign:"center"}}/>
 
-          {/* W — Body */}
-          <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="right" horizontal={true}
-            top="50%" left="calc(50% - 218px)" transform="translateY(-50%)" align="left"/>
+          {/* W — left side, W letter closest to star on right */}
+          <DirLabel dir="west" name="Move" tagline="Find your rhythm."
+            style={{position:"absolute",top:"50%",right:"calc(50% + 48px)",transform:"translateY(-50%)",textAlign:"right"}}/>
 
-          {/* E — Season */}
-          <DirLabel dir="east" name="Season" tagline="See what's happening." align="left" horizontal={true}
-            top="50%" left="calc(50% + 38px)" transform="translateY(-50%)" align="right"/>
+          {/* E — right side, E letter closest to star on left */}
+          <DirLabel dir="east" name="Season" tagline="See what's happening."
+            style={{position:"absolute",top:"50%",left:"calc(50% + 48px)",transform:"translateY(-50%)",textAlign:"left"}}/>
 
-          {/* S — Table */}
-          <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully." 
-            top="calc(50% + 38px)" left="50%" transform="translateX(-50%)"/>
+          {/* S — bottom center, S letter closest to star above */}
+          <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully."
+            style={{position:"absolute",top:"calc(50% + 48px)",left:"50%",transform:"translateX(-50%)",textAlign:"center"}}/>
 
           {/* Star — center, glowing, no cross lines */}
           <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
