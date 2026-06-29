@@ -726,10 +726,10 @@ function Landing({onNavigate}) {
     // E: star is to E's LEFT, so: E letter first (closest to star), then name to the right
     // tagline centered below the full row — same as N/S
     if(dir==="east") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform:transform+" translateY(-50%)",display:"flex",flexDirection:"column",alignItems:"center",width:180}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
+            display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-start"}}>
           <div style={cardStyle}>{card}</div>
           <div style={nameStyle}>{name}</div>
         </button>
@@ -740,10 +740,10 @@ function Landing({onNavigate}) {
     // W: star is to W's RIGHT, so: name to the left, W letter closest to star
     // tagline centered below the full row — same as N/S
     return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,display:"flex",flexDirection:"column",alignItems:"flex-end"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform:transform+" translateY(-50%)",display:"flex",flexDirection:"column",alignItems:"center",width:180}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
+            display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-end"}}>
           <div style={nameStyle}>{name}</div>
           <div style={cardStyle}>{card}</div>
         </button>
@@ -788,7 +788,7 @@ function Landing({onNavigate}) {
 
           {/* W — Body */}
           <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="right" horizontal={true}
-            top="50%" right="calc(50% + 38px)" transform="translateY(-50%)" align="left"/>
+            top="50%" left="calc(50% - 218px)" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
           <DirLabel dir="east" name="Season" tagline="See what's happening." align="left" horizontal={true}
