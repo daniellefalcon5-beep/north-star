@@ -242,7 +242,7 @@ const DATA = {
     {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
       note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
     {name:"Beard's Plaisance",detail:"Linden Hills · Lake Harriet",
-      note:"A sloping lawn above Lake Harriet that fills with picnic blankets on summer evenings. The quiet counterpart to the busy beach."},
+      note:"A sloping lawn above Lake Harriet that fills with picnic blankets on summer evenings. The quiet counterpart to the busy beach.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_harriet_regional_park/"},
     {name:"Bohemian Flats",detail:"Cedar-Isles-Dean · River launch",
       note:"A flat park at river level below the Washington Ave bridge. Kayak launch, morning fog, and almost no one after 8am.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bohemian_flats/"},
     {name:"Gold Medal Park",detail:"Mill District · Mound with views",
@@ -252,15 +252,15 @@ const DATA = {
   ],
   walks:[
     {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
-      note:"BMS → Lake of the Isles → Cedar Lake → Lake Harriet → Nokomis. The definitive Minneapolis route. Before 8am on weekends for solitude."},
+      note:"BMS → Lake of the Isles → Cedar Lake → Lake Harriet → Nokomis. The definitive Minneapolis route. Before 8am on weekends for solitude.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/minneapolis_chain_of_lakes_regional_park/"},
     {name:"West River Parkway",detail:"8 miles · Riverfront",
-      note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental."},
+      note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
     {name:"Minnehaha Creek Greenway",detail:"Varied · Through Linden Hills",
-      note:"Follows the creek through residential neighborhoods. The most beautiful urban waterway walk in the city."},
+      note:"Follows the creek through residential neighborhoods. The most beautiful urban waterway walk in the city.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
     {name:"Stone Arch Bridge & Riverfront",detail:"2–4 miles · Downtown",
       note:"The Stone Arch Bridge, the ruins of the mill district, Father Hennepin Bluff. Minneapolis's foundational story on foot."},
     {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free parkway",
-      note:"A car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
+      note:"A car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
   ],
   
 
@@ -318,15 +318,15 @@ const DATA = {
     {name:"Mill City Farmers Market",detail:"Sat 8am–1pm · 750 S 2nd St",url:"https://www.millcityfarmersmarket.org",
       note:"The market locals recommend first. Arrive at opening. Free yoga on-site. Steps from Stone Arch Bridge."},
     {name:"Minneapolis Farmers Market",detail:"Sat–Sun 6am–1pm · 312 E Lyndale · Largest",
-      note:"Largest open-air market in Minnesota. Go early — best selection is gone by 9am."},
+      note:"Largest open-air market in Minnesota. Go early — best selection is gone by 9am.",url:"https://www.mplsfarmersmarket.com"},
     {name:"Markets on Main",detail:"Sun 10am–2pm · 1 SE Main St · SAM",
-      note:"Right in St. Anthony Main. Local food, vintage, makers on Riverplace Plaza with the best downtown river views."},
+      note:"Right in St. Anthony Main. Local food, vintage, makers on Riverplace Plaza with the best downtown river views.",url:"https://www.riverplace.com/markets"},
     {name:"East Isles Market",detail:"Thu 4–8pm · MoZaic, Lagoon & Girard · Weekday",
-      note:"The most CID-adjacent weekday market. A preview of what Thursdays look like if you buy in the neighborhood."},
+      note:"The most CID-adjacent weekday market. A preview of what Thursdays look like if you buy in the neighborhood.",url:"https://www.uptownminneapolis.com/events/farmers-market"},
     {name:"Linden Hills Market",detail:"Sun 10am–1pm · 2813 W 43rd · Hyper-local",
-      note:"Small, community-rooted, rain or shine. Exactly the crowd you'd be living among."},
+      note:"Small, community-rooted, rain or shine. Exactly the crowd you'd be living among.",url:"https://www.lindenhillsmarket.com"},
     {name:"Midtown Farmers Market",detail:"Sat 9am–1pm · 2225 E Lake St · Community",
-      note:"Live music, fitness classes, puppet theater. Very neighborhood."},
+      note:"Live music, fitness classes, puppet theater. Very neighborhood.",url:"https://www.midtownfarmersmarket.org"},
   ],
   makers:[
     {name:"Alemar Cheese",detail:"Mankato · Find at Mill City Market",
@@ -350,13 +350,13 @@ const DATA = {
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
       note:"The neighborhood anchor for Cedar-Isles-Dean. The cardamom bun. Start here.",url:"https://www.islesbun.com"},
     {name:"Dogwood Coffee",detail:"NE Minneapolis + multiple",
-      note:"Precision roasting. Good single origins. The Northeast neighborhood café."},
+      note:"Precision roasting. Good single origins. The Northeast neighborhood café.",url:"https://www.dogwoodcoffee.com"},
     {name:"Spyhouse Coffee",detail:"Uptown + Hennepin + NE · Institution",
-      note:"On-site roasting. Multiple neighborhood locations."},
+      note:"On-site roasting. Multiple neighborhood locations.",url:"https://www.spyhousecoffee.com"},
     {name:"Quince",detail:"Near CID / Kenwood · Quiet",
       note:"The quiet café for the Kenwood corridor. Worth finding before you move in."},
     {name:"Café Alma",detail:"University area · Serious",
-      note:"Serious coffee, serious pastry. Connected to one of the city's best restaurants."},
+      note:"Serious coffee, serious pastry. Connected to one of the city's best restaurants.",url:"https://www.cafealma.com"},
   ],
   bakeries:[
     {name:"Patisserie 46",detail:"4606 Nicollet Ave · Linden Hills · Best in city",
@@ -393,9 +393,9 @@ const DATA = {
   // BODY
   movement:[
     {name:"SUP Calhoun",detail:"BMS · Tue & Thu 6:30pm",
-      note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis."},
+      note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis.",url:"https://supcalhoun.com"},
     {name:"SUP Yoga — The Yoga Center",detail:"BMS · June–Aug mornings",
-      note:"SUP yoga on Bde Maka Ska. All levels."},
+      note:"SUP yoga on Bde Maka Ska. All levels.",url:"https://www.theyogacenter.com"},
     {name:"The Firm",detail:"Uptown · Pilates + strength",
       note:"Pilates and strength training in the Uptown corridor. Walkable from CID and Kenwood."},
     {name:"Movement Minneapolis",detail:"NE Minneapolis · Climbing + fitness",
@@ -407,17 +407,17 @@ const DATA = {
   ],
   nature:[
     {name:"Bde Maka Ska",detail:"Chain of Lakes · Home water",
-      note:"Largest Chain of Lakes lake. SUP, swim, sail. Paddle through the channel to Lake of the Isles and Cedar Lake. 3.3mi perimeter loop."},
+      note:"Largest Chain of Lakes lake. SUP, swim, sail. Paddle through the channel to Lake of the Isles and Cedar Lake. 3.3mi perimeter loop.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bde_maka_ska_park/"},
     {name:"Lake of the Isles",detail:"2.7mi loop",
-      note:"The paddle surrounded by CID and Kenwood homes. Quiet on weekday mornings."},
+      note:"The paddle surrounded by CID and Kenwood homes. Quiet on weekday mornings.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_of_the_isles_park/"},
     {name:"Lake Harriet",detail:"2.8mi loop · Bandshell",
-      note:"Swimming beach, sailing club, paddleboat rentals. Free Sunday concerts at the Bandshell all summer."},
+      note:"Swimming beach, sailing club, paddleboat rentals. Free Sunday concerts at the Bandshell all summer.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_harriet_regional_park/"},
     {name:"Cedar Lake",detail:"Connected to BMS via channel",
-      note:"Quieter than BMS. Cedar Lake Trail connects to the Midtown Greenway."},
+      note:"Quieter than BMS. Cedar Lake Trail connects to the Midtown Greenway.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/cedar_lake_park/"},
     {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
       note:"BMS to Lake of the Isles to Cedar Lake to Lake Harriet to Nokomis. The definitive Minneapolis route. Before 8am on weekends."},
     {name:"Minnehaha Falls Trail",detail:"5–8 miles · River gorge",
-      note:"Mississippi River gorge to Minnehaha Falls. One of the best urban trail runs in the Midwest."},
+      note:"Mississippi River gorge to Minnehaha Falls. One of the best urban trail runs in the Midwest.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/minnehaha_regional_park/"},
     {name:"West River Parkway",detail:"8 miles · Riverfront",
       note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental."},
     {name:"Minnehaha Creek Greenway",detail:"Through Linden Hills",
@@ -425,7 +425,7 @@ const DATA = {
     {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free",
       note:"Car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
     {name:"Lake Minnetonka",detail:"Day trip · 30 min from BMS",
-      note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here."},
+      note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here.",url:"https://www.threeriversparks.org/location/lake-minnetonka-regional-park"},
   ],
   wellness:[
     
@@ -684,8 +684,8 @@ function Landing({onNavigate}) {
     const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
     const card = dir==="north"?"N":dir==="east"?"E":dir==="south"?"S":"W";
     const cardStyle = {
-      fontFamily:serif, fontWeight:300, fontSize:42, lineHeight:1,
-      color:"rgba(248,246,240,0.22)", letterSpacing:"0.05em",
+      fontFamily:serif, fontWeight:400, fontSize:44, lineHeight:1,
+      color:"rgba(248,246,240,0.55)", letterSpacing:"0.05em",
     };
     const nameStyle = {
       fontFamily:serif, fontWeight:300, fontSize:18, letterSpacing:"0.12em",
@@ -723,23 +723,8 @@ function Landing({onNavigate}) {
       </div>
     );
 
-    // E: text then large E (E · Season — E closest to star on left)
+    // E: star is to E's LEFT, so: E letter first (closest to star), then name + tagline to the right
     if(dir==="east") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"right"}}>
-        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
-          style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"column",alignItems:"flex-end",gap:0}}>
-          <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
-            <div style={nameStyle}>{name}</div>
-            <div style={cardStyle}>{card}</div>
-          </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"right"}}>{tagline}</div>}
-        </button>
-      </div>
-    );
-
-    // W: large W then text (W · Move — W closest to star on right)
-    return (
       <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"left"}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
@@ -748,7 +733,22 @@ function Landing({onNavigate}) {
             <div style={cardStyle}>{card}</div>
             <div style={nameStyle}>{name}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"left"}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"left",paddingLeft:4}}>{tagline}</div>}
+        </button>
+      </div>
+    );
+
+    // W: star is to W's RIGHT, so: name + tagline to the left, then W letter (closest to star)
+    return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"right"}}>
+        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
+          style={{background:"transparent",border:"none",cursor:"pointer",
+            display:"flex",flexDirection:"column",alignItems:"flex-end",gap:0}}>
+          <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
+            <div style={nameStyle}>{name}</div>
+            <div style={cardStyle}>{card}</div>
+          </div>
+          {tagline&&<div style={{...tagStyle,textAlign:"right",paddingRight:4}}>{tagline}</div>}
         </button>
       </div>
     );
@@ -789,12 +789,12 @@ function Landing({onNavigate}) {
             top="6%" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
-          <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="left" horizontal={true}
-            top="50%" left="6%" transform="translateY(-50%)" align="left"/>
+          <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="right" horizontal={true}
+            top="50%" right="52%" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
-          <DirLabel dir="east" name="Season" tagline="See what's happening." align="right" horizontal={true}
-            top="50%" right="6%" transform="translateY(-50%)" align="right"/>
+          <DirLabel dir="east" name="Season" tagline="See what's happening." align="left" horizontal={true}
+            top="50%" left="52%" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
           <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully." 
