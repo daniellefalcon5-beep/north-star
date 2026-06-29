@@ -723,9 +723,10 @@ function Landing({onNavigate}) {
       </div>
     );
 
-    // E: star is to E's LEFT, so: E letter first (closest to star), then name + tagline to the right
+    // E: star is to E's LEFT, so: E letter first (closest to star), then name to the right
+    // tagline centered below the full row — same as N/S
     if(dir==="east") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"left"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"column",alignItems:"center",gap:0}}>
@@ -733,14 +734,15 @@ function Landing({onNavigate}) {
             <div style={cardStyle}>{card}</div>
             <div style={nameStyle}>{name}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:6}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8}}>{tagline}</div>}
         </button>
       </div>
     );
 
-    // W: star is to W's RIGHT, so: name + tagline to the left, then W letter (closest to star)
+    // W: star is to W's RIGHT, so: name to the left, W letter closest to star
+    // tagline centered below the full row — same as N/S
     return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"right"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"column",alignItems:"center",gap:0}}>
@@ -748,7 +750,7 @@ function Landing({onNavigate}) {
             <div style={nameStyle}>{name}</div>
             <div style={cardStyle}>{card}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:6}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8}}>{tagline}</div>}
         </button>
       </div>
     );
