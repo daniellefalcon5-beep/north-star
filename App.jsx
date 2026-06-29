@@ -197,42 +197,58 @@ function ContentRow({name,detail,note,accent=C.bone2,url}) {
 const DATA = {
   // TERRITORY
   neighborhoods:[
-    {name:"Cedar-Isles-Dean",detail:"Around the Lakes · Primary",
+    // Around the Lakes
+    {name:"Cedar-Isles-Dean",detail:"Around the Lakes",collection:"lakes",
       note:"One of the first planned lakeside suburbs in America, 1883. Large lots, 28ft height cap. Lake-adjacent blocks outperform in every down cycle. BMS steps away.",
       price:"$720K+",trend:"+6%",days:8,ratio:"103%",abs:"1.4 mo"},
-    {name:"Kenwood",detail:"Around the Lakes · Primary",
+    {name:"Kenwood",detail:"Around the Lakes",collection:"lakes",
       note:"Developed by Minneapolis's Gilded Age elite — architects required neighbor approval before building. Never crashed: 2008–2012 saw only 8% decline vs 22% city average.",
       price:"$850K–$1.4M",trend:"+5%",days:6,ratio:"105%",abs:"0.9 mo"},
-    {name:"St. Anthony Main",detail:"River & Historic · Primary",
-      note:"Riverfront + historic district overlays limit new development. North Loop pricing moving east — SAM is 2–3 years behind. Mississippi River access is permanent.",
-      price:"$420K–$580K",trend:"+4%",days:12,ratio:"100%",abs:"2.1 mo"},
-    {name:"Linden Hills",detail:"Residential · Strong consideration",
+    {name:"East Isles",detail:"Around the Lakes",collection:"lakes",
+      note:"Lake access without Kenwood price premium. East Isles Farmers Market on Thursdays. Walkable to both the lakes and the Hennepin corridor.",
+      price:"$540K–$780K",trend:"+5%",days:10,ratio:"101%",abs:"1.8 mo"},
+    {name:"Linden Hills",detail:"Around the Lakes",collection:"lakes",
       note:"Best price-per-square-foot relative to quality of life. 44th & Upton village is the city's finest example of a walkable neighborhood center.",
       price:"$580K–$780K",trend:"+7%",days:9,ratio:"101%",abs:"1.6 mo"},
-    {name:"Northeast Riverfront",detail:"River & Historic · Dark horse",
-      note:"Fastest-appreciating neighborhood in Minneapolis for 4 consecutive years. Mid-gentrification. Check FEMA flood maps for specific addresses.",
-      price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
-    {name:"Lowry Hill",detail:"Around the Lakes · Comparison",
+    {name:"Lowry Hill",detail:"Around the Lakes",collection:"lakes",
       note:"Same architectural era as Kenwood, 20–30% less expensive. Walkable to Walker Art Center and Guthrie.",
       price:"$480K–$720K",trend:"+4%",days:11,ratio:"99%",abs:"2.2 mo"},
-    {name:"North Loop",detail:"Urban Core · Established",
+    // Urban Core
+    {name:"North Loop",detail:"Urban Core",collection:"urban",
       note:"Warehouse district converted over 20 years. Spoon and Stable, Bar La Grassa anchored the food scene. Inspect HOA reserves.",
       price:"$380K–$650K",trend:"+3%",days:14,ratio:"98%",abs:"2.8 mo"},
-    {name:"Fulton",detail:"Residential · Quiet",
-      note:"Deeply residential, very low turnover. Lake Harriet proximity without Linden Hills premium. Strong neighborhood association.",
+    {name:"Mill District",detail:"Urban Core",collection:"urban",
+      note:"Gold Medal Park, Guthrie Theater, and Mill City Farmers Market. Strong long-term position on the river.",
+      price:"$320K–$520K",trend:"+5%",days:11,ratio:"100%",abs:"2.1 mo"},
+    // River & Historic
+    {name:"St. Anthony Main",detail:"River & Historic",collection:"river",
+      note:"Riverfront + historic district overlays limit new development. North Loop pricing moving east — SAM is 2–3 years behind. Mississippi River access is permanent.",
+      price:"$420K–$580K",trend:"+4%",days:12,ratio:"100%",abs:"2.1 mo"},
+    {name:"Northeast Riverfront",detail:"River & Historic",collection:"river",
+      note:"Fastest-appreciating neighborhood in Minneapolis for 4 consecutive years. Mid-gentrification. Check FEMA flood maps for specific addresses.",
+      price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
+    // Residential Favorites
+    {name:"Kingfield",detail:"Residential Favorites",collection:"residential",
+      note:"South Minneapolis bungalow district with strong community identity. Eat Street is the cultural spine.",
+      price:"$340K–$520K",trend:"+6%",days:8,ratio:"102%",abs:"1.5 mo"},
+    {name:"Tangletown",detail:"Residential Favorites",collection:"residential",
+      note:"Curved streets following Minnehaha Creek. Very quiet, stable ownership, low turnover.",
+      price:"$480K–$700K",trend:"+5%",days:10,ratio:"100%",abs:"1.9 mo"},
+    {name:"Fulton",detail:"Residential Favorites",collection:"residential",
+      note:"Deeply residential, very low turnover. Lake Harriet proximity without Linden Hills premium.",
       price:"$420K–$640K",trend:"+5%",days:9,ratio:"100%",abs:"1.7 mo"},
-  ],
+  ],,
   hidden:[
     {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
-      note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists."},
+      note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
     {name:"Beard's Plaisance",detail:"Linden Hills · Lake Harriet",
       note:"A sloping lawn above Lake Harriet that fills with picnic blankets on summer evenings. The quiet counterpart to the busy beach."},
     {name:"Bohemian Flats",detail:"Cedar-Isles-Dean · River launch",
-      note:"A flat park at river level below the Washington Ave bridge. Kayak launch, morning fog, and almost no one after 8am."},
+      note:"A flat park at river level below the Washington Ave bridge. Kayak launch, morning fog, and almost no one after 8am.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bohemian_flats/"},
     {name:"Gold Medal Park",detail:"Mill District · Mound with views",
-      note:"A small spiral-mound park next to the Guthrie with 360° views of the river and downtown. Almost no one stops here."},
+      note:"A small spiral-mound park next to the Guthrie with 360° views of the river and downtown. Almost no one stops here.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/gold_medal_park/"},
     {name:"Boom Island",detail:"Northeast · Mississippi",
-      note:"Island park on the Mississippi with skyline views. Dog-friendly. Peaceful. Mostly locals."},
+      note:"Island park on the Mississippi with skyline views. Dog-friendly. Peaceful. Mostly locals.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/boom_island_park/"},
   ],
   walks:[
     {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
@@ -299,7 +315,7 @@ const DATA = {
 
   // TABLE
   markets:[
-    {name:"Mill City Farmers Market",detail:"Sat 8am–1pm · 750 S 2nd St · Most curated",
+    {name:"Mill City Farmers Market",detail:"Sat 8am–1pm · 750 S 2nd St",url:"https://www.millcityfarmersmarket.org",
       note:"The market locals recommend first. Arrive at opening. Free yoga on-site. Steps from Stone Arch Bridge."},
     {name:"Minneapolis Farmers Market",detail:"Sat–Sun 6am–1pm · 312 E Lyndale · Largest",
       note:"Largest open-air market in Minnesota. Go early — best selection is gone by 9am."},
@@ -314,25 +330,25 @@ const DATA = {
   ],
   makers:[
     {name:"Alemar Cheese",detail:"Mankato · Find at Mill City Market",
-      note:"Minnesota's finest artisan cheese. The Bent River camembert is the one to try. Find at Mill City Market and specialty grocers."},
+      note:"Minnesota's finest artisan cheese. The Bent River camembert is the one to try. Find at Mill City Market and specialty grocers.",url:"https://www.alemarcheese.com"},
     {name:"Bare Honey",detail:"Minneapolis · Farmers markets + specialty stores",
       note:"Raw honey from Minneapolis-area apiaries. Seasonal varietals."},
     {name:"Baker's Field",detail:"Northeast Minneapolis · Mill-to-table",
-      note:"Grain milled on-site, baked daily. Minnesota-grown wheat."},
+      note:"Grain milled on-site, baked daily. Minnesota-grown wheat.",url:"https://bakersfieldflour.com"},
     {name:"Copperwing Distillery",detail:"St. Louis Park · Tours available",
-      note:"Minnesota whiskey and vodka. Tours available. A genuine local spirit."},
+      note:"Minnesota whiskey and vodka. Tours available. A genuine local spirit.",url:"https://www.copperwingdistillery.com"},
     {name:"Indeed Brewing",detail:"Northeast Minneapolis · Taproom + patio",
-      note:"Northeast's anchor brewery. The patio is essential in summer. The social fabric of the neighborhood."},
+      note:"Northeast's anchor brewery. The patio is essential in summer. The social fabric of the neighborhood.",url:"https://www.indeedbrewing.com"},
     {name:"Bauhaus Brew Labs",detail:"Northeast Minneapolis · German-influenced",
-      note:"German-influenced. The space is worth seeing."},
+      note:"German-influenced. The space is worth seeing.",url:"https://www.bauhaus.mn"},
     {name:"Kramarczuk's",detail:"215 E Hennepin Ave · NE Minneapolis · Since 1954",
-      note:"Ukrainian sausage, deli, and bakery in Northeast. James Beard America's Classic 2013. Smoked sausages made in-house."},
+      note:"Ukrainian sausage, deli, and bakery in Northeast. James Beard America's Classic 2013. Smoked sausages made in-house.",url:"https://www.kramarczuks.com"},
     {name:"Broder's Pasta Bar",detail:"50th & Penn · Southwest Minneapolis",
-      note:"Family-owned Italian pasta bar in Southwest Minneapolis since 1994. The pasta is made in-house. A neighborhood institution."},
+      note:"Family-owned Italian pasta bar in Southwest Minneapolis since 1994. The pasta is made in-house. A neighborhood institution.",url:"https://www.broders.com"},
   ],
   coffee:[
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
-      note:"The neighborhood anchor for Cedar-Isles-Dean. The cardamom bun. Start here."},
+      note:"The neighborhood anchor for Cedar-Isles-Dean. The cardamom bun. Start here.",url:"https://www.islesbun.com"},
     {name:"Dogwood Coffee",detail:"NE Minneapolis + multiple",
       note:"Precision roasting. Good single origins. The Northeast neighborhood café."},
     {name:"Spyhouse Coffee",detail:"Uptown + Hennepin + NE · Institution",
@@ -344,33 +360,34 @@ const DATA = {
   ],
   bakeries:[
     {name:"Patisserie 46",detail:"4606 Nicollet Ave · Linden Hills · Best in city",
-      note:"French-influenced. Croissant, kouign-amann. The sandwich lunch is the move."},
+      note:"French-influenced. Croissant, kouign-amann. The sandwich lunch is the move.",url:"https://www.patisserie46.com"},
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · Swedish-inspired",
-      note:"The cardamom bun. Swedish-inspired. The neighborhood bakery for CID."},
-    {name:"Salty Tart",detail:"Midtown Global Market · James Beard nominated",
-      note:"Michelle Gayer. James Beard nominated. Worth the detour."},
+      note:"The cardamom bun. Swedish-inspired. The neighborhood bakery for CID.",url:"https://www.islesbun.com"},
+    
     {name:"Baker's Field",detail:"NE Minneapolis · Grain-to-loaf",
       note:"Grain milled on-site, baked daily. Minnesota-grown wheat."},
+    {name:"Rustica Bakery",detail:"Multiple locations · Minneapolis",
+      note:"Naturally leavened breads and pastries. Multiple neighborhood locations.",url:"https://www.rusticabakery.com"},
     {name:"Sun Street Breads",detail:"Kingfield · Local institution",
-      note:"High-quality naturally leavened bread. The neighborhood bakery for south Minneapolis."},
+      note:"High-quality naturally leavened bread. The neighborhood bakery for south Minneapolis.",url:"https://www.sunstreetbreads.com"},
   ],
   restaurants:[
     {name:"Vinai",detail:"North Loop · Book ahead · Essential",
-      note:"Chef Yia Vang's Hmong restaurant. The restaurant people keep bringing up. Personal storytelling through food."},
+      note:"Chef Yia Vang's Hmong restaurant. The restaurant people keep bringing up. Personal storytelling through food.",url:"https://www.vinaimn.com"},
     {name:"Spoon and Stable",detail:"North Loop · James Beard · Fine dining",
-      note:"Gavin Kaysen's flagship. The room is worth it. Get the bison tartare."},
+      note:"Gavin Kaysen's flagship. The room is worth it. Get the bison tartare.",url:"https://www.spoonandstable.com"},
     {name:"Porzana",detail:"North Loop · New · Date night",
-      note:"Argentinian steakhouse by Daniel Del Prado. Refined, lively. Opened this year. Already busy."},
+      note:"Argentinian steakhouse by Daniel Del Prado. Refined, lively. Opened this year. Already busy.",url:"https://www.porzanampls.com"},
     {name:"Jook Sing at Steady Pour",detail:"NE Minneapolis · Ever-changing",
-      note:"Modern Chinese-American, ever-changing menu. Go without a plan. What the neighborhood actually talks about."},
+      note:"Modern Chinese-American, ever-changing menu. Go without a plan. What the neighborhood actually talks about.",url:"https://www.jooksingmn.com"},
     {name:"Mama Safia's",detail:"Lake Street · Institution · Essential",
-      note:"Legendary Somali restaurant. Essential Minneapolis. The kind of place North Star exists to surface."},
+      note:"Legendary Somali restaurant. Essential Minneapolis. The kind of place North Star exists to surface.",url:"https://www.mamasafias.com"},
     {name:"Mestiizo",detail:"Northeast · Buzzy",
-      note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it."},
+      note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it.",url:"https://www.mestiizorestaurant.com"},
     {name:"World Street Kitchen",detail:"Lyndale Ave · Institution",
-      note:"The Currito. People have been eating it for years."},
+      note:"The Currito. People have been eating it for years.",url:"https://www.eatwsk.com"},
     {name:"Lake & Irving",detail:"1513 W Lake St · Uptown",
-      note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable Uptown neighborhood restaurant with a patio."},
+      note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable Uptown neighborhood restaurant with a patio.",url:"https://www.lakeandirving.com"},
   ],
 
   // BODY
@@ -383,8 +400,10 @@ const DATA = {
       note:"Pilates and strength training in the Uptown corridor. Walkable from CID and Kenwood."},
     {name:"Movement Minneapolis",detail:"NE Minneapolis · Climbing + fitness",
       note:"Climbing gym in Northeast. Good community."},
-    {name:"Loppet Foundation",detail:"Community paddling · Various lakes",
-      note:"SUP, canoe, lessons. Good for meeting locals."},
+    {name:"Mov Hot Yoga",detail:"Minneapolis · Hot yoga",
+      note:"Hot yoga studio in Minneapolis. Multiple class formats.",url:"https://www.movhotyoga.com"},
+    {name:"Loppet Foundation",detail:"Community paddling + winter trails",
+      note:"SUP, canoe, lessons in summer. Nordic skiing and fat biking in winter. Good for meeting locals.",url:"https://loppet.org"},
   ],
   nature:[
     {name:"Bde Maka Ska",detail:"Chain of Lakes · Home water",
@@ -409,45 +428,70 @@ const DATA = {
       note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here."},
   ],
   wellness:[
-    {name:"Lonna Sauna",detail:"Bde Maka Ska · Lake sauna · Book ahead",
-      note:"Wood-fired sauna directly on Bde Maka Ska. Cold plunge into the lake. The most Minneapolis wellness experience in the city."},
+    
     {name:"Löyly",detail:"NE Minneapolis · Nordic sauna",
-      note:"Nordic-inspired sauna and cold plunge. Community-focused, well designed."},
+      note:"Nordic-inspired sauna and cold plunge. Community-focused, well designed.",url:"https://www.loylymnpls.com"},
     {name:"The Nordic",detail:"Downtown · Year-round",
-      note:"Urban wellness with sauna, cold plunge, steam room. Year-round operation."},
+      note:"Urban wellness with sauna, cold plunge, steam room. Year-round operation.",url:"https://www.thenordichaus.com"},
     {name:"Wai Nani SUP",detail:"Lake Minnetonka · Community",
-      note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub."},
+      note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub.",url:"https://www.wainanilife.com"},
   ],
   
 };
 
 // ─── TERRITORY ────────────────────────────────────────────────────────────────
+function NeighborhoodDetail({nb, onBack}) {
+  return (
+    <DetailPage title={nb.name} dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}>
+      <div style={{paddingTop:20}}>
+        <Cap color={C.teal} style={{marginBottom:16}}>{nb.detail}</Cap>
+        <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.85,marginBottom:24}}>{nb.note}</div>
+        <Rule style={{marginBottom:20}}/>
+        <div style={{display:"flex",gap:0}}>
+          {[["Median",nb.price],["Days",nb.days+"d"],["vs Ask",nb.ratio],["Absorption",nb.abs]].map(([l,v],j)=>(
+            <div key={l} style={{flex:1,padding:"0 "+(j>0?10:0)+"px",borderLeft:j>0?"1px solid "+C.bone3:"none"}}>
+              <Cap style={{fontSize:7,color:C.bone3,marginBottom:4}}>{l}</Cap>
+              <div style={{fontFamily:sans,fontSize:11,color:C.bone2}}>{v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </DetailPage>
+  );
+}
+
 function TerritoryPage({onBack}) {
   const [sub, setSub] = useState(null);
+  const [nb, setNb] = useState(null);
+
+  if(nb) return <NeighborhoodDetail nb={nb} onBack={()=>setNb(null)}/>;
+
+  const collections = [
+    {key:"lakes",    label:"Around the Lakes"},
+    {key:"urban",    label:"Urban Core"},
+    {key:"river",    label:"River & Historic"},
+    {key:"residential", label:"Residential Favorites"},
+  ];
 
   if(sub==="neighborhoods") return (
     <DetailPage title="Neighborhoods" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,padding:"16px 0 4px"}}>
-          
-        </div>
-        <Rule style={{marginBottom:4}}/>
-        {DATA.neighborhoods.map((nb,i)=>(
-          <div key={i} style={{borderBottom:"1px solid " + C.bone3,padding:"20px 0"}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:12,marginBottom:6}}>
-              <div style={{fontFamily:serif,fontSize:21,color:C.bone,lineHeight:1.15}}>{nb.name}</div>
-              <Cap style={{color:C.teal,fontSize:7,flexShrink:0,marginTop:4}}>{nb.trend}</Cap>
-            </div>
-            <div style={{fontFamily:sans,fontSize:11,color:C.teal,marginBottom:8,letterSpacing:"0.04em"}}>{nb.detail}</div>
-            <div style={{fontFamily:sans,fontSize:12,color:C.bone2,lineHeight:1.75}}>{nb.note}</div>
-            <div style={{display:"flex",gap:0,marginTop:12}}>
-              {[["Median",nb.price],["Days",nb.days + "d"],["vs Ask",nb.ratio],["Absorption",nb.abs]].map(([l,v],j)=>(
-                <div key={l} style={{flex:1,padding:"0 " + (j>0?10:0) + "px",borderLeft:j>0?"1px solid " + C.bone3:"none"}}>
-                  <Cap style={{fontSize:7,color:C.bone3,marginBottom:4}}>{l}</Cap>
-                  <div style={{fontFamily:sans,fontSize:11,color:C.bone2}}>{v}</div>
+        {collections.map(col=>(
+          <div key={col.key}>
+            <Cap style={{marginTop:28,marginBottom:0,color:C.bone3}}>{col.label}</Cap>
+            {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
+              <button key={i} onClick={()=>setNb(n)} style={{
+                width:"100%",background:"transparent",border:"none",
+                borderBottom:"1px solid "+C.bone3,padding:"18px 0",cursor:"pointer",
+                display:"flex",justifyContent:"space-between",alignItems:"center",opacity:0.78,
+              }}>
+                <div style={{textAlign:"left"}}>
+                  <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:C.teal}}>{n.price} · {n.trend}</div>
                 </div>
-              ))}
-            </div>
+                <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
+              </button>
+            ))}
           </div>
         ))}
       </div>
@@ -457,18 +501,30 @@ function TerritoryPage({onBack}) {
   if(sub==="hidden") return (
     <DetailPage title="Hidden Gems" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,padding:"16px 0 16px"}}>
-          Small discoveries that don't appear in guides.
-        </div>
         {DATA.hidden.map((item,i)=><ContentRow key={i} {...item} accent={C.teal}/>)}
       </div>
     </DetailPage>
   );
 
-  if(sub==="walks") return (
-    <DetailPage title="Walks & Routes" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
+  if(sub==="compare") return (
+    <DetailPage title="Compare" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        {DATA.walks.map((item,i)=><ContentRow key={i} {...item} accent={C.teal}/>)}
+        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,paddingBottom:16}}>
+          Metrics only. Context lives in each neighborhood.
+        </div>
+        {collections.map(col=>(
+          <div key={col.key}>
+            <Cap style={{marginTop:24,marginBottom:0,color:C.bone3}}>{col.label}</Cap>
+            {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
+              <div key={i} style={{borderBottom:"1px solid "+C.bone3,padding:"14px 0",display:"flex",alignItems:"baseline"}}>
+                <div style={{flex:2,fontFamily:serif,fontSize:15,color:C.bone}}>{n.name}</div>
+                {[n.price,n.trend,n.days+"d",n.ratio,n.abs].map((v,j)=>(
+                  <div key={j} style={{flex:1,textAlign:"right",fontFamily:sans,fontSize:11,color:C.bone2}}>{v}</div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </DetailPage>
   );
@@ -477,9 +533,9 @@ function TerritoryPage({onBack}) {
     <DirPage dir="north" title="Place" subhead="Find your neighborhood."
       bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}
       items={[
-        {label:"Neighborhoods",sub:"Collections by lifestyle and place",id:"neighborhoods"},
-        {label:"Hidden Gems",sub:"Small discoveries · Local knowledge",id:"hidden"},
-        {label:"Walks & Routes",sub:"On foot through the city",id:"walks"},
+        {label:"Neighborhoods",sub:"Around the Lakes · Urban Core · River & Historic",id:"neighborhoods"},
+        {label:"Hidden Gems",sub:"Small discoveries",id:"hidden"},
+        {label:"Compare",sub:"Market metrics by neighborhood",id:"compare"},
       ]}
       onGo={setSub}/>
   );
