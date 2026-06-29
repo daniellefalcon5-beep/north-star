@@ -649,13 +649,19 @@ function AboutPage({onBack}) {
         <div style={{padding:"56px 40px 0"}}>
           <Cap style={{marginBottom:32,color:C.bone3}}>About</Cap>
           <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
+            When you move to a new city, you don't lose yourself. You just have to find everything again.
+          </div>
+          <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
+            Your coffee shop. Your neighborhood. Your Saturday morning. Your people.
+          </div>
+          <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
             I moved to Minneapolis in 2026 with the questions every newcomer asks.
           </div>
           <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
-            North Star is the compass I built to answer them.
+            North Star is the compass I built to answer them — for making a new city home.
           </div>
           <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.gold,lineHeight:1.7}}>
-            Every compass needs a fixed point. This one is for making a new city home.
+            Find your place. Find your people. Find your rhythm.
           </div>
         </div>
         <div style={{padding:"64px 40px 40px"}}><Star size={20} style={{opacity:0.4}}/></div>
@@ -677,37 +683,73 @@ function Landing({onNavigate}) {
   const DirLabel = ({dir,name,tagline,top,left,right,bottom,transform,align="center"}) => {
     const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
     const card = dir==="north"?"N":dir==="east"?"E":dir==="south"?"S":"W";
-    // N and S: name on outside, dot, cardinal letter closest to star
-    // E and W: horizontal — cardinal letter closest to star (W left-most, E right-most)
-    const isNS = dir==="north"||dir==="south";
-    const isWest = dir==="west";
-    return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:align}}>
+    const cardStyle = {
+      fontFamily:serif, fontWeight:300, fontSize:42, lineHeight:1,
+      color:"rgba(248,246,240,0.22)", letterSpacing:"0.05em",
+    };
+    const nameStyle = {
+      fontFamily:serif, fontWeight:300, fontSize:18, letterSpacing:"0.12em",
+      textTransform:"uppercase", lineHeight:1,
+      color:hov===dir?C.bone:accent, transition:"color 0.2s",
+    };
+    const tagStyle = {
+      fontFamily:serif, fontStyle:"italic", fontSize:11,
+      color:C.bone2, opacity:0.55, lineHeight:1.5, marginTop:4,
+    };
+
+    // N: large N closest to star (bottom), Place + tagline above
+    if(dir==="north") return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:isNS?"column":"row",
-            alignItems:align==="left"?"flex-start":align==="right"?"flex-end":"center",gap:isNS?4:6}}>
-          {/* For N: name first (farther from star), then dot, then N (closest to star below) */}
-          {/* For S: N closest to star is above — so S label, dot, S letter from top down toward star */}
-          {/* For W: W letter first (closest to star on right), dot, then name */}
-          {/* For E: name first, dot, E letter (closest to star on left) */}
-          {isWest && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
-          {isWest && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
-          {!isNS && <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
-            textTransform:"uppercase",lineHeight:1,
-            color:hov===dir?C.bone:accent,transition:"color 0.2s"}}>{name}</div>}
-          {!isWest && !isNS && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
-          {!isWest && !isNS && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
-          {isNS && <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
-            textTransform:"uppercase",lineHeight:1,
-            color:hov===dir?C.bone:accent,transition:"color 0.2s"}}>{name}</div>}
-          {isNS && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
-          {isNS && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
-          {isNS && tagline && <div style={{fontFamily:serif,fontStyle:"italic",fontSize:11,color:C.bone2,
-            opacity:0.55,lineHeight:1.45,marginTop:2,maxWidth:120,textAlign:"center"}}>{tagline}</div>}
+            display:"flex",flexDirection:"column",alignItems:"center",gap:6}}>
+          <div style={nameStyle}>{name}</div>
+          {tagline&&<div style={tagStyle}>{tagline}</div>}
+          <div style={{...cardStyle,marginTop:6}}>{card}</div>
         </button>
-        {!isNS && tagline && <div style={{fontFamily:serif,fontStyle:"italic",fontSize:11,color:C.bone2,
-          opacity:0.55,lineHeight:1.45,marginTop:6,maxWidth:110,textAlign:align}}>{tagline}</div>}
+      </div>
+    );
+
+    // S: large S closest to star (top), Gather + tagline below
+    if(dir==="south") return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
+        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
+          style={{background:"transparent",border:"none",cursor:"pointer",
+            display:"flex",flexDirection:"column",alignItems:"center",gap:6}}>
+          <div style={cardStyle}>{card}</div>
+          <div style={{...nameStyle,marginTop:4}}>{name}</div>
+          {tagline&&<div style={tagStyle}>{tagline}</div>}
+        </button>
+      </div>
+    );
+
+    // E: text then large E (E · Season — E closest to star on left)
+    if(dir==="east") return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"right"}}>
+        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
+          style={{background:"transparent",border:"none",cursor:"pointer",
+            display:"flex",flexDirection:"column",alignItems:"flex-end",gap:0}}>
+          <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
+            <div style={nameStyle}>{name}</div>
+            <div style={cardStyle}>{card}</div>
+          </div>
+          {tagline&&<div style={{...tagStyle,textAlign:"right"}}>{tagline}</div>}
+        </button>
+      </div>
+    );
+
+    // W: large W then text (W · Move — W closest to star on right)
+    return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"left"}}>
+        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
+          style={{background:"transparent",border:"none",cursor:"pointer",
+            display:"flex",flexDirection:"column",alignItems:"flex-start",gap:0}}>
+          <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
+            <div style={cardStyle}>{card}</div>
+            <div style={nameStyle}>{name}</div>
+          </div>
+          {tagline&&<div style={{...tagStyle,textAlign:"left"}}>{tagline}</div>}
+        </button>
       </div>
     );
   };
@@ -735,7 +777,7 @@ function Landing({onNavigate}) {
           <div style={{fontFamily:serif,fontWeight:300,fontSize:80,color:C.gold,
             letterSpacing:"-0.02em",lineHeight:0.88,textAlign:"center",marginBottom:20}}>Star</div>
           <Cap style={{letterSpacing:"0.22em",color:"rgba(248,246,240,0.28)",fontSize:7}}>
-            Guided by nature. Rooted in place.
+            Find your place. Find your people. Find your rhythm.
           </Cap>
         </div>
 
