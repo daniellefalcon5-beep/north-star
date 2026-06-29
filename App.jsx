@@ -237,7 +237,7 @@ const DATA = {
     {name:"Fulton",detail:"Residential Favorites",collection:"residential",
       note:"Deeply residential, very low turnover. Lake Harriet proximity without Linden Hills premium.",
       price:"$420K–$640K",trend:"+5%",days:9,ratio:"100%",abs:"1.7 mo"},
-  ],,
+  ],
   hidden:[
     {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
       note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
