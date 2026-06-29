@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 const FONTS = "";
@@ -786,19 +787,19 @@ function Landing({onNavigate}) {
 
           {/* N — Territory */}
           <DirLabel dir="north" name="Place" tagline="Find your neighborhood." 
-            top="6%" left="50%" transform="translateX(-50%)"/>
+            top="24%" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
           <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="right" horizontal={true}
-            top="50%" right="52%" transform="translateY(-50%)" align="left"/>
+            top="50%" right="54%" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
           <DirLabel dir="east" name="Season" tagline="See what's happening." align="left" horizontal={true}
-            top="50%" left="52%" transform="translateY(-50%)" align="right"/>
+            top="50%" left="54%" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
           <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully." 
-            bottom="18%" left="50%" transform="translateX(-50%)"/>
+            bottom="22%" left="50%" transform="translateX(-50%)"/>
 
           {/* Star — center, glowing, no cross lines */}
           <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)"}}>
