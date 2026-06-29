@@ -86,7 +86,7 @@ function Aurora({ color, dir }) {
     south:[g("110%","90%","55%","110%",0.60),g("70%","60%","95%","85%",0.36),g("60%","55%","20%","105%",0.24)],
     west: [g("95%","85%","110%","60%",0.52),g("65%","55%","100%","95%",0.32),g("55%","50%","85%","25%",0.20)],
   };
-  return <div style={{position:"absolute",inset:0,pointerEvents:"none",zIndex:0,background:(maps[dir]||maps.east).join(",")}}/>;
+  return <div style={{position:"absolute",inset:0,pointerEvents:"none",zIndex:0,background:(maps[dir]||maps.east).join(",")}}/>; 
 }
 
 // ─── SHARED UI ────────────────────────────────────────────────────────────────
@@ -177,12 +177,18 @@ function DetailPage({title,dir,bg,aurora,onBack,children}) {
 }
 
 // ─── CONTENT ROWS ─────────────────────────────────────────────────────────────
-function ContentRow({name,detail,note,accent=C.bone2}) {
+function ContentRow({name,detail,note,accent=C.bone2,url}) {
   return (
     <div style={{borderBottom:"1px solid " + C.bone3,padding:"20px 0"}}>
       <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:5,lineHeight:1.2}}>{name}</div>
       {detail&&<div style={{fontFamily:sans,fontSize:11,color:accent,marginBottom:7,letterSpacing:"0.04em"}}>{detail}</div>}
       {note&&<div style={{fontFamily:sans,fontSize:12,color:C.bone2,lineHeight:1.75,opacity:0.8}}>{note}</div>}
+      {url&&<a href={url} target="_blank" rel="noopener noreferrer"
+        style={{display:"inline-block",marginTop:10,fontFamily:sans,fontSize:9,
+          color:accent,letterSpacing:"0.12em",textTransform:"uppercase",
+          textDecoration:"none",opacity:0.7,borderBottom:"1px solid currentColor",paddingBottom:1}}>
+        Visit ↗
+      </a>}
     </div>
   );
 }
@@ -240,43 +246,51 @@ const DATA = {
     {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free parkway",
       note:"A car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
   ],
-  voices:[
-    {name:"\"The city changes at the equinox.\"",detail:"A Kenwood resident on why she never left",
-      note:"\"I've lived here 22 years and every spring I feel like I'm falling in love with it again. The lakes come back. The light changes. There's nowhere else like it.\""},
-    {name:"\"Northeast was nothing in 2008.\"",detail:"An artist who bought early in NE",
-      note:"\"People thought I was crazy. Now I have neighbors who are doctors and lawyers and everyone goes to the same brewery on Fridays.\""},
-    {name:"\"The market is how I meet my neighbors.\"",detail:"A Linden Hills resident on Mill City Market",
-      note:"\"Every Saturday. Rain or shine. I know the mushroom guy's kids' names. That's my community.\""},
-  ],
+  
 
   // SEASON
-  thisweek:[
-    {name:"Sunrise at Lake Harriet",detail:"Daily · Free · 5:30am",
-      note:"The lake before 6am is a different city. Mist on the water, almost no one, the light doing things that photographs never quite capture."},
-    {name:"Mill City Farmers Market",detail:"Saturday 8am–1pm · 750 S 2nd St",
-      note:"The most curated market in the city. Go at opening for first pick. The mushroom farmers and the Hmong produce stands are the reason to arrive early."},
-    {name:"Lake Harriet Bandshell",detail:"Sunday evening · Free · All summer",
-      note:"Blanket on the grass, free concert, the neighborhood crowd. Shows up every Sunday and becomes essential."},
-    {name:"Isles Bun & Coffee",detail:"Morning · CID · The cardamom bun",
-      note:"The cardamom bun. Start here."},
+  festivals:[
+    {name:"Twin Cities Pride",detail:"Late June · Free · Downtown Minneapolis",note:"Largest free Pride festival in the country. The whole city comes out.",url:"https://tcpride.org"},
+    {name:"Stone Arch Bridge Festival",detail:"June · Free · St. Anthony Main",note:"200+ artists, culinary market, live music along West River Pkwy. Right in St. Anthony Main.",url:"https://stonearchbridgefestival.com"},
+    {name:"Uptown Art Fair",detail:"Aug 7–9 · Free · Lake of the Isles Pkwy",note:"300 artists on the parkway bordering CID and Kenwood. The fair draws the neighborhood out — you see exactly who lives here.",url:"https://uptownartfair.com"},
+    {name:"Powderhorn Art Fair",detail:"Aug 15–17 · Free · Powderhorn Park",note:"More community-rooted than Uptown. More diverse.",url:"https://powderhornartfair.com"},
+    {name:"Minnesota Fringe Festival",detail:"Aug 6–16 · Multiple venues",note:"1,000+ artists, 50 venues. The largest performing arts fringe in the Midwest. Buy a $5 Fringe Button.",url:"https://fringefestival.org"},
+    {name:"Open Streets Uptown",detail:"Aug 24 · Lyndale Ave 22nd–42nd",note:"Lyndale Ave goes car-free. Walk the spine of the neighborhood without a windshield.",url:"https://openstreetsmpls.org"},
+    {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://minneapolisfestival.org"},
+    {name:"Minnesota State Fair",detail:"Aug 28–Sept 7 · Fairgrounds",note:"1.9M visitors. The ritual that makes Minneapolis locals out of newcomers. Go at least once.",url:"https://mnstatefair.org"},
   ],
-  thismonth:[
-    {name:"Uptown Art Fair",detail:"Aug 7–9 · Lake of the Isles Pkwy · Free",
-      note:"300 gallery-quality artists on the parkway bordering CID and Kenwood. The fair draws the neighborhood's residents out — you see exactly who lives here."},
-    {name:"Open Streets Uptown",detail:"Aug 24 · Lyndale Ave 22nd–42nd",
-      note:"Lyndale Ave goes car-free. Walk the spine of the neighborhood without a windshield. The best way to feel what daily life here is actually like."},
-    {name:"Powderhorn Art Fair",detail:"Aug 15–17 · Free",
-      note:"More community-rooted than Uptown. More diverse. The city's other artistic soul."},
-    {name:"Minnesota State Fair",detail:"Aug 28–Sept 7",
-      note:"1.9M visitors. The ritual that makes Minneapolis locals out of newcomers. Go at least once."},
+  cinema:[
+    {name:"Trylon Cinema",detail:"2820 E 33rd St · South Minneapolis",note:"90 seats, no ads, no trailers. Classic films, foreign cinema, director retrospectives. Tickets $8. First-come, first-served.",url:"https://trylon.org"},
+    {name:"Riverview Theater",detail:"3800 42nd Ave S · South Minneapolis",note:"1950s neighborhood theater, still running. Classic and contemporary films. Real buttered popcorn. Tickets around $5.",url:"https://riverviewtheater.com"},
+    {name:"Parkway Theater",detail:"4814 Chicago Ave · South Minneapolis",note:"Restored 1930s art deco. Films plus live events, themed nights, director Q&As. Full bar on site.",url:"https://theparkwaytheater.com"},
+    {name:"Walker Cinema",detail:"Walker Art Center · Downtown",note:"Experimental and artist films in a gallery context. Summer series includes free outdoor screenings on the hillside.",url:"https://walkerart.org/visit/cinema"},
+    {name:"St. Anthony Main Theatre",detail:"115 SE Main St · St. Anthony Main",note:"Intimate independent cinema right on the riverfront. Mississippi views before the show.",url:"https://stanthonymain.com"},
   ],
-  seasonal:[
-    {name:"How Minneapolis Wakes Up After Winter",detail:"A seasonal story",
-      note:"The ice goes out in late March or early April and the city exhales. Within two weeks, the lakes are crowded, the restaurant patios are full, and the whole city seems to remember itself."},
-    {name:"The Best Summer Morning in the City",detail:"An editor's guide",
-      note:"Sunrise SUP on Bde Maka Ska. Isles Bun by 7:30am. Mill City Market at 8. A Bandshell concert by evening. That's a Minneapolis summer day at its best."},
-    {name:"What Locals Actually Do on Weekends",detail:"Real rhythms",
-      note:"The farmers market. The lake loop. A long coffee somewhere quiet. The Bandshell if it's Sunday. It's not complicated. That's the point."},
+  performances:[
+    {name:"Guthrie Theater",detail:"818 S 2nd St · Downtown · Book ahead",note:"Come From Away running now. World-class regional theater. The endless bridge cantilevers over the Mississippi.",url:"https://guthrietheater.org"},
+    {name:"First Avenue",detail:"701 1st Ave N · Downtown",note:"Prince's home venue. Still the heart of the Minneapolis music scene.",url:"https://first-avenue.com"},
+    {name:"Lake Harriet Bandshell",detail:"Sundays all summer · Free",note:"Free concerts every Sunday evening. Blanket on the grass. Shows up every Sunday and becomes essential.",url:"https://minneapolisparks.org/bandshell"},
+    {name:"Children's Theatre Company",detail:"2400 3rd Ave S",note:"One of the leading children's theaters in the country. Worth knowing if you have kids in your life.",url:"https://childrenstheatre.org"},
+  ],
+  exhibitions:[
+    {name:"Minneapolis Institute of Art",detail:"2400 3rd Ave S · Free",note:"90,000+ works across 5,000 years. Free general admission always. The Asian art collection and the Van Gogh are the anchors.",url:"https://artsmia.org"},
+    {name:"Walker Art Center",detail:"725 Vineland Pl · Downtown",note:"Contemporary and modern art. Sculpture Garden is free. Skyline Mini Golf in summer (artist-designed holes).",url:"https://walkerart.org"},
+    {name:"Mill City Museum",detail:"704 S 2nd St · Mill District",note:"Carved out of the ruins of the world's largest flour mill. Minneapolis's own story told in the building where it happened.",url:"https://millcitymuseum.org"},
+    {name:"Weisman Art Museum",detail:"333 E River Rd · U of M Campus · Free",note:"Frank Gehry building on the Mississippi bluff. Free. The building alone is worth seeing from the river.",url:"https://wam.umn.edu"},
+    {name:"American Swedish Institute",detail:"2600 Park Ave · South Minneapolis",note:"1908 mansion turned Nordic cultural center. Changing exhibitions plus a permanent collection of Nordic design.",url:"https://asimn.org"},
+    {name:"The Bakken Museum",detail:"3537 Zenith Ave S · West BMS · Free Fridays",note:"On the west shore of Bde Maka Ska. Science, electricity, and Frankenstein in a historic mansion. Unusual and genuinely interesting.",url:"https://thebakken.org"},
+    {name:"Northrup King Building",detail:"1500 Jackson St NE · Northeast",note:"150+ artists and designers in a converted seed warehouse. Open Saturdays. The heart of the NE arts district.",url:"https://northrupkingbuilding.com"},
+  ],
+  
+  
+  
+
+  // GATHER
+  classes:[
+    {name:"Cooks of Crocus Hill",detail:"210 N 1st St · North Loop · Cooking school",note:"The North Loop location is now entirely a cooking school. Classes range from knife skills to full-day Italian workshops. Date nights, team events, guest chefs.",url:"https://cooksofcrocushill.com"},
+    {name:"Bakehouse",detail:"St. Louis Park · Baking classes",note:"Sister space to Honey and Rye bakery. Build-a-cake date nights, bagels 101, focaccia at home.",url:"https://honeyandrye.com/bakehouse"},
+    {name:"France 44 Wines & Spirits",detail:"4351 France Ave S · South Minneapolis",note:"Wine and spirits classes in South Minneapolis. Fresh mozzarella, stuffed pastas, pizza nights.",url:"https://france44.com"},
+    {name:"Mill City Farmers Market",detail:"Saturdays · Free cooking demos",note:"Free cooking demos on-site at the market most Saturdays. Local chefs, seasonal ingredients.",url:"https://millcityfarmersmarket.org"},
   ],
 
   // TABLE
@@ -307,6 +321,8 @@ const DATA = {
       note:"Northeast's anchor brewery. The patio is essential in summer. The social fabric of the neighborhood."},
     {name:"Bauhaus Brew Labs",detail:"NE Minneapolis · German-influenced",
       note:"German-influenced. The space is worth seeing."},
+    {name:"Kramarczuk's",detail:"215 E Hennepin Ave · NE Minneapolis · Since 1954",
+      note:"Ukrainian sausage, deli, and bakery in Northeast. James Beard America's Classic 2013. Smoked sausages made in-house."},
   ],
   coffee:[
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
@@ -347,34 +363,44 @@ const DATA = {
       note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it."},
     {name:"World Street Kitchen",detail:"Lyndale Ave · Institution",
       note:"The Currito. People have been eating it for years."},
+    {name:"Lake & Irving",detail:"1513 W Lake St · Uptown",
+      note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable Uptown neighborhood restaurant with a patio."},
   ],
 
   // BODY
   movement:[
-    {name:"SUP Calhoun",detail:"BMS · Tue & Thu 6:30pm · On-water",
-      note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis. The technique studio on your doorstep."},
+    {name:"SUP Calhoun",detail:"BMS · Tue & Thu 6:30pm",
+      note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis."},
     {name:"SUP Yoga — The Yoga Center",detail:"BMS · June–Aug mornings",
-      note:"SUP yoga on Bde Maka Ska. All levels. The most Minneapolis wellness experience available."},
+      note:"SUP yoga on Bde Maka Ska. All levels."},
     {name:"The Firm",detail:"Uptown · Pilates + strength",
       note:"Pilates and strength training in the Uptown corridor. Walkable from CID and Kenwood."},
-    {name:"Movement Minneapolis",detail:"NE · Climbing + fitness",
+    {name:"Movement Minneapolis",detail:"NE Minneapolis · Climbing + fitness",
       note:"Climbing gym in Northeast. Good community."},
-    {name:"Chain of Lakes Loop",detail:"13 miles · Daily rhythm",
-      note:"BMS → Lake of the Isles → Cedar Lake → Lake Harriet → Nokomis. The city's defining outdoor movement. Best before 8am on weekends."},
-    {name:"West River Parkway",detail:"Running + cycling · Riverfront",
-      note:"Along the Mississippi from north Minneapolis to Minnehaha Falls. The city at its most elemental."},
+    {name:"Loppet Foundation",detail:"Community paddling · Various lakes",
+      note:"SUP, canoe, lessons. Good for meeting locals."},
   ],
   nature:[
-    {name:"Bde Maka Ska",detail:"Home water · Beach Club Residences",
-      note:"Largest Chain of Lakes lake. SUP, swim, sail. Paddle through the channel to Lake of the Isles and Cedar Lake."},
-    {name:"Lake of the Isles",detail:"2.7mi loop · Most beautiful",
-      note:"The most architecturally beautiful paddle in the city. Surrounded by the homes of CID and Kenwood."},
-    {name:"Minnehaha Falls",detail:"River gorge · Year-round",
-      note:"One of the most beautiful urban trail runs in the Midwest. The falls are stunning in every season."},
-    {name:"Boom Island",detail:"NE · Mississippi · Dog-friendly",
-      note:"Island park on the Mississippi with skyline views. Mostly locals. Rarely crowded."},
-    {name:"Lake Minnetonka",detail:"Day trip · Wayzata + Excelsior",
-      note:"Lake Minnetonka is a different scale. Wai Nani SUP does group paddles and SUP yoga. About 30 minutes from BMS."},
+    {name:"Bde Maka Ska",detail:"Chain of Lakes · Home water",
+      note:"Largest Chain of Lakes lake. SUP, swim, sail. Paddle through the channel to Lake of the Isles and Cedar Lake. 3.3mi perimeter loop."},
+    {name:"Lake of the Isles",detail:"2.7mi loop",
+      note:"The paddle surrounded by CID and Kenwood homes. Quiet on weekday mornings."},
+    {name:"Lake Harriet",detail:"2.8mi loop · Bandshell",
+      note:"Swimming beach, sailing club, paddleboat rentals. Free Sunday concerts at the Bandshell all summer."},
+    {name:"Cedar Lake",detail:"Connected to BMS via channel",
+      note:"Quieter than BMS. Cedar Lake Trail connects to the Midtown Greenway."},
+    {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
+      note:"BMS to Lake of the Isles to Cedar Lake to Lake Harriet to Nokomis. The definitive Minneapolis route. Before 8am on weekends."},
+    {name:"Minnehaha Falls Trail",detail:"5–8 miles · River gorge",
+      note:"Mississippi River gorge to Minnehaha Falls. One of the best urban trail runs in the Midwest."},
+    {name:"West River Parkway",detail:"8 miles · Riverfront",
+      note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental."},
+    {name:"Minnehaha Creek Greenway",detail:"Through Linden Hills",
+      note:"Follows the creek through residential neighborhoods. Beautiful urban waterway walk."},
+    {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free",
+      note:"Car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
+    {name:"Lake Minnetonka",detail:"Day trip · 30 min from BMS",
+      note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here."},
   ],
   wellness:[
     {name:"Lonna Sauna",detail:"Bde Maka Ska · Lake sauna · Book ahead",
@@ -386,16 +412,7 @@ const DATA = {
     {name:"Wai Nani SUP",detail:"Lake Minnetonka · Community",
       note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub."},
   ],
-  recovery:[
-    {name:"Lonna Sauna",detail:"Bde Maka Ska · The essential ritual",
-      note:"Post-movement sauna and cold plunge on the lake. Book well in advance."},
-    {name:"Löyly",detail:"NE Minneapolis · Nordic recovery",
-      note:"The city's best sauna and cold plunge facility. Nordic-influenced, community-run."},
-    {name:"Lake Harriet Bandshell",detail:"Sundays · Free · Mental recovery",
-      note:"Blanket on the grass, free concert, the neighborhood crowd. Sometimes recovery is just sitting still somewhere beautiful."},
-    {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
-      note:"The best view in the city, known to almost no one. Sit here and let the city recede."},
-  ],
+  
 };
 
 // ─── TERRITORY ────────────────────────────────────────────────────────────────
@@ -406,7 +423,7 @@ function TerritoryPage({onBack}) {
     <DetailPage title="Neighborhoods" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
         <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,padding:"16px 0 4px"}}>
-          Collections reflect lifestyle, not price. Context lives in each neighborhood.
+          
         </div>
         <Rule style={{marginBottom:4}}/>
         {DATA.neighborhoods.map((nb,i)=>(
@@ -450,25 +467,13 @@ function TerritoryPage({onBack}) {
     </DetailPage>
   );
 
-  if(sub==="voices") return (
-    <DetailPage title="Local Voices" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
-      <div style={{paddingTop:20}}>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,padding:"16px 0 16px"}}>
-          What Minneapolis residents actually say about living here.
-        </div>
-        {DATA.voices.map((item,i)=><ContentRow key={i} {...item} accent={C.teal}/>)}
-      </div>
-    </DetailPage>
-  );
-
   return (
-    <DirPage dir="north" title="Territory" subhead="Find your place."
+    <DirPage dir="north" title="Place" subhead="Find where you belong."
       bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}
       items={[
         {label:"Neighborhoods",sub:"Collections by lifestyle and place",id:"neighborhoods"},
         {label:"Hidden Gems",sub:"Small discoveries · Local knowledge",id:"hidden"},
         {label:"Walks & Routes",sub:"On foot through the city",id:"walks"},
-        {label:"Local Voices",sub:"What residents actually say",id:"voices"},
       ]}
       onGo={setSub}/>
   );
@@ -479,9 +484,10 @@ function SeasonPage({onBack}) {
   const [sub,setSub] = useState(null);
 
   const views = {
-    thisweek:{title:"This Week",data:DATA.thisweek},
-    thismonth:{title:"This Month",data:DATA.thismonth},
-    seasonal:{title:"Seasonal Guides",data:DATA.seasonal},
+    festivals:{title:"Festivals",data:DATA.festivals},
+    cinema:{title:"Cinema",data:DATA.cinema},
+    performances:{title:"Performances",data:DATA.performances},
+    exhibitions:{title:"Exhibitions",data:DATA.exhibitions},
   };
 
   if(sub&&views[sub]) return (
@@ -496,10 +502,10 @@ function SeasonPage({onBack}) {
     <DirPage dir="east" title="Season" subhead="What's happening now."
       bg={C.coralBg} aurora="rgba(195,105,95,1)" onBack={onBack}
       items={[
-        {label:"This Week",sub:"What the city is doing right now",id:"thisweek"},
-        {label:"This Month",sub:"The events that define the moment",id:"thismonth"},
-        {label:"Events",sub:"A curated calendar",id:"thismonth"},
-        {label:"Seasonal Guides",sub:"How the city changes",id:"seasonal"},
+        {label:"Festivals",sub:"Art fairs · Fringe · Pride · State Fair",id:"festivals"},
+        {label:"Cinema",sub:"Independent and art house theaters",id:"cinema"},
+        {label:"Performances",sub:"Theater · Music · Live",id:"performances"},
+        {label:"Exhibitions",sub:"Mia · Walker · Mill City · Weisman",id:"exhibitions"},
       ]}
       onGo={setSub}/>
   );
@@ -515,6 +521,7 @@ function TablePage({onBack}) {
     coffee:{title:"Coffee",data:DATA.coffee},
     bakeries:{title:"Bakeries",data:DATA.bakeries},
     restaurants:{title:"Restaurants",data:DATA.restaurants},
+    classes:{title:"Classes",data:DATA.classes},
   };
 
   if(sub&&views[sub]) return (
@@ -526,7 +533,7 @@ function TablePage({onBack}) {
   );
 
   return (
-    <DirPage dir="south" title="Table" subhead="Gather well. Eat beautifully."
+    <DirPage dir="south" title="Gather" subhead="Gather well. Eat beautifully."
       bg={C.saffronBg} aurora="rgba(198,155,68,1)" onBack={onBack}
       items={[
         {label:"Markets",sub:"Where the city provisions",id:"markets"},
@@ -534,6 +541,7 @@ function TablePage({onBack}) {
         {label:"Coffee",sub:"Cafés · Roasters · Morning ritual",id:"coffee"},
         {label:"Bakeries",sub:"Bread · Pastry · The cardamom bun",id:"bakeries"},
         {label:"Restaurants",sub:"What locals consistently care about",id:"restaurants"},
+        {label:"Classes",sub:"Cooking · Wine · Baking",id:"classes"},
       ]}
       onGo={setSub}/>
   );
@@ -547,7 +555,6 @@ function BodyPage({onBack}) {
     movement:{title:"Movement",data:DATA.movement},
     nature:{title:"Nature",data:DATA.nature},
     wellness:{title:"Wellness",data:DATA.wellness},
-    recovery:{title:"Recovery",data:DATA.recovery},
   };
 
   if(sub&&views[sub]) return (
@@ -559,13 +566,12 @@ function BodyPage({onBack}) {
   );
 
   return (
-    <DirPage dir="west" title="Body" subhead="Move through the city."
+    <DirPage dir="west" title="Move" subhead="Move through the city."
       bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={onBack}
       items={[
         {label:"Movement",sub:"Lakes · Trails · Studio · Paddle",id:"movement"},
         {label:"Nature",sub:"Water · Parks · Green space",id:"nature"},
         {label:"Wellness",sub:"Sauna · Practice · Rest",id:"wellness"},
-        {label:"Recovery",sub:"How to restore after the city",id:"recovery"},
       ]}
       onGo={setSub}/>
   );
@@ -580,25 +586,14 @@ function AboutPage({onBack}) {
         <div style={{padding:"28px 32px 0"}}><BackBtn onBack={onBack}/></div>
         <div style={{padding:"56px 40px 0"}}>
           <Cap style={{marginBottom:32,color:C.bone3}}>About</Cap>
-          <div style={{fontFamily:serif,fontSize:18,fontWeight:300,color:C.bone2,
-            lineHeight:1.9,letterSpacing:"0.01em",marginBottom:48}}>
-            Minneapolis isn't a checklist.
+          <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
+            I moved to Minneapolis in 2026 with the questions every newcomer asks.
           </div>
-          <div style={{fontFamily:serif,fontSize:18,fontWeight:300,color:C.bone2,lineHeight:1.9,marginBottom:48}}>
-            It's a place experienced through seasons. Through neighborhoods. Through meals. Through movement.
+          <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
+            North Star is the compass I built to answer them.
           </div>
-          <div style={{fontFamily:serif,fontSize:18,fontWeight:300,color:C.bone2,lineHeight:1.9,marginBottom:56}}>
-            North Star exists to help people build a relationship with the city rather than simply visit it.
-          </div>
-          <Rule style={{marginBottom:56}}/>
-          <div style={{fontFamily:serif,fontSize:36,fontWeight:300,color:C.bone,lineHeight:1.25,marginBottom:52}}>
-            Born here.<br/>Left. Came back.
-          </div>
-          <div style={{fontFamily:serif,fontSize:20,fontWeight:300,color:C.bone,lineHeight:1.65,opacity:0.8,marginBottom:52}}>
-            My family found Minnesota before me — from Sweden, from the prairie.
-          </div>
-          <div style={{fontFamily:serif,fontSize:20,fontWeight:300,color:C.gold,lineHeight:1.5}}>
-            North has always been our direction.
+          <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.gold,lineHeight:1.7}}>
+            Every compass needs a fixed point. This one is for making a new city home.
           </div>
         </div>
         <div style={{padding:"64px 40px 40px"}}><Star size={20} style={{opacity:0.4}}/></div>
@@ -667,11 +662,11 @@ function Landing({onNavigate}) {
         <div style={{flex:1,position:"relative"}}>
 
           {/* N — Territory */}
-          <DirLabel dir="north" name="Territory" tagline="Explore neighborhoods. Find what's yours."
+          <DirLabel dir="north" name="Place" tagline="Explore neighborhoods. Find what's yours."
             top="6%" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
-          <DirLabel dir="west" name="Body" tagline={"Move through\nthe city."}
+          <DirLabel dir="west" name="Move" tagline={"Move through\nthe city."}
             top="50%" left="6%" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
@@ -679,7 +674,7 @@ function Landing({onNavigate}) {
             top="50%" right="6%" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
-          <DirLabel dir="south" name="Table" tagline={"Gather well.\nEat beautifully."}
+          <DirLabel dir="south" name="Gather" tagline={"Gather well.\nEat beautifully."}
             bottom="18%" left="50%" transform="translateX(-50%)"/>
 
           {/* Star — center, glowing, no cross lines */}
