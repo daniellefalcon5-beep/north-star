@@ -729,12 +729,12 @@ function Landing({onNavigate}) {
       <div style={{position:"absolute",top,left,right,bottom,transform}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"inline-flex",flexDirection:"column",alignItems:"center",gap:0}}>
+            display:"flex",flexDirection:"column",alignItems:"flex-start",gap:0}}>
           <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
             <div style={cardStyle}>{card}</div>
             <div style={nameStyle}>{name}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,alignSelf:"stretch"}}>{tagline}</div>}
         </button>
       </div>
     );
@@ -745,12 +745,12 @@ function Landing({onNavigate}) {
       <div style={{position:"absolute",top,left,right,bottom,transform}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"inline-flex",flexDirection:"column",alignItems:"center",gap:0}}>
+            display:"flex",flexDirection:"column",alignItems:"flex-start",gap:0}}>
           <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
             <div style={nameStyle}>{name}</div>
             <div style={cardStyle}>{card}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,alignSelf:"stretch"}}>{tagline}</div>}
         </button>
       </div>
     );
