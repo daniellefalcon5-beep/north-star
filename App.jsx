@@ -631,9 +631,9 @@ function BodyPage({onBack}) {
     <DirPage dir="west" title="Move" subhead="Find your rhythm."
       bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={onBack}
       items={[
-        {label:"Movement",sub:"Lakes · Trails · Studio · Paddle",id:"movement"},
-        {label:"Nature",sub:"Water · Parks · Green space",id:"nature"},
-        {label:"Wellness",sub:"Sauna · Practice · Rest",id:"wellness"},
+        {label:"Movement",sub:"Studios · Yoga · Pilates · Paddle",id:"movement"},
+        {label:"Nature",sub:"Lakes · Trails · Hikes",id:"nature"},
+        {label:"Wellness",sub:"Sauna · Cold plunge · Rest",id:"wellness"},
       ]}
       onGo={setSub}/>
   );
@@ -674,28 +674,43 @@ function AboutPage({onBack}) {
 function Landing({onNavigate}) {
   const [hov,setHov] = useState(null);
 
-  const DirLabel = ({dir,name,top,left,right,bottom,transform,align="center",horizontal=false}) => (
-    <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:align}}>
-      <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
-        style={{background:"transparent",border:"none",cursor:"pointer",
-          display:"flex",
-          flexDirection:horizontal?"row":"column",
-          alignItems:"center",
-          gap:horizontal?6:4}}>
-        {/* For horizontal (E/W): cardinal letter points toward star = comes first for W, last for E */}
-        {horizontal && align==="left" && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>{dir==="west"?"W":"E"}</Cap>}
-        {horizontal && align==="left" && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
-        <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
-          textTransform:"uppercase",lineHeight:1,
-          color:hov===dir?C.bone:{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir],
-          transition:"color 0.2s"}}>{name}</div>
-        {horizontal && align==="right" && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
-        {horizontal && align==="right" && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>E</Cap>}
-        {!horizontal && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?{north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir]:C.bone3,transition:"background 0.2s"}}/>}
-        {!horizontal && <Cap color="rgba(248,246,240,0.28)" style={{fontSize:7}}>{dir==="north"?"N":"S"}</Cap>}
-      </button>
-    </div>
-  );
+  const DirLabel = ({dir,name,tagline,top,left,right,bottom,transform,align="center"}) => {
+    const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
+    const card = dir==="north"?"N":dir==="east"?"E":dir==="south"?"S":"W";
+    // N and S: name on outside, dot, cardinal letter closest to star
+    // E and W: horizontal — cardinal letter closest to star (W left-most, E right-most)
+    const isNS = dir==="north"||dir==="south";
+    const isWest = dir==="west";
+    return (
+      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:align}}>
+        <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
+          style={{background:"transparent",border:"none",cursor:"pointer",
+            display:"flex",flexDirection:isNS?"column":"row",
+            alignItems:align==="left"?"flex-start":align==="right"?"flex-end":"center",gap:isNS?4:6}}>
+          {/* For N: name first (farther from star), then dot, then N (closest to star below) */}
+          {/* For S: N closest to star is above — so S label, dot, S letter from top down toward star */}
+          {/* For W: W letter first (closest to star on right), dot, then name */}
+          {/* For E: name first, dot, E letter (closest to star on left) */}
+          {isWest && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
+          {isWest && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
+          {!isNS && <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
+            textTransform:"uppercase",lineHeight:1,
+            color:hov===dir?C.bone:accent,transition:"color 0.2s"}}>{name}</div>}
+          {!isWest && !isNS && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
+          {!isWest && !isNS && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
+          {isNS && <div style={{fontFamily:serif,fontWeight:300,fontSize:20,letterSpacing:"0.10em",
+            textTransform:"uppercase",lineHeight:1,
+            color:hov===dir?C.bone:accent,transition:"color 0.2s"}}>{name}</div>}
+          {isNS && <div style={{width:3,height:3,borderRadius:"50%",background:hov===dir?accent:C.bone3,transition:"background 0.2s"}}/>}
+          {isNS && <Cap color="rgba(248,246,240,0.32)" style={{fontSize:7,letterSpacing:"0.2em"}}>{card}</Cap>}
+          {isNS && tagline && <div style={{fontFamily:serif,fontStyle:"italic",fontSize:11,color:C.bone2,
+            opacity:0.55,lineHeight:1.45,marginTop:2,maxWidth:120,textAlign:"center"}}>{tagline}</div>}
+        </button>
+        {!isNS && tagline && <div style={{fontFamily:serif,fontStyle:"italic",fontSize:11,color:C.bone2,
+          opacity:0.55,lineHeight:1.45,marginTop:6,maxWidth:110,textAlign:align}}>{tagline}</div>}
+      </div>
+    );
+  };
 
   return (
     <div style={{background:C.bg,height:"100vh",display:"flex",flexDirection:"column",
@@ -728,19 +743,19 @@ function Landing({onNavigate}) {
         <div style={{flex:1,position:"relative"}}>
 
           {/* N — Territory */}
-          <DirLabel dir="north" name="Place" 
+          <DirLabel dir="north" name="Place" tagline="Find your neighborhood." 
             top="6%" left="50%" transform="translateX(-50%)"/>
 
           {/* W — Body */}
-          <DirLabel dir="west" name="Move" align="left" horizontal={true}
+          <DirLabel dir="west" name="Move" tagline="Find your rhythm." align="left" horizontal={true}
             top="50%" left="6%" transform="translateY(-50%)" align="left"/>
 
           {/* E — Season */}
-          <DirLabel dir="east" name="Season" align="right" horizontal={true}
+          <DirLabel dir="east" name="Season" tagline="See what's happening." align="right" horizontal={true}
             top="50%" right="6%" transform="translateY(-50%)" align="right"/>
 
           {/* S — Table */}
-          <DirLabel dir="south" name="Gather" 
+          <DirLabel dir="south" name="Gather" tagline="Gather well. Eat beautifully." 
             bottom="18%" left="50%" transform="translateX(-50%)"/>
 
           {/* Star — center, glowing, no cross lines */}
