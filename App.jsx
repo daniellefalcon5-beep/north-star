@@ -726,15 +726,15 @@ function Landing({onNavigate}) {
     // E: star is to E's LEFT, so: E letter first (closest to star), then name to the right
     // tagline centered below the full row — same as N/S
     if(dir==="east") return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"column",alignItems:"center",gap:0}}>
+            display:"inline-flex",flexDirection:"column",alignItems:"center",gap:0}}>
           <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
             <div style={cardStyle}>{card}</div>
             <div style={nameStyle}>{name}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
         </button>
       </div>
     );
@@ -742,15 +742,15 @@ function Landing({onNavigate}) {
     // W: star is to W's RIGHT, so: name to the left, W letter closest to star
     // tagline centered below the full row — same as N/S
     return (
-      <div style={{position:"absolute",top,left,right,bottom,transform,textAlign:"center"}}>
+      <div style={{position:"absolute",top,left,right,bottom,transform}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
-            display:"flex",flexDirection:"column",alignItems:"center",gap:0}}>
+            display:"inline-flex",flexDirection:"column",alignItems:"center",gap:0}}>
           <div style={{display:"flex",flexDirection:"row",alignItems:"center",gap:10}}>
             <div style={nameStyle}>{name}</div>
             <div style={cardStyle}>{card}</div>
           </div>
-          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8}}>{tagline}</div>}
+          {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
         </button>
       </div>
     );
