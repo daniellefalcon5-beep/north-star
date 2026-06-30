@@ -197,47 +197,101 @@ function ContentRow({name,detail,note,accent=C.bone2,url}) {
 const DATA = {
   // TERRITORY
   neighborhoods:[
-    // Around the Lakes
-    {name:"Cedar-Isles-Dean",detail:"Around the Lakes",collection:"lakes",
-      note:"One of the first planned lakeside suburbs in America, 1883. Large lots, 28ft height cap. Lake-adjacent blocks outperform in every down cycle. BMS steps away.",
-      price:"$720K+",trend:"+6%",days:8,ratio:"103%",abs:"1.4 mo"},
+    // Around the Lakes — water, walkability, classic Minneapolis
     {name:"Kenwood",detail:"Around the Lakes",collection:"lakes",
       note:"Developed by Minneapolis's Gilded Age elite — architects required neighbor approval before building. Never crashed: 2008–2012 saw only 8% decline vs 22% city average.",
       price:"$850K–$1.4M",trend:"+5%",days:6,ratio:"105%",abs:"0.9 mo"},
-    {name:"East Isles",detail:"Around the Lakes",collection:"lakes",
-      note:"Lake access without Kenwood price premium. East Isles Farmers Market on Thursdays. Walkable to both the lakes and the Hennepin corridor.",
-      price:"$540K–$780K",trend:"+5%",days:10,ratio:"101%",abs:"1.8 mo"},
-    {name:"Linden Hills",detail:"Around the Lakes",collection:"lakes",
-      note:"Best price-per-square-foot relative to quality of life. 44th & Upton village is the city's finest example of a walkable neighborhood center.",
-      price:"$580K–$780K",trend:"+7%",days:9,ratio:"101%",abs:"1.6 mo"},
     {name:"Lowry Hill",detail:"Around the Lakes",collection:"lakes",
       note:"Same architectural era as Kenwood, 20–30% less expensive. Walkable to Walker Art Center and Guthrie.",
       price:"$480K–$720K",trend:"+4%",days:11,ratio:"99%",abs:"2.2 mo"},
-    // Urban Core
+    {name:"East Isles",detail:"Around the Lakes",collection:"lakes",
+      note:"Lake access without Kenwood price premium. East Isles Farmers Market on Thursdays. Walkable to both the lakes and the Hennepin corridor.",
+      price:"$540K–$780K",trend:"+5%",days:10,ratio:"101%",abs:"1.8 mo"},
+    {name:"Cedar-Isles-Dean",detail:"Around the Lakes",collection:"lakes",
+      note:"One of the first planned lakeside suburbs in America, 1883. Large lots, 28ft height cap. Lake-adjacent blocks outperform in every down cycle. BMS steps away.",
+      price:"$720K+",trend:"+6%",days:8,ratio:"103%",abs:"1.4 mo"},
+    {name:"Linden Hills",detail:"Around the Lakes",collection:"lakes",
+      note:"Best price-per-square-foot relative to quality of life. 44th & Upton village is the city's finest example of a walkable neighborhood center.",
+      price:"$580K–$780K",trend:"+7%",days:9,ratio:"101%",abs:"1.6 mo"},
+    // Urban Core — density, convenience, city energy
     {name:"North Loop",detail:"Urban Core",collection:"urban",
       note:"Warehouse district converted over 20 years. Spoon and Stable, Bar La Grassa anchored the food scene. Inspect HOA reserves.",
       price:"$380K–$650K",trend:"+3%",days:14,ratio:"98%",abs:"2.8 mo"},
     {name:"Mill District",detail:"Urban Core",collection:"urban",
       note:"Gold Medal Park, Guthrie Theater, and Mill City Farmers Market. Strong long-term position on the river.",
       price:"$320K–$520K",trend:"+5%",days:11,ratio:"100%",abs:"2.1 mo"},
-    // River & Historic
+    {name:"Downtown East",detail:"Urban Core",collection:"urban",
+      note:"Newest of the downtown districts, built around the stadium. Mostly new-construction high rises. Walk to everything downtown without the North Loop premium.",
+      price:"$280K–$480K",trend:"+4%",days:16,ratio:"97%",abs:"3.1 mo"},
+    {name:"Loring Park",detail:"Urban Core",collection:"urban",
+      note:"The city's most central park, ringed by older high rises and a sizable LGBTQ+ community. Steps from the Walker and the Sculpture Garden.",
+      price:"$220K–$420K",trend:"+3%",days:18,ratio:"96%",abs:"3.4 mo"},
+    // River & Historic — the city's original crossroads
     {name:"St. Anthony Main",detail:"River & Historic",collection:"river",
       note:"Riverfront + historic district overlays limit new development. North Loop pricing moving east — SAM is 2–3 years behind. Mississippi River access is permanent.",
       price:"$420K–$580K",trend:"+4%",days:12,ratio:"100%",abs:"2.1 mo"},
-    {name:"Northeast Riverfront",detail:"River & Historic",collection:"river",
-      note:"Fastest-appreciating neighborhood in Minneapolis for 4 consecutive years. Mid-gentrification. Check FEMA flood maps for specific addresses.",
-      price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
-    // Residential Favorites
-    {name:"Kingfield",detail:"Residential Favorites",collection:"residential",
+    {name:"Nicollet Island",detail:"River & Historic",collection:"river",
+      note:"An actual island in the Mississippi, walkable from downtown via the Hennepin Avenue Bridge. A small, quiet residential pocket with some of the city's oldest homes.",
+      price:"$450K–$650K",trend:"+3%",days:15,ratio:"99%",abs:"2.6 mo"},
+    // Connected Neighborhoods — daily life done exceptionally well
+    {name:"Kingfield",detail:"Connected Neighborhoods",collection:"connected",
       note:"South Minneapolis bungalow district with strong community identity. Eat Street is the cultural spine.",
       price:"$340K–$520K",trend:"+6%",days:8,ratio:"102%",abs:"1.5 mo"},
-    {name:"Tangletown",detail:"Residential Favorites",collection:"residential",
-      note:"Curved streets following Minnehaha Creek. Very quiet, stable ownership, low turnover.",
-      price:"$480K–$700K",trend:"+5%",days:10,ratio:"100%",abs:"1.9 mo"},
-    {name:"Fulton",detail:"Residential Favorites",collection:"residential",
+    {name:"Fulton",detail:"Connected Neighborhoods",collection:"connected",
       note:"Deeply residential, very low turnover. Lake Harriet proximity without Linden Hills premium.",
       price:"$420K–$640K",trend:"+5%",days:9,ratio:"100%",abs:"1.7 mo"},
+    {name:"Tangletown",detail:"Connected Neighborhoods",collection:"connected",
+      note:"Curved streets following Minnehaha Creek. Very quiet, stable ownership, low turnover.",
+      price:"$480K–$700K",trend:"+5%",days:10,ratio:"100%",abs:"1.9 mo"},
+    // Creative Minneapolis — independent culture, makers, local character
+    {name:"Whittier",detail:"Creative Minneapolis",collection:"creative",
+      note:"The most diverse square mile in the city. Eat Street runs the length of Nicollet Avenue, the Minneapolis Institute of Art sits at its center, and MCAD draws students and working artists to the surrounding blocks.",
+      price:"$190K–$420K",trend:"+1%",days:68,ratio:"95%",abs:"3.8 mo"},
+    {name:"Northeast Arts District",detail:"Creative Minneapolis",collection:"creative",
+      note:"Converted warehouses turned working studios. The Northrup King and Casket Arts buildings anchor a real concentration of practicing artists, not just galleries.",
+      price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
+    {name:"Logan Park",detail:"Creative Minneapolis",collection:"creative",
+      note:"A small, leafy Northeast pocket with one of the city's oldest parks at its center. Quieter than the arts district blocks just south of it.",
+      price:"$300K–$460K",trend:"+6%",days:12,ratio:"99%",abs:"2.4 mo"},
+    {name:"Seward",detail:"Creative Minneapolis",collection:"creative",
+      note:"Home to the Seward Co-op and a long tradition of cooperative housing. River-adjacent, bike-forward, and one of the more politically engaged neighborhoods in the city.",
+      price:"$340K–$510K",trend:"+5%",days:13,ratio:"99%",abs:"2.3 mo"},
+    // Saint Paul — the twin worth knowing
+    {name:"Cathedral Hill",detail:"Saint Paul",collection:"stpaul",
+      note:"Born in the 1870s along Summit Avenue. The Cathedral of St. Paul anchors one end, the F. Scott Fitzgerald House and the Blair Arcade sit on the National Register at the other. Selby Avenue carries the restaurant and coffee scene.",
+      price:"$280K–$900K",trend:"+4%",days:32,ratio:"97%",abs:"2.4 mo"},
+    {name:"Summit Hill",detail:"Saint Paul",collection:"stpaul",
+      note:"Home to the longest stretch of preserved Victorian residential architecture in the country, including the Minnesota Governor's Residence. Grand Avenue runs through it. Medians regularly exceed $700,000.",
+      price:"$450K–$1.2M",trend:"+4%",days:28,ratio:"98%",abs:"2.1 mo"},
+    {name:"Mac-Groveland",detail:"Saint Paul",collection:"stpaul",
+      note:"College-town energy from Macalester and St. Thomas, tree-lined streets, and Grand Avenue shopping a block away. Walkable in the way few Saint Paul neighborhoods are. Homes typically sell in 30 days.",
+      price:"$340K–$750K",trend:"+5%",days:30,ratio:"98%",abs:"1.9 mo"},
+    {name:"Lowertown",detail:"Saint Paul",collection:"stpaul",
+      note:"19th-century brick warehouses became artist lofts starting in the 1980s, one of the country's first live-work arts districts. CHS Field, Mears Park, the Saturday farmers market, and a Green Line stop all within a few blocks.",
+      price:"$220K–$480K",trend:"+6%",days:24,ratio:"98%",abs:"1.7 mo"},
+  ],,
+  beyond:[
+    // Lakeside
+    {name:"Excelsior",detail:"Lakeside",collection:"beyond-lakeside",
+      note:"Founded 1853 on the southern shore of Lake Minnetonka. Walkable downtown, antique shops, lakeside dining at Coalition and the Excelsior Brewing taproom. 20 minutes from downtown Minneapolis. The Village's average sale price passed Wayzata's in 2025.",
+      price:"$450K–$5.6M",trend:"+8%",days:24,ratio:"98%",abs:"1.8 mo"},
+    {name:"Wayzata",detail:"Lakeside",collection:"beyond-lakeside",
+      note:"The crown jewel of Lake Minnetonka's north shore. Walkable Lake Street, the Promenade, top-ranked schools (District 284). Estate neighborhoods like Ferndale and Holdridge carry land values that rival coastal markets.",
+      price:"$1.5M–$5M+",trend:"+6%",days:21,ratio:"97%",abs:"2.2 mo"},
+    // River Towns
+    {name:"Stillwater",detail:"River Towns",collection:"beyond-river",
+      note:"The birthplace of Minnesota — the 1848 territorial convention happened on the corner of Myrtle and Main. Eleven blocks of the historic downtown are on the National Register, most buildings dating from the 1860s to 1940s. The 1931 Lift Bridge now carries only bikes and pedestrians across the St. Croix.",
+      price:"$320K–$1.2M",trend:"+5%",days:28,ratio:"97%",abs:"2.6 mo"},
+    // Main Street Revival
+    {name:"Hopkins",detail:"Main Street Revival",collection:"beyond-mainstreet",
+      note:"Once known as the Raspberry Capital of the World. 10 miles southwest of downtown Minneapolis with a genuinely walkable Mainstreet of cafes, breweries, and restaurants. The Southwest Light Rail extension will add a stop here.",
+      price:"$230K–$590K",trend:"+4%",days:33,ratio:"98%",abs:"2.1 mo"},
+    // Classic Lake Community
+    {name:"White Bear Lake",detail:"Classic Lake Community",collection:"beyond-classic",
+      note:"One of the largest lakes in the metro, with a historic downtown dining district right at the water. Summer brings markets and beachfront concerts; winter brings polar plunges and golf on the frozen lake.",
+      price:"$280K–$1.6M",trend:"+5%",days:26,ratio:"97%",abs:"2.3 mo"},
   ],
+
   hidden:[
     {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
       note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
@@ -270,11 +324,11 @@ const DATA = {
     {name:"Stone Arch Bridge Festival",detail:"June · Free · St. Anthony Main",note:"200+ artists, culinary market, live music along West River Pkwy. Right in St. Anthony Main.",url:"https://stonearchbridgefestival.com"},
     {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://minneapolisfestival.org"},
     {name:"Minneapolis Aquatennial",detail:"Late July · Free · Downtown + lakes",note:"Minneapolis's signature summer celebration. Torchlight Parade, milk carton boat races on Bde Maka Ska, fireworks over the river.",url:"https://aquatennial.com"},
-    {name:"Basilica Block Party",detail:"Late July · Basilica of St. Mary",note:"Two-night outdoor music festival in the shadow of the Basilica. One of the city's best summer music events.",url:"https://blockparty.thebasilica.org"},
+    
     {name:"Minnesota Fringe Festival",detail:"Aug 6–16 · Multiple venues",note:"1,000+ artists, 50 venues. The largest performing arts fringe in the Midwest. Buy a $5 Fringe Button.",url:"https://fringefestival.org"},
-    {name:"Uptown Art Fair",detail:"Aug 7–9 · Free · Lake of the Isles Pkwy",note:"300 artists on the parkway bordering CID and Kenwood. The fair draws the neighborhood out — you see exactly who lives here.",url:"https://uptownartfair.com"},
+    {name:"Uptown Art Fair",detail:"Aug 7–9 · Free · Lake of the Isles Pkwy",note:"300 artists on the parkway bordering CID and Kenwood. The fair draws the neighborhood out — you see exactly who lives here.",url:"https://www.uptownminneapolis.com/uptown-art-fair/"},
     {name:"Powderhorn Art Fair",detail:"Aug 15–17 · Free · Powderhorn Park",note:"More community-rooted than Uptown. More diverse.",url:"https://powderhornartfair.com"},
-    {name:"Open Streets Uptown",detail:"Aug 24 · Lyndale Ave 22nd–42nd",note:"Lyndale Ave goes car-free. Walk the spine of the neighborhood without a windshield.",url:"https://openstreetsmpls.org"},
+    {name:"Open Streets Uptown",detail:"Aug 24 · Lyndale Ave 22nd–42nd",note:"Lyndale Ave goes car-free. Walk the spine of the neighborhood without a windshield.",url:"https://www.ourstreetsmn.org/events/open-streets/"},
     {name:"Minnesota State Fair",detail:"Aug 28–Sept 7 · Fairgrounds",note:"1.9M visitors. The ritual that makes Minneapolis locals out of newcomers. Go at least once.",url:"https://mnstatefair.org"},
     {name:"Art-A-Whirl",detail:"May · Northeast Minneapolis · Free",note:"Largest open studio tour in the country. 600+ artists open their Northeast studios. The NE arts district at its best.",url:"https://nemaa.org/art-a-whirl"},
     {name:"Mill City Farmers Market Opening Day",detail:"May · Mill District",note:"The market's opening weekend draws the whole neighborhood. The first Saturday of the season has an energy the rest don't.",url:"https://millcityfarmersmarket.org"},
@@ -288,6 +342,8 @@ const DATA = {
   ],
   performances:[
     {name:"Guthrie Theater",detail:"818 S 2nd St · Downtown · Book ahead",note:"Come From Away running now. World-class regional theater. The endless bridge cantilevers over the Mississippi.",url:"https://guthrietheater.org"},
+    {name:"Orpheum Theatre",detail:"910 Hennepin Ave · Downtown · Touring Broadway",note:"1921 Beaux Arts theater, 2,579 seats. Touring Broadway runs here — Wicked, Hamilton, The Sound of Music. Originally a vaudeville house; Bob Dylan once owned it.",url:"https://hennepinarts.org/venues/orpheum-theatre"},
+    {name:"State Theatre",detail:"805 Hennepin Ave · Downtown",note:"Sister venue to the Orpheum on the same Hennepin Avenue theater row. Concerts, comedy, and touring productions in a restored 1921 movie palace.",url:"https://hennepinarts.org/venues/state-theatre"},
     {name:"First Avenue",detail:"701 1st Ave N · Downtown",note:"Prince's home venue. Still the heart of the Minneapolis music scene.",url:"https://first-avenue.com"},
     {name:"Lake Harriet Bandshell",detail:"Sundays all summer · Free",note:"Free concerts every Sunday evening. Blanket on the grass. Shows up every Sunday and becomes essential.",url:"https://minneapolisparks.org/bandshell"},
     {name:"Children's Theatre Company",detail:"2400 3rd Ave S",note:"One of the leading children's theaters in the country. Worth knowing if you have kids in your life.",url:"https://childrenstheatre.org"},
@@ -334,17 +390,17 @@ const DATA = {
     {name:"Bare Honey",detail:"Minneapolis · Farmers markets + specialty stores",
       note:"Raw honey from Minneapolis-area apiaries. Seasonal varietals."},
     {name:"Baker's Field",detail:"Northeast Minneapolis · Mill-to-table",
-      note:"Grain milled on-site, baked daily. Minnesota-grown wheat.",url:"https://bakersfieldflour.com"},
+      note:"Grain milled on-site, baked daily. Minnesota-grown wheat.",url:"https://www.bakersfieldflourandbread.com"},
     {name:"Copperwing Distillery",detail:"St. Louis Park · Tours available",
       note:"Minnesota whiskey and vodka. Tours available. A genuine local spirit.",url:"https://www.copperwingdistillery.com"},
     {name:"Indeed Brewing",detail:"Northeast Minneapolis · Taproom + patio",
       note:"Northeast's anchor brewery. The patio is essential in summer. The social fabric of the neighborhood.",url:"https://www.indeedbrewing.com"},
     {name:"Bauhaus Brew Labs",detail:"Northeast Minneapolis · German-influenced",
-      note:"German-influenced. The space is worth seeing.",url:"https://www.bauhaus.mn"},
+      note:"German-influenced. The space is worth seeing.",url:"https://www.bauhausbrewlabs.com"},
     {name:"Kramarczuk's",detail:"215 E Hennepin Ave · NE Minneapolis · Since 1954",
       note:"Ukrainian sausage, deli, and bakery in Northeast. James Beard America's Classic 2013. Smoked sausages made in-house.",url:"https://www.kramarczuks.com"},
-    {name:"Broder's Pasta Bar",detail:"50th & Penn · Southwest Minneapolis",
-      note:"Family-owned Italian pasta bar in Southwest Minneapolis since 1994. The pasta is made in-house. A neighborhood institution.",url:"https://www.broders.com"},
+    {name:"Broders' Cucina Italiana",detail:"50th & Penn · Southwest Minneapolis",
+      note:"Family-owned Italian deli since 1982. Fresh pasta, house-made sauces, imported market goods. A genuine neighborhood institution.",url:"https://www.broders.com"},
   ],
   coffee:[
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
@@ -356,7 +412,27 @@ const DATA = {
     {name:"Quince",detail:"Near CID / Kenwood · Quiet",
       note:"The quiet café for the Kenwood corridor. Worth finding before you move in."},
     {name:"Café Alma",detail:"University area · Serious",
-      note:"Serious coffee, serious pastry. Connected to one of the city's best restaurants.",url:"https://www.cafealma.com"},
+      note:"Serious coffee, serious pastry. Connected to one of the city's best restaurants."},
+    {name:"Five Watt Coffee",detail:"Kingfield · Creative drinks",
+      note:"Cocktail-inspired signature drinks, bitters, house syrups. A Kingfield institution since the neighborhood's earliest coffee days.",url:"https://fivewattcoffee.com"},
+    {name:"Fawkes Alley Coffee",detail:"Loring Park · Nonprofit café",
+      note:"Hidden in a historic brick alley. Every purchase funds youth soccer through Futsal Society.",url:"https://www.fawkesalleycoffee.com"},
+    {name:"FRGMNT Coffee",detail:"North Loop / Mill District / St. Anthony Main",
+      note:"Multi-roaster cafe with several Minneapolis locations, each tied to a different neighborhood.",url:"https://frgmntcoffee.com"},
+    {name:"SK Coffee",detail:"Whittier · Plant-filled and warm",
+      note:"A genuine neighborhood gem with a plant wall, local art, and reliably good pour-overs.",url:"https://sk-coffee-whittier.goto-where.com"},
+    {name:"Mojo Coffee Gallery",detail:"Northeast Arts District · California Building",
+      note:"Coffee inside one of Northeast's original artist studio buildings. Breakfast and brunch too."},
+    {name:"Nina's Coffee Café",detail:"Cathedral Hill · Selby Avenue",
+      note:"The corner that's anchored the neighborhood's coffee culture for decades."},
+    {name:"Munkabeans",detail:"Hopkins · Mainstreet · Since 1996",
+      note:"Fun, funky coffeehouse on Hopkins Mainstreet. Voted best soups in town.",url:"https://www.munkabeans.com"},
+    {name:"Anchor Coffee House",detail:"White Bear Lake · Downtown",
+      note:"The neighborhood's go-to coffee spot, right in downtown White Bear Lake."},
+    {name:"The Lobby Coffee & Leisure",detail:"Excelsior · Historic space",
+      note:"Elegant service, real china mugs, a gorgeous historic Excelsior building.",url:"https://www.thelobbycoffee.com"},
+    {name:"Toastique",detail:"Wayzata · Lakeside",
+      note:"Gourmet toasts and espresso a short walk from the Lake Minnetonka shoreline.",url:"https://toastique.com/pages/wayzata"},
   ],
   bakeries:[
     {name:"Patisserie 46",detail:"4606 Nicollet Ave · Linden Hills · Best in city",
@@ -370,24 +446,68 @@ const DATA = {
       note:"Naturally leavened breads and pastries. Multiple neighborhood locations.",url:"https://www.rusticabakery.com"},
     {name:"Sun Street Breads",detail:"Kingfield · Local institution",
       note:"High-quality naturally leavened bread. The neighborhood bakery for south Minneapolis.",url:"https://www.sunstreetbreads.com"},
+    {name:"Diane's Place",detail:"Northeast Arts District · James Beard",
+      note:"Pastry chef Diane Moua's Hmong-influenced croissants and Danishes. Worth the detour."},
+    {name:"Cafe Latte",detail:"Mac-Groveland · Grand Avenue institution",
+      note:"Soups, salads, sandwiches, desserts. A Grand Avenue fixture for decades."},
   ],
   restaurants:[
-    {name:"Vinai",detail:"North Loop · Book ahead · Essential",
+    // Been there
+    {name:"Rosalia",detail:"Linden Hills · Been there",
+      note:"Neapolitan-style pizza and Mediterranean sides from chef Daniel del Prado. Wood-fired crust, beet salad on avocado tahini. The patio is the move in summer.",url:"https://rosaliapizza.com"},
+    {name:"Le Burger 4304",detail:"Linden Hills · Been there",
+      note:"French-inspired burgers from two Bachelor Farmer alumni. Wagyu smash burgers, three-times-cooked fries, soft serve. Order the Le Boeuf.",url:"https://www.leburger4304.com"},
+    {name:"Colita",detail:"Linden Hills · Been there",
+      note:"Upscale Mexican from the same chef behind Rosalia and Porzana. Refined, a little bougie, worth dressing up for.",url:"https://colitarestaurant.com"},
+    {name:"Lake & Irving",detail:"Uptown · Been there",
+      note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable neighborhood spot with a patio.",url:"https://www.lakeandirving.com"},
+    // Want to try
+    {name:"Vinai",detail:"North Loop · Want to try · Book ahead",
       note:"Chef Yia Vang's Hmong restaurant. The restaurant people keep bringing up. Personal storytelling through food.",url:"https://www.vinaimn.com"},
-    {name:"Spoon and Stable",detail:"North Loop · James Beard · Fine dining",
+    {name:"Spoon and Stable",detail:"North Loop · Want to try · James Beard",
       note:"Gavin Kaysen's flagship. The room is worth it. Get the bison tartare.",url:"https://www.spoonandstable.com"},
-    {name:"Porzana",detail:"North Loop · New · Date night",
+    {name:"Porzana",detail:"North Loop · Want to try · Date night",
       note:"Argentinian steakhouse by Daniel Del Prado. Refined, lively. Opened this year. Already busy.",url:"https://www.porzanampls.com"},
-    {name:"Jook Sing at Steady Pour",detail:"NE Minneapolis · Ever-changing",
+    {name:"Jook Sing at Steady Pour",detail:"NE Minneapolis · Want to try",
       note:"Modern Chinese-American, ever-changing menu. Go without a plan. What the neighborhood actually talks about.",url:"https://www.jooksingmn.com"},
-    {name:"Mama Safia's",detail:"Lake Street · Institution · Essential",
-      note:"Legendary Somali restaurant. Essential Minneapolis. The kind of place North Star exists to surface.",url:"https://www.mamasafias.com"},
-    {name:"Mestiizo",detail:"Northeast · Buzzy",
+    {name:"Mama Safia's",detail:"Lake Street · Want to try · Institution",
+      note:"Legendary Somali restaurant. A long-running anchor on Lake Street.",url:"https://www.mamasafias.com"},
+    {name:"Mestiizo",detail:"Northeast · Want to try · Buzzy",
       note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it.",url:"https://www.mestiizorestaurant.com"},
-    {name:"World Street Kitchen",detail:"Lyndale Ave · Institution",
+    {name:"World Street Kitchen",detail:"Lyndale Ave · Want to try",
       note:"The Currito. People have been eating it for years.",url:"https://www.eatwsk.com"},
-    {name:"Lake & Irving",detail:"1513 W Lake St · Uptown",
-      note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable Uptown neighborhood restaurant with a patio.",url:"https://www.lakeandirving.com"},
+    {name:"Khâluna",detail:"Kingfield · Laotian · Chef Ann Ahmed",
+      note:"Resort atmosphere, colorful plates, a bridge between Minneapolis and Laos.",url:"https://khaluna.com"},
+    {name:"Bûcheron",detail:"Kingfield · French-American",
+      note:"2025 James Beard Award for Best New Restaurant. Lumberjack-inspired, technically serious.",url:"https://www.bucheronrestaurant.com"},
+    {name:"Gai Noi",detail:"Loring Park · Laotian · No reservations",
+      note:"Chef Ann Ahmed's second Laotian restaurant. Packed since the day it opened.",url:"https://www.gainoimpls.com"},
+    {name:"Bar La Grassa",detail:"North Loop · Fresh pasta",
+      note:"Dark, loud, energetic. The neighborhood standard for pasta for over a decade."},
+    {name:"Aster Café",detail:"St. Anthony Main · Riverfront patio",
+      note:"Cobblestone street, skyline views, the social anchor of the neighborhood."},
+    {name:"Nicollet Island Inn",detail:"Nicollet Island · Best of everything",
+      note:"Best view, best brunch, best business lunch — frequently named all three."},
+    {name:"Wise Acre Eatery",detail:"Tangletown · Farm-to-table",
+      note:"Seasonal menu on the curved streets near Minnehaha Creek."},
+    {name:"Quang Restaurant",detail:"Whittier · Eat Street · Vietnamese",
+      note:"Pho, bubble tea, banh mi — a decades-running Eat Street institution."},
+    {name:"The Copper Hen",detail:"Whittier · Best reviewed",
+      note:"Whittier's highest-rated restaurant by local consensus."},
+    {name:"Seward Cafe",detail:"Seward · Since 1974",
+      note:"Collectively owned and operated. The oldest restaurant of its kind in the city."},
+    {name:"W.A. Frost",detail:"Cathedral Hill · 1889 building",
+      note:"One of the city's best patios. The neighborhood's fine-dining anchor."},
+    {name:"Estelle",detail:"Summit Hill · Sophisticated",
+      note:"Elegant wines, refined dishes. A celebratory-dinner kind of place."},
+    {name:"Black Dog Cafe",detail:"Lowertown · Since 1998 · Live jazz",
+      note:"All-day gathering spot with live music most nights, especially Saturdays."},
+    {name:"Cossetta Alimentari",detail:"Lowertown · Since 1920",
+      note:"Saint Paul's red-sauce institution. Pizzeria, bakery, full rooftop dining."},
+    {name:"Coalition",detail:"Excelsior · Chef-driven",
+      note:"Stylish New American menu in the heart of historic downtown Excelsior."},
+    {name:"The Main Cafe",detail:"Stillwater · Family-run since 1989",
+      note:"Right on Main Street. Everyone treated like family for over three decades."},
   ],
 
   // BODY
@@ -395,7 +515,7 @@ const DATA = {
     {name:"SUP Calhoun",detail:"BMS · Tue & Thu 6:30pm",
       note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis.",url:"https://supcalhoun.com"},
     {name:"SUP Yoga — The Yoga Center",detail:"BMS · June–Aug mornings",
-      note:"SUP yoga on Bde Maka Ska. All levels.",url:"https://www.theyogacenter.com"},
+      note:"SUP yoga on Bde Maka Ska. All levels.",url:"https://theyogacenterretreat.com"},
     {name:"The Firm",detail:"Uptown · Pilates + strength",
       note:"Pilates and strength training in the Uptown corridor. Walkable from CID and Kenwood."},
     {name:"Movement Minneapolis",detail:"NE Minneapolis · Climbing + fitness",
@@ -430,11 +550,11 @@ const DATA = {
   wellness:[
     
     {name:"Löyly",detail:"NE Minneapolis · Nordic sauna",
-      note:"Nordic-inspired sauna and cold plunge. Community-focused, well designed.",url:"https://www.loylymnpls.com"},
+      note:"Nordic-inspired sauna and cold plunge. Community-focused, well designed.",url:"https://www.loyly.net"},
     {name:"The Nordic",detail:"Downtown · Year-round",
-      note:"Urban wellness with sauna, cold plunge, steam room. Year-round operation.",url:"https://www.thenordichaus.com"},
+      note:"Urban wellness with sauna, cold plunge, steam room. Year-round operation.",url:"https://www.minneapolis.org/things-to-do/health-wellness/saunas/"},
     {name:"Wai Nani SUP",detail:"Lake Minnetonka · Community",
-      note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub.",url:"https://www.wainanilife.com"},
+      note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub.",url:"https://wainanisup.com"},
   ],
   
 };
@@ -467,10 +587,19 @@ function TerritoryPage({onBack}) {
   if(nb) return <NeighborhoodDetail nb={nb} onBack={()=>setNb(null)}/>;
 
   const collections = [
-    {key:"lakes",    label:"Around the Lakes"},
-    {key:"urban",    label:"Urban Core"},
-    {key:"river",    label:"River & Historic"},
-    {key:"residential", label:"Residential Favorites"},
+    {key:"lakes",      label:"Around the Lakes",      blurb:"Water, walkability, and classic Minneapolis."},
+    {key:"urban",      label:"Urban Core",            blurb:"Density, convenience, and city energy."},
+    {key:"river",      label:"River & Historic",      blurb:"The city's original crossroads."},
+    {key:"connected",  label:"Connected Neighborhoods",blurb:"Daily life done exceptionally well."},
+    {key:"creative",   label:"Creative Minneapolis",  blurb:"Independent culture, makers, and local character."},
+    {key:"stpaul",     label:"Saint Paul",            blurb:"The twin worth knowing."},
+  ];
+
+  const beyondCollections = [
+    {key:"beyond-lakeside",   label:"Lakeside",            blurb:"Walkable towns with a strong sense of place."},
+    {key:"beyond-river",      label:"River Towns",         blurb:"Historic Main Streets, riverfront living."},
+    {key:"beyond-mainstreet", label:"Main Street Revival", blurb:"Independent businesses, everyday walkability."},
+    {key:"beyond-classic",    label:"Classic Lake Community",blurb:"Historic downtown, lake access, local identity."},
   ];
 
   if(sub==="neighborhoods") return (
@@ -478,8 +607,38 @@ function TerritoryPage({onBack}) {
       <div style={{paddingTop:20}}>
         {collections.map(col=>(
           <div key={col.key}>
-            <Cap style={{marginTop:28,marginBottom:0,color:C.bone3}}>{col.label}</Cap>
+            <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
+            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:12,color:C.bone2,opacity:0.6,marginBottom:8}}>{col.blurb}</div>
             {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
+              <button key={i} onClick={()=>setNb(n)} style={{
+                width:"100%",background:"transparent",border:"none",
+                borderBottom:"1px solid "+C.bone3,padding:"18px 0",cursor:"pointer",
+                display:"flex",justifyContent:"space-between",alignItems:"center",opacity:0.78,
+              }}>
+                <div style={{textAlign:"left"}}>
+                  <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:C.teal}}>{n.price} · {n.trend}</div>
+                </div>
+                <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+    </DetailPage>
+  );
+
+  if(sub==="beyond") return (
+    <DetailPage title="Beyond the City" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
+      <div style={{paddingTop:20}}>
+        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,paddingBottom:20}}>
+          Walkable towns beyond Minneapolis with their own sense of place.
+        </div>
+        {beyondCollections.map(col=>(
+          <div key={col.key}>
+            <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
+            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:12,color:C.bone2,opacity:0.6,marginBottom:8}}>{col.blurb}</div>
+            {DATA.beyond.filter(n=>n.collection===col.key).map((n,i)=>(
               <button key={i} onClick={()=>setNb(n)} style={{
                 width:"100%",background:"transparent",border:"none",
                 borderBottom:"1px solid "+C.bone3,padding:"18px 0",cursor:"pointer",
@@ -514,7 +673,15 @@ function TerritoryPage({onBack}) {
         </div>
         {collections.map(col=>(
           <div key={col.key}>
-            <Cap style={{marginTop:24,marginBottom:0,color:C.bone3}}>{col.label}</Cap>
+            <Cap style={{marginTop:24,marginBottom:8,color:C.bone3}}>{col.label}</Cap>
+            <div style={{display:"flex",borderBottom:"1px solid "+C.bone3,paddingBottom:8}}>
+              <div style={{flex:2}}><Cap style={{fontSize:7,color:C.bone3}}>Neighborhood</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Median</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Trend</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Days</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>vs Ask</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Absorb</Cap></div>
+            </div>
             {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
               <div key={i} style={{borderBottom:"1px solid "+C.bone3,padding:"14px 0",display:"flex",alignItems:"baseline"}}>
                 <div style={{flex:2,fontFamily:serif,fontSize:15,color:C.bone}}>{n.name}</div>
@@ -533,9 +700,10 @@ function TerritoryPage({onBack}) {
     <DirPage dir="north" title="Place" subhead="Find your neighborhood."
       bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}
       items={[
-        {label:"Neighborhoods",sub:"Around the Lakes · Urban Core · River & Historic",id:"neighborhoods"},
+        {label:"Neighborhood Collections",sub:"Around the Lakes · Urban Core · Saint Paul · more",id:"neighborhoods"},
+        {label:"Beyond the City",sub:"Excelsior · Wayzata · Stillwater · Hopkins · White Bear Lake",id:"beyond"},
         {label:"Hidden Gems",sub:"Small discoveries",id:"hidden"},
-        {label:"Compare",sub:"Market metrics by neighborhood",id:"compare"},
+        {label:"Compare Neighborhoods",sub:"Market metrics by collection",id:"compare"},
       ]}
       onGo={setSub}/>
   );
