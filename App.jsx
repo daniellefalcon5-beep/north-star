@@ -262,96 +262,96 @@ const DATA = {
     // Around the Lakes — water, walkability, classic Minneapolis
     {name:"Kenwood",detail:"Around the Lakes",collection:"lakes",
       note:"Developed by Minneapolis's Gilded Age elite — architects required neighbor approval before building. Never crashed: 2008–2012 saw only 8% decline vs 22% city average.",
-      price:"$850K–$1.4M",trend:"+5%",days:6,ratio:"105%",abs:"0.9 mo"},
+      housing:"Grand Gilded Age mansions and large historic estates. Few condos, almost no new construction.",price:"$850K–$1.4M",trend:"+5%",days:6,ratio:"105%",abs:"0.9 mo"},
     {name:"Lowry Hill",detail:"Around the Lakes",collection:"lakes",
       note:"Same architectural era as Kenwood, 20–30% less expensive. Walkable to Walker Art Center and Guthrie.",
-      price:"$480K–$720K",trend:"+4%",days:11,ratio:"99%",abs:"2.2 mo"},
+      housing:"Same Gilded Age stock as Kenwood at a smaller scale — historic mansions and stately duplexes.",price:"$480K–$720K",trend:"+4%",days:11,ratio:"99%",abs:"2.2 mo"},
     {name:"East Isles",detail:"Around the Lakes",collection:"lakes",
       note:"Lake access without Kenwood price premium. East Isles Farmers Market on Thursdays. Walkable to both the lakes and the Hennepin corridor.",
-      price:"$540K–$780K",trend:"+5%",days:10,ratio:"101%",abs:"1.8 mo"},
+      housing:"A mix of vintage walk-ups, classic duplexes, and mid-size single-family homes.",price:"$540K–$780K",trend:"+5%",days:10,ratio:"101%",abs:"1.8 mo"},
     {name:"Cedar-Isles-Dean",detail:"Around the Lakes",collection:"lakes",
       note:"One of the first planned lakeside suburbs in America, 1883. Large lots, 28ft height cap. Lake-adjacent blocks outperform in every down cycle. BMS steps away.",
-      price:"$720K+",trend:"+6%",days:8,ratio:"103%",abs:"1.4 mo"},
+      housing:"Large historic single-family homes on oversized lots, capped at 28 feet to preserve scale.",price:"$720K+",trend:"+6%",days:8,ratio:"103%",abs:"1.4 mo"},
     {name:"Linden Hills",detail:"Around the Lakes",collection:"lakes",
       note:"Best price-per-square-foot relative to quality of life. 44th & Upton village is the city's finest example of a walkable neighborhood center.",
-      price:"$580K–$780K",trend:"+7%",days:9,ratio:"101%",abs:"1.6 mo"},
+      housing:"Craftsman bungalows and Tudor-style homes on a fine-grained, walkable street grid.",price:"$580K–$780K",trend:"+7%",days:9,ratio:"101%",abs:"1.6 mo"},
     // Urban Core — density, convenience, city energy
     {name:"North Loop",detail:"Urban Core",collection:"urban",
       note:"Warehouse district converted over 20 years. Spoon and Stable, Bar La Grassa anchored the food scene. Inspect HOA reserves.",
-      price:"$380K–$650K",trend:"+3%",days:14,ratio:"98%",abs:"2.8 mo"},
+      housing:"Converted warehouse lofts and new-construction high rises. Almost entirely condos.",price:"$380K–$650K",trend:"+3%",days:14,ratio:"98%",abs:"2.8 mo"},
     {name:"Mill District",detail:"Urban Core",collection:"urban",
       note:"Gold Medal Park, Guthrie Theater, and Mill City Farmers Market. Strong long-term position on the river.",
-      price:"$320K–$520K",trend:"+5%",days:11,ratio:"100%",abs:"2.1 mo"},
+      housing:"High-rise condos and converted historic mill buildings along the riverfront.",price:"$320K–$520K",trend:"+5%",days:11,ratio:"100%",abs:"2.1 mo"},
     {name:"Downtown East",detail:"Urban Core",collection:"urban",
       note:"Newest of the downtown districts, built around the stadium. Mostly new-construction high rises. Walk to everything downtown without the North Loop premium.",
-      price:"$280K–$480K",trend:"+4%",days:16,ratio:"97%",abs:"3.1 mo"},
+      housing:"Newest housing stock in the city — exclusively new-construction high-rise towers.",price:"$280K–$480K",trend:"+4%",days:16,ratio:"97%",abs:"3.1 mo"},
     {name:"Loring Park",detail:"Urban Core",collection:"urban",
       note:"The city's most central park, ringed by older high rises and a sizable LGBTQ+ community. Steps from the Walker and the Sculpture Garden.",
-      price:"$220K–$420K",trend:"+3%",days:18,ratio:"96%",abs:"3.4 mo"},
+      housing:"Older high rises and mid-century apartment buildings ringing the park.",price:"$220K–$420K",trend:"+3%",days:18,ratio:"96%",abs:"3.4 mo"},
     // River & Historic — the city's original crossroads
     {name:"St. Anthony Main",detail:"River & Historic",collection:"river",
       note:"Riverfront + historic district overlays limit new development. North Loop pricing moving east — SAM is 2–3 years behind. Mississippi River access is permanent.",
-      price:"$420K–$580K",trend:"+4%",days:12,ratio:"100%",abs:"2.1 mo"},
+      housing:"A blend of converted warehouse lofts and newer mid-rise condo buildings.",price:"$420K–$580K",trend:"+4%",days:12,ratio:"100%",abs:"2.1 mo"},
     {name:"Nicollet Island",detail:"River & Historic",collection:"river",
       note:"An actual island in the Mississippi, walkable from downtown via the Hennepin Avenue Bridge. A small, quiet residential pocket with some of the city's oldest homes.",
-      price:"$450K–$650K",trend:"+3%",days:15,ratio:"99%",abs:"2.6 mo"},
+      housing:"Some of the city's oldest surviving homes, small-scale and historic.",price:"$450K–$650K",trend:"+3%",days:15,ratio:"99%",abs:"2.6 mo"},
     // Connected Neighborhoods — daily life done exceptionally well
     {name:"Kingfield",detail:"Connected Neighborhoods",collection:"connected",
       note:"South Minneapolis bungalow district with strong community identity. Eat Street is the cultural spine.",
-      price:"$340K–$520K",trend:"+6%",days:8,ratio:"102%",abs:"1.5 mo"},
+      housing:"South Minneapolis bungalows and foursquares, dense and walkable.",price:"$340K–$520K",trend:"+6%",days:8,ratio:"102%",abs:"1.5 mo"},
     {name:"Fulton",detail:"Connected Neighborhoods",collection:"connected",
       note:"Deeply residential, very low turnover. Lake Harriet proximity without Linden Hills premium.",
-      price:"$420K–$640K",trend:"+5%",days:9,ratio:"100%",abs:"1.7 mo"},
+      housing:"Deeply residential bungalows and Cape Cods, very low turnover.",price:"$420K–$640K",trend:"+5%",days:9,ratio:"100%",abs:"1.7 mo"},
     {name:"Tangletown",detail:"Connected Neighborhoods",collection:"connected",
       note:"Curved streets following Minnehaha Creek. Very quiet, stable ownership, low turnover.",
-      price:"$480K–$700K",trend:"+5%",days:10,ratio:"100%",abs:"1.9 mo"},
+      housing:"Curving streets of Tudor and bungalow-style homes following the creek.",price:"$480K–$700K",trend:"+5%",days:10,ratio:"100%",abs:"1.9 mo"},
     // Creative Minneapolis — independent culture, makers, local character
     {name:"Whittier",detail:"Creative Minneapolis",collection:"creative",
       note:"The most diverse square mile in the city. Eat Street runs the length of Nicollet Avenue, the Minneapolis Institute of Art sits at its center, and MCAD draws students and working artists to the surrounding blocks.",
-      price:"$190K–$420K",trend:"+1%",days:68,ratio:"95%",abs:"3.8 mo"},
+      housing:"Eclectic mix — historic mansions converted to apartments, walk-ups, and newer infill.",price:"$190K–$420K",trend:"+1%",days:68,ratio:"95%",abs:"3.8 mo"},
     {name:"Northeast Arts District",detail:"Creative Minneapolis",collection:"creative",
       note:"Converted warehouses turned working studios. The Northrup King and Casket Arts buildings anchor a real concentration of practicing artists, not just galleries.",
-      price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
+      housing:"Converted industrial warehouses and live-work loft buildings.",price:"$320K–$480K",trend:"+9%",days:7,ratio:"102%",abs:"1.8 mo"},
     {name:"Logan Park",detail:"Creative Minneapolis",collection:"creative",
       note:"A small, leafy Northeast pocket with one of the city's oldest parks at its center. Quieter than the arts district blocks just south of it.",
-      price:"$300K–$460K",trend:"+6%",days:12,ratio:"99%",abs:"2.4 mo"},
+      housing:"Small bungalows and modest historic homes around the park.",price:"$300K–$460K",trend:"+6%",days:12,ratio:"99%",abs:"2.4 mo"},
     {name:"Seward",detail:"Creative Minneapolis",collection:"creative",
       note:"Home to the Seward Co-op and a long tradition of cooperative housing. River-adjacent, bike-forward, and one of the more politically engaged neighborhoods in the city.",
-      price:"$340K–$510K",trend:"+5%",days:13,ratio:"99%",abs:"2.3 mo"},
+      housing:"Bungalows and co-op housing developments, a strong rental and ownership mix.",price:"$340K–$510K",trend:"+5%",days:13,ratio:"99%",abs:"2.3 mo"},
     // Saint Paul — the twin worth knowing
     {name:"Cathedral Hill",detail:"Saint Paul",collection:"stpaul",
       note:"Born in the 1870s along Summit Avenue. The Cathedral of St. Paul anchors one end, the F. Scott Fitzgerald House and the Blair Arcade sit on the National Register at the other. Selby Avenue carries the restaurant and coffee scene.",
-      price:"$280K–$900K",trend:"+4%",days:32,ratio:"97%",abs:"2.4 mo"},
+      housing:"Grand Victorian mansions, many subdivided, alongside historic apartment buildings.",price:"$280K–$900K",trend:"+4%",days:32,ratio:"97%",abs:"2.4 mo"},
     {name:"Summit Hill",detail:"Saint Paul",collection:"stpaul",
       note:"Home to the longest stretch of preserved Victorian residential architecture in the country, including the Minnesota Governor's Residence. Grand Avenue runs through it. Medians regularly exceed $700,000.",
-      price:"$450K–$1.2M",trend:"+4%",days:28,ratio:"98%",abs:"2.1 mo"},
+      housing:"The country's longest stretch of preserved Victorian mansions on Summit Avenue.",price:"$450K–$1.2M",trend:"+4%",days:28,ratio:"98%",abs:"2.1 mo"},
     {name:"Mac-Groveland",detail:"Saint Paul",collection:"stpaul",
       note:"College-town energy from Macalester and St. Thomas, tree-lined streets, and Grand Avenue shopping a block away. Walkable in the way few Saint Paul neighborhoods are. Homes typically sell in 30 days.",
-      price:"$340K–$750K",trend:"+5%",days:30,ratio:"98%",abs:"1.9 mo"},
+      housing:"Tudor and bungalow-style single-family homes near the college campuses.",price:"$340K–$750K",trend:"+5%",days:30,ratio:"98%",abs:"1.9 mo"},
     {name:"Lowertown",detail:"Saint Paul",collection:"stpaul",
       note:"19th-century brick warehouses became artist lofts starting in the 1980s, one of the country's first live-work arts districts. CHS Field, Mears Park, the Saturday farmers market, and a Green Line stop all within a few blocks.",
-      price:"$220K–$480K",trend:"+6%",days:24,ratio:"98%",abs:"1.7 mo"},
+      housing:"19th-century brick warehouses converted to artist lofts and condos.",price:"$220K–$480K",trend:"+6%",days:24,ratio:"98%",abs:"1.7 mo"},
   ],
   beyond:[
     // Lakeside
     {name:"Excelsior",detail:"Lakeside",collection:"beyond-lakeside",
       note:"Founded 1853 on the southern shore of Lake Minnetonka. Walkable downtown, antique shops, lakeside dining at Coalition and the Excelsior Brewing taproom. 20 minutes from downtown Minneapolis. The Village's average sale price passed Wayzata's in 2025.",
-      price:"$450K–$5.6M",trend:"+8%",days:24,ratio:"98%",abs:"1.8 mo"},
+      housing:"A mix of historic cottages, condos, and large lakefront estates.",price:"$450K–$5.6M",trend:"+8%",days:24,ratio:"98%",abs:"1.8 mo"},
     {name:"Wayzata",detail:"Lakeside",collection:"beyond-lakeside",
       note:"The crown jewel of Lake Minnetonka's north shore. Walkable Lake Street, the Promenade, top-ranked schools (District 284). Estate neighborhoods like Ferndale and Holdridge carry land values that rival coastal markets.",
-      price:"$1.5M–$5M+",trend:"+6%",days:21,ratio:"97%",abs:"2.2 mo"},
+      housing:"Estate-level lakefront homes alongside a walkable cluster of townhomes.",price:"$1.5M–$5M+",trend:"+6%",days:21,ratio:"97%",abs:"2.2 mo"},
     // River Towns
     {name:"Stillwater",detail:"River Towns",collection:"beyond-river",
       note:"The birthplace of Minnesota — the 1848 territorial convention happened on the corner of Myrtle and Main. Eleven blocks of the historic downtown are on the National Register, most buildings dating from the 1860s to 1940s. The 1931 Lift Bridge now carries only bikes and pedestrians across the St. Croix.",
-      price:"$320K–$1.2M",trend:"+5%",days:28,ratio:"97%",abs:"2.6 mo"},
+      housing:"19th-century Main Street architecture with historic single-family homes nearby.",price:"$320K–$1.2M",trend:"+5%",days:28,ratio:"97%",abs:"2.6 mo"},
     // Main Street Revival
     {name:"Hopkins",detail:"Main Street Revival",collection:"beyond-mainstreet",
       note:"Once known as the Raspberry Capital of the World. 10 miles southwest of downtown Minneapolis with a genuinely walkable Mainstreet of cafes, breweries, and restaurants. The Southwest Light Rail extension will add a stop here.",
-      price:"$230K–$590K",trend:"+4%",days:33,ratio:"98%",abs:"2.1 mo"},
+      housing:"Modest single-family homes and townhomes near a walkable Mainstreet core.",price:"$230K–$590K",trend:"+4%",days:33,ratio:"98%",abs:"2.1 mo"},
     // Classic Lake Community
     {name:"White Bear Lake",detail:"Classic Lake Community",collection:"beyond-classic",
       note:"One of the largest lakes in the metro, with a historic downtown dining district right at the water. Summer brings markets and beachfront concerts; winter brings polar plunges and golf on the frozen lake.",
-      price:"$280K–$1.6M",trend:"+5%",days:26,ratio:"97%",abs:"2.3 mo"},
+      housing:"A mix of lakefront estates and modest single-family homes downtown.",price:"$280K–$1.6M",trend:"+5%",days:26,ratio:"97%",abs:"2.3 mo"},
   ],
 
 
@@ -523,10 +523,10 @@ const DATA = {
       note:"Argentinian steakhouse by Daniel Del Prado. Refined, lively. Opened this year. Already busy.",url:"https://www.porzanampls.com"},
     {name:"Jook Sing at Steady Pour",detail:"NE Minneapolis · Want to try",
       note:"Modern Chinese-American, ever-changing menu. Go without a plan. What the neighborhood actually talks about.",url:"https://www.jooksingmn.com"},
-    {name:"Mama Safia's",detail:"Lake Street · Want to try · Institution",
-      note:"Legendary Somali restaurant. A long-running anchor on Lake Street.",url:"https://www.mamasafias.com"},
+    {name:"Mama Safia's Kitchen",detail:"Lake Street · Want to try · Institution",
+      note:"Somali and East African cuisine, rebuilt by the community after a 2020 fire. Named to Mpls.St.Paul's 50 Best Restaurants 2026.",url:"https://www.mamasafiakitchen.com"},
     {name:"Mestiizo",detail:"Northeast · Want to try · Buzzy",
-      note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it.",url:"https://www.mestiizorestaurant.com"},
+      note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it.",url:"https://mestiizo.com"},
     {name:"World Street Kitchen",detail:"Lyndale Ave · Want to try",
       note:"The Currito. People have been eating it for years.",url:"https://www.eatwsk.com"},
     {name:"Khâluna",detail:"Kingfield · Laotian · Chef Ann Ahmed",neighborhood:"Kingfield",
@@ -655,7 +655,12 @@ function NeighborhoodDetail({nb, onBack}) {
     <DetailPage title={nb.name} dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={onBack}>
       <div style={{paddingTop:20}}>
         <Cap color={C.teal} style={{marginBottom:16}}>{nb.detail}</Cap>
-        <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.85,marginBottom:24}}>{nb.note}</div>
+        <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.85,marginBottom:16}}>{nb.note}</div>
+        {nb.housing && (
+          <div style={{fontFamily:sans,fontSize:12,color:C.bone2,lineHeight:1.75,opacity:0.75,marginBottom:24}}>
+            {nb.housing}
+          </div>
+        )}
         <Rule style={{marginBottom:20}}/>
         <div style={{display:"flex",gap:0}}>
           {[["Median",nb.price],["Days",nb.days+"d"],["vs Ask",nb.ratio],["Absorption",nb.abs]].map(([l,v],j)=>(
@@ -707,7 +712,7 @@ function TerritoryPage({onBack}) {
               }}>
                 <div style={{textAlign:"left"}}>
                   <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
-                  <div style={{fontFamily:sans,fontSize:11,color:C.teal}}>{n.price} · {n.trend}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:C.bone2,lineHeight:1.5,opacity:0.85,maxWidth:240}}>{n.housing}</div>
                 </div>
                 <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
               </button>
@@ -736,7 +741,7 @@ function TerritoryPage({onBack}) {
               }}>
                 <div style={{textAlign:"left"}}>
                   <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
-                  <div style={{fontFamily:sans,fontSize:11,color:C.teal}}>{n.price} · {n.trend}</div>
+                  <div style={{fontFamily:sans,fontSize:11,color:C.bone2,lineHeight:1.5,opacity:0.85,maxWidth:240}}>{n.housing}</div>
                 </div>
                 <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
               </button>
