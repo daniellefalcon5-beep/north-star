@@ -195,30 +195,56 @@ function ContentRow({name,detail,note,accent=C.bone2,url}) {
 
 function GroupedSectionView({ title, dir, ground, atmoColor, items, onBack }) {
   const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
+
+  // Build neighborhood -> collection lookup from Place data (single source of truth)
+  const allPlaces = [...DATA.neighborhoods, ...DATA.beyond];
+  const nbToCollection = {};
+  allPlaces.forEach(p => { nbToCollection[p.name] = p.detail; });
+
+  // Collection display order, matching Place exactly
+  const collectionOrder = [
+    "Around the Lakes","Urban Core","River & Historic","Connected Neighborhoods",
+    "Creative Minneapolis","Saint Paul",
+    "Lakeside","River Towns","Main Street Revival","Classic Lake Community",
+  ];
+
   const grouped = items.filter(i => i.neighborhood);
   const ungrouped = items.filter(i => !i.neighborhood);
-  const neighborhoods = [...new Set(grouped.map(i => i.neighborhood))];
+
+  // Group neighborhoods present in this section's items, by their collection
+  const presentNeighborhoods = [...new Set(grouped.map(i => i.neighborhood))];
+  const collectionsPresent = collectionOrder.filter(col =>
+    presentNeighborhoods.some(nb => nbToCollection[nb] === col)
+  );
 
   return (
     <DetailPage title={title} dir={dir} bg={ground} aurora={atmoColor} onBack={onBack}>
       <div style={{paddingTop:20}}>
-        {neighborhoods.map(nb => (
-          <div key={nb}>
-            <Cap style={{marginTop:28,marginBottom:4,color:accent}}>{nb}</Cap>
-            {NB_WHY[nb] && (
-              <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,
-                color:"rgba(248,246,240,0.72)",lineHeight:1.6,marginBottom:10}}>
-                {NB_WHY[nb]}
-              </div>
-            )}
-            {grouped.filter(i => i.neighborhood === nb).map((item,i) => (
-              <ContentRow key={i} {...item} accent={accent}/>
-            ))}
-          </div>
-        ))}
+        {collectionsPresent.map(col => {
+          const nbsInCollection = presentNeighborhoods.filter(nb => nbToCollection[nb] === col);
+          return (
+            <div key={col}>
+              <Cap style={{marginTop:32,marginBottom:14,color:C.bone3,letterSpacing:"0.14em"}}>{col}</Cap>
+              {nbsInCollection.map(nb => (
+                <div key={nb} style={{marginBottom:18}}>
+                  <div style={{fontFamily:serif,fontSize:17,color:accent,marginBottom:3}}>{nb}</div>
+                  {NB_WHY[nb] && (
+                    <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,
+                      color:"rgba(248,246,240,0.72)",lineHeight:1.6,marginBottom:8}}>
+                      {NB_WHY[nb]}
+                    </div>
+                  )}
+                  {grouped.filter(i => i.neighborhood === nb).map((item,i) => (
+                    <ContentRow key={i} {...item} accent={accent}/>
+                  ))}
+                </div>
+              ))}
+            </div>
+          );
+        })}
         {ungrouped.length > 0 && (
           <div>
-            <Cap style={{marginTop:28,marginBottom:10,color:C.bone3}}>Citywide</Cap>
+            <Cap style={{marginTop:32,marginBottom:10,color:C.bone3,letterSpacing:"0.14em"}}>Citywide</Cap>
             {ungrouped.map((item,i) => (
               <ContentRow key={i} {...item} accent={accent}/>
             ))}
@@ -347,7 +373,7 @@ const DATA = {
   festivals:[
     {name:"Twin Cities Pride",detail:"Late June · Free · Downtown Minneapolis",note:"Largest free Pride festival in the country. The whole city comes out.",url:"https://tcpride.org"},
     {name:"Stone Arch Bridge Festival",detail:"June · Free · St. Anthony Main",note:"200+ artists, culinary market, live music along West River Pkwy. Right in St. Anthony Main.",url:"https://stonearchbridgefestival.com"},
-    {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://minneapolisfestival.org"},
+    {name:"Minneapolis International Festival",detail:"July 25 · Lake Harriet · Free",note:"Live music, dance, cultural exhibits. Very local, multigenerational.",url:"https://www.minneapolisparks.org/activities-events/events/minneapolis_international_festival/"},
     {name:"Minneapolis Aquatennial",detail:"Late July · Free · Downtown + lakes",note:"Minneapolis's signature summer celebration. Torchlight Parade, milk carton boat races on Bde Maka Ska, fireworks over the river.",url:"https://aquatennial.com"},
     
     {name:"Minnesota Fringe Festival",detail:"Aug 6–16 · Multiple venues",note:"1,000+ artists, 50 venues. The largest performing arts fringe in the Midwest. Buy a $5 Fringe Button.",url:"https://fringefestival.org"},
@@ -408,6 +434,8 @@ const DATA = {
       note:"Small, community-rooted, rain or shine. Exactly the crowd you'd be living among.",url:"https://www.lindenhillsmarket.com"},
     {name:"Midtown Farmers Market",detail:"Sat 9am–1pm · 2225 E Lake St · Community",
       note:"Live music, fitness classes, puppet theater. Very neighborhood.",url:"https://www.midtownfarmersmarket.org"},
+    {name:"Kingfield Farmers Market",detail:"Sun 8:30am–1pm · 4055 Nicollet Ave",neighborhood:"Kingfield",
+      note:"Launched in 2001 behind Anodyne Coffeehouse, now 40 vendors strong. Bring a picnic blanket.",url:"https://www.neighborhoodrootsmn.org/kingfield-farmers-market"},
   ],
   makers:[
     {name:"Alemar Cheese",detail:"Mankato · Find at Mill City Market",
@@ -445,7 +473,7 @@ const DATA = {
     {name:"FRGMNT Coffee",detail:"North Loop / Mill District / St. Anthony Main",
       note:"Multi-roaster cafe with several Minneapolis locations, each tied to a different neighborhood.",url:"https://frgmntcoffee.com"},
     {name:"SK Coffee",detail:"Whittier · Plant-filled and warm",neighborhood:"Whittier",
-      note:"A genuine neighborhood gem with a plant wall, local art, and reliably good pour-overs.",url:"https://sk-coffee-whittier.goto-where.com"},
+      note:"A genuine neighborhood gem with a plant wall, local art, and reliably good pour-overs.",url:"https://skcoffeeplease.com"},
     {name:"Mojo Coffee Gallery",detail:"Northeast Arts District · California Building",neighborhood:"Northeast Arts District",
       note:"Coffee inside one of Northeast's original artist studio buildings. Breakfast and brunch too."},
     {name:"Nina's Coffee Café",detail:"Cathedral Hill · Selby Avenue",neighborhood:"Cathedral Hill",
