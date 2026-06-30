@@ -182,7 +182,7 @@ function ContentRow({name,detail,note,accent=C.bone2,url}) {
     <div style={{borderBottom:"1px solid " + C.bone3,padding:"20px 0"}}>
       <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:5,lineHeight:1.2}}>{name}</div>
       {detail&&<div style={{fontFamily:sans,fontSize:11,color:accent,marginBottom:7,letterSpacing:"0.04em"}}>{detail}</div>}
-      {note&&<div style={{fontFamily:sans,fontSize:12,color:C.bone2,lineHeight:1.75,opacity:0.8}}>{note}</div>}
+      {note&&<div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.75,opacity:0.92}}>{note}</div>}
       {url&&<a href={url} target="_blank" rel="noopener noreferrer"
         style={{display:"inline-block",marginTop:10,fontFamily:sans,fontSize:9,
           color:accent,letterSpacing:"0.12em",textTransform:"uppercase",
@@ -657,7 +657,7 @@ function NeighborhoodDetail({nb, onBack}) {
         <Cap color={C.teal} style={{marginBottom:16}}>{nb.detail}</Cap>
         <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.85,marginBottom:16}}>{nb.note}</div>
         {nb.housing && (
-          <div style={{fontFamily:sans,fontSize:12,color:C.bone2,lineHeight:1.75,opacity:0.75,marginBottom:24}}>
+          <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.75,opacity:0.9,marginBottom:24}}>
             {nb.housing}
           </div>
         )}
@@ -708,11 +708,11 @@ function TerritoryPage({onBack}) {
               <button key={i} onClick={()=>setNb(n)} style={{
                 width:"100%",background:"transparent",border:"none",
                 borderBottom:"1px solid "+C.bone3,padding:"18px 0",cursor:"pointer",
-                display:"flex",justifyContent:"space-between",alignItems:"center",opacity:0.78,
+                display:"flex",justifyContent:"space-between",alignItems:"center",
               }}>
                 <div style={{textAlign:"left"}}>
                   <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
-                  <div style={{fontFamily:sans,fontSize:11,color:C.bone2,lineHeight:1.5,opacity:0.85,maxWidth:240}}>{n.housing}</div>
+                  <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.6,opacity:0.95,maxWidth:280}}>{n.housing}</div>
                 </div>
                 <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
               </button>
@@ -737,11 +737,11 @@ function TerritoryPage({onBack}) {
               <button key={i} onClick={()=>setNb(n)} style={{
                 width:"100%",background:"transparent",border:"none",
                 borderBottom:"1px solid "+C.bone3,padding:"18px 0",cursor:"pointer",
-                display:"flex",justifyContent:"space-between",alignItems:"center",opacity:0.78,
+                display:"flex",justifyContent:"space-between",alignItems:"center",
               }}>
                 <div style={{textAlign:"left"}}>
                   <div style={{fontFamily:serif,fontSize:21,color:C.bone,marginBottom:3}}>{n.name}</div>
-                  <div style={{fontFamily:sans,fontSize:11,color:C.bone2,lineHeight:1.5,opacity:0.85,maxWidth:240}}>{n.housing}</div>
+                  <div style={{fontFamily:sans,fontSize:13,color:C.bone2,lineHeight:1.6,opacity:0.95,maxWidth:280}}>{n.housing}</div>
                 </div>
                 <div style={{fontSize:16,color:C.bone2,opacity:0.5}}>→</div>
               </button>
@@ -959,7 +959,7 @@ function Landing({onNavigate}) {
     };
     const tagStyle = {
       fontFamily:serif, fontStyle:"italic", fontSize:14,
-      color:C.bone2, opacity:0.65, lineHeight:1.5, marginTop:6,
+      color:C.bone2, opacity:0.85, lineHeight:1.5, marginTop:6,
     };
 
     // N: large N closest to star (bottom), Place + tagline above
