@@ -193,6 +193,42 @@ function ContentRow({name,detail,note,accent=C.bone2,url}) {
   );
 }
 
+function GroupedSectionView({ title, dir, ground, atmoColor, items, onBack }) {
+  const accent = {north:C.teal,east:C.coral,south:C.saffron,west:C.mint}[dir];
+  const grouped = items.filter(i => i.neighborhood);
+  const ungrouped = items.filter(i => !i.neighborhood);
+  const neighborhoods = [...new Set(grouped.map(i => i.neighborhood))];
+
+  return (
+    <DetailPage title={title} dir={dir} bg={ground} aurora={atmoColor} onBack={onBack}>
+      <div style={{paddingTop:20}}>
+        {neighborhoods.map(nb => (
+          <div key={nb}>
+            <Cap style={{marginTop:28,marginBottom:4,color:accent}}>{nb}</Cap>
+            {NB_WHY[nb] && (
+              <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,
+                color:"rgba(248,246,240,0.72)",lineHeight:1.6,marginBottom:10}}>
+                {NB_WHY[nb]}
+              </div>
+            )}
+            {grouped.filter(i => i.neighborhood === nb).map((item,i) => (
+              <ContentRow key={i} {...item} accent={accent}/>
+            ))}
+          </div>
+        ))}
+        {ungrouped.length > 0 && (
+          <div>
+            <Cap style={{marginTop:28,marginBottom:10,color:C.bone3}}>Citywide</Cap>
+            {ungrouped.map((item,i) => (
+              <ContentRow key={i} {...item} accent={accent}/>
+            ))}
+          </div>
+        )}
+      </div>
+    </DetailPage>
+  );
+}
+
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const DATA = {
   // TERRITORY
@@ -292,18 +328,7 @@ const DATA = {
       price:"$280K–$1.6M",trend:"+5%",days:26,ratio:"97%",abs:"2.3 mo"},
   ],
 
-  hidden:[
-    {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",
-      note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
-    {name:"Beard's Plaisance",detail:"Linden Hills · Lake Harriet",
-      note:"A sloping lawn above Lake Harriet that fills with picnic blankets on summer evenings. The quiet counterpart to the busy beach.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_harriet_regional_park/"},
-    {name:"Bohemian Flats",detail:"Cedar-Isles-Dean · River launch",
-      note:"A flat park at river level below the Washington Ave bridge. Kayak launch, morning fog, and almost no one after 8am.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bohemian_flats/"},
-    {name:"Gold Medal Park",detail:"Mill District · Mound with views",
-      note:"A small spiral-mound park next to the Guthrie with 360° views of the river and downtown. Almost no one stops here.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/gold_medal_park/"},
-    {name:"Boom Island",detail:"Northeast · Mississippi",
-      note:"Island park on the Mississippi with skyline views. Dog-friendly. Peaceful. Mostly locals.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/boom_island_park/"},
-  ],
+
   walks:[
     {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
       note:"BMS → Lake of the Isles → Cedar Lake → Lake Harriet → Nokomis. The definitive Minneapolis route. Before 8am on weekends for solitude.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/minneapolis_chain_of_lakes_regional_park/"},
@@ -371,15 +396,15 @@ const DATA = {
 
   // TABLE
   markets:[
-    {name:"Mill City Farmers Market",detail:"Sat 8am–1pm · 750 S 2nd St",url:"https://www.millcityfarmersmarket.org",
+    {name:"Mill City Farmers Market",detail:"Sat 8am–1pm · 750 S 2nd St",url:"https://www.millcityfarmersmarket.org",neighborhood:"Mill District",
       note:"The market locals recommend first. Arrive at opening. Free yoga on-site. Steps from Stone Arch Bridge."},
     {name:"Minneapolis Farmers Market",detail:"Sat–Sun 6am–1pm · 312 E Lyndale · Largest",
       note:"Largest open-air market in Minnesota. Go early — best selection is gone by 9am.",url:"https://www.mplsfarmersmarket.com"},
-    {name:"Markets on Main",detail:"Sun 10am–2pm · 1 SE Main St · SAM",
+    {name:"Markets on Main",detail:"Sun 10am–2pm · 1 SE Main St · SAM",neighborhood:"St. Anthony Main",
       note:"Right in St. Anthony Main. Local food, vintage, makers on Riverplace Plaza with the best downtown river views.",url:"https://www.riverplace.com/markets"},
-    {name:"East Isles Market",detail:"Thu 4–8pm · MoZaic, Lagoon & Girard · Weekday",
+    {name:"East Isles Market",detail:"Thu 4–8pm · MoZaic, Lagoon & Girard · Weekday",neighborhood:"East Isles",
       note:"The most CID-adjacent weekday market. A preview of what Thursdays look like if you buy in the neighborhood.",url:"https://www.uptownminneapolis.com/events/farmers-market"},
-    {name:"Linden Hills Market",detail:"Sun 10am–1pm · 2813 W 43rd · Hyper-local",
+    {name:"Linden Hills Market",detail:"Sun 10am–1pm · 2813 W 43rd · Hyper-local",neighborhood:"Linden Hills",
       note:"Small, community-rooted, rain or shine. Exactly the crowd you'd be living among.",url:"https://www.lindenhillsmarket.com"},
     {name:"Midtown Farmers Market",detail:"Sat 9am–1pm · 2225 E Lake St · Community",
       note:"Live music, fitness classes, puppet theater. Very neighborhood.",url:"https://www.midtownfarmersmarket.org"},
@@ -403,39 +428,39 @@ const DATA = {
       note:"Family-owned Italian deli since 1982. Fresh pasta, house-made sauces, imported market goods. A genuine neighborhood institution.",url:"https://www.broders.com"},
   ],
   coffee:[
-    {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",
+    {name:"Isles Bun & Coffee",detail:"Uptown / CID · The cardamom bun",neighborhood:"Cedar-Isles-Dean",
       note:"The neighborhood anchor for Cedar-Isles-Dean. The cardamom bun. Start here.",url:"https://www.islesbun.com"},
     {name:"Dogwood Coffee",detail:"NE Minneapolis + multiple",
       note:"Precision roasting. Good single origins. The Northeast neighborhood café.",url:"https://www.dogwoodcoffee.com"},
     {name:"Spyhouse Coffee",detail:"Uptown + Hennepin + NE · Institution",
       note:"On-site roasting. Multiple neighborhood locations.",url:"https://www.spyhousecoffee.com"},
-    {name:"Quince",detail:"Near CID / Kenwood · Quiet",
+    {name:"Quince",detail:"Near CID / Kenwood · Quiet",neighborhood:"Kenwood",
       note:"The quiet café for the Kenwood corridor. Worth finding before you move in."},
     {name:"Café Alma",detail:"University area · Serious",
       note:"Serious coffee, serious pastry. Connected to one of the city's best restaurants."},
-    {name:"Five Watt Coffee",detail:"Kingfield · Creative drinks",
+    {name:"Five Watt Coffee",detail:"Kingfield · Creative drinks",neighborhood:"Kingfield",
       note:"Cocktail-inspired signature drinks, bitters, house syrups. A Kingfield institution since the neighborhood's earliest coffee days.",url:"https://fivewattcoffee.com"},
-    {name:"Fawkes Alley Coffee",detail:"Loring Park · Nonprofit café",
+    {name:"Fawkes Alley Coffee",detail:"Loring Park · Nonprofit café",neighborhood:"Loring Park",
       note:"Hidden in a historic brick alley. Every purchase funds youth soccer through Futsal Society.",url:"https://www.fawkesalleycoffee.com"},
     {name:"FRGMNT Coffee",detail:"North Loop / Mill District / St. Anthony Main",
       note:"Multi-roaster cafe with several Minneapolis locations, each tied to a different neighborhood.",url:"https://frgmntcoffee.com"},
-    {name:"SK Coffee",detail:"Whittier · Plant-filled and warm",
+    {name:"SK Coffee",detail:"Whittier · Plant-filled and warm",neighborhood:"Whittier",
       note:"A genuine neighborhood gem with a plant wall, local art, and reliably good pour-overs.",url:"https://sk-coffee-whittier.goto-where.com"},
-    {name:"Mojo Coffee Gallery",detail:"Northeast Arts District · California Building",
+    {name:"Mojo Coffee Gallery",detail:"Northeast Arts District · California Building",neighborhood:"Northeast Arts District",
       note:"Coffee inside one of Northeast's original artist studio buildings. Breakfast and brunch too."},
-    {name:"Nina's Coffee Café",detail:"Cathedral Hill · Selby Avenue",
+    {name:"Nina's Coffee Café",detail:"Cathedral Hill · Selby Avenue",neighborhood:"Cathedral Hill",
       note:"The corner that's anchored the neighborhood's coffee culture for decades."},
-    {name:"Munkabeans",detail:"Hopkins · Mainstreet · Since 1996",
+    {name:"Munkabeans",detail:"Hopkins · Mainstreet · Since 1996",neighborhood:"Hopkins",
       note:"Fun, funky coffeehouse on Hopkins Mainstreet. Voted best soups in town.",url:"https://www.munkabeans.com"},
-    {name:"Anchor Coffee House",detail:"White Bear Lake · Downtown",
+    {name:"Anchor Coffee House",detail:"White Bear Lake · Downtown",neighborhood:"White Bear Lake",
       note:"The neighborhood's go-to coffee spot, right in downtown White Bear Lake."},
-    {name:"The Lobby Coffee & Leisure",detail:"Excelsior · Historic space",
+    {name:"The Lobby Coffee & Leisure",detail:"Excelsior · Historic space",neighborhood:"Excelsior",
       note:"Elegant service, real china mugs, a gorgeous historic Excelsior building.",url:"https://www.thelobbycoffee.com"},
-    {name:"Toastique",detail:"Wayzata · Lakeside",
+    {name:"Toastique",detail:"Wayzata · Lakeside",neighborhood:"Wayzata",
       note:"Gourmet toasts and espresso a short walk from the Lake Minnetonka shoreline.",url:"https://toastique.com/pages/wayzata"},
   ],
   bakeries:[
-    {name:"Patisserie 46",detail:"4606 Nicollet Ave · Linden Hills · Best in city",
+    {name:"Patisserie 46",detail:"4606 Nicollet Ave · Linden Hills · Best in city",neighborhood:"Linden Hills",
       note:"French-influenced. Croissant, kouign-amann. The sandwich lunch is the move.",url:"https://www.patisserie46.com"},
     {name:"Isles Bun & Coffee",detail:"Uptown / CID · Swedish-inspired",
       note:"The cardamom bun. Swedish-inspired. The neighborhood bakery for CID.",url:"https://www.islesbun.com"},
@@ -444,11 +469,11 @@ const DATA = {
       note:"Grain milled on-site, baked daily. Minnesota-grown wheat."},
     {name:"Rustica Bakery",detail:"Multiple locations · Minneapolis",
       note:"Naturally leavened breads and pastries. Multiple neighborhood locations.",url:"https://www.rusticabakery.com"},
-    {name:"Sun Street Breads",detail:"Kingfield · Local institution",
+    {name:"Sun Street Breads",detail:"Kingfield · Local institution",neighborhood:"Kingfield",
       note:"High-quality naturally leavened bread. The neighborhood bakery for south Minneapolis.",url:"https://www.sunstreetbreads.com"},
-    {name:"Diane's Place",detail:"Northeast Arts District · James Beard",
+    {name:"Diane's Place",detail:"Northeast Arts District · James Beard",neighborhood:"Northeast Arts District",
       note:"Pastry chef Diane Moua's Hmong-influenced croissants and Danishes. Worth the detour."},
-    {name:"Cafe Latte",detail:"Mac-Groveland · Grand Avenue institution",
+    {name:"Cafe Latte",detail:"Mac-Groveland · Grand Avenue institution",neighborhood:"Mac-Groveland",
       note:"Soups, salads, sandwiches, desserts. A Grand Avenue fixture for decades."},
   ],
   restaurants:[
@@ -459,7 +484,7 @@ const DATA = {
       note:"French-inspired burgers from two Bachelor Farmer alumni. Wagyu smash burgers, three-times-cooked fries, soft serve. Order the Le Boeuf.",url:"https://www.leburger4304.com"},
     {name:"Colita",detail:"Linden Hills · Been there",
       note:"Upscale Mexican from the same chef behind Rosalia and Porzana. Refined, a little bougie, worth dressing up for.",url:"https://colitarestaurant.com"},
-    {name:"Lake & Irving",detail:"Uptown · Been there",
+    {name:"Lake & Irving",detail:"Uptown · Been there",neighborhood:"East Isles",
       note:"Asian meets Mediterranean meets Minnesotan. The Loco Moco, the Luxe Burger, the Jungle Bird cocktail. Reliable neighborhood spot with a patio.",url:"https://www.lakeandirving.com"},
     // Want to try
     {name:"Vinai",detail:"North Loop · Want to try · Book ahead",
@@ -476,37 +501,37 @@ const DATA = {
       note:"Mexican-Asian fusion. The Nameless Martini (yuzu gin + tepache vermouth). Order it.",url:"https://www.mestiizorestaurant.com"},
     {name:"World Street Kitchen",detail:"Lyndale Ave · Want to try",
       note:"The Currito. People have been eating it for years.",url:"https://www.eatwsk.com"},
-    {name:"Khâluna",detail:"Kingfield · Laotian · Chef Ann Ahmed",
+    {name:"Khâluna",detail:"Kingfield · Laotian · Chef Ann Ahmed",neighborhood:"Kingfield",
       note:"Resort atmosphere, colorful plates, a bridge between Minneapolis and Laos.",url:"https://khaluna.com"},
-    {name:"Bûcheron",detail:"Kingfield · French-American",
+    {name:"Bûcheron",detail:"Kingfield · French-American",neighborhood:"Kingfield",
       note:"2025 James Beard Award for Best New Restaurant. Lumberjack-inspired, technically serious.",url:"https://www.bucheronrestaurant.com"},
-    {name:"Gai Noi",detail:"Loring Park · Laotian · No reservations",
+    {name:"Gai Noi",detail:"Loring Park · Laotian · No reservations",neighborhood:"Loring Park",
       note:"Chef Ann Ahmed's second Laotian restaurant. Packed since the day it opened.",url:"https://www.gainoimpls.com"},
-    {name:"Bar La Grassa",detail:"North Loop · Fresh pasta",
+    {name:"Bar La Grassa",detail:"North Loop · Fresh pasta",neighborhood:"North Loop",
       note:"Dark, loud, energetic. The neighborhood standard for pasta for over a decade."},
-    {name:"Aster Café",detail:"St. Anthony Main · Riverfront patio",
+    {name:"Aster Café",detail:"St. Anthony Main · Riverfront patio",neighborhood:"St. Anthony Main",
       note:"Cobblestone street, skyline views, the social anchor of the neighborhood."},
-    {name:"Nicollet Island Inn",detail:"Nicollet Island · Best of everything",
+    {name:"Nicollet Island Inn",detail:"Nicollet Island · Best of everything",neighborhood:"Nicollet Island",
       note:"Best view, best brunch, best business lunch — frequently named all three."},
-    {name:"Wise Acre Eatery",detail:"Tangletown · Farm-to-table",
+    {name:"Wise Acre Eatery",detail:"Tangletown · Farm-to-table",neighborhood:"Tangletown",
       note:"Seasonal menu on the curved streets near Minnehaha Creek."},
-    {name:"Quang Restaurant",detail:"Whittier · Eat Street · Vietnamese",
+    {name:"Quang Restaurant",detail:"Whittier · Eat Street · Vietnamese",neighborhood:"Whittier",
       note:"Pho, bubble tea, banh mi — a decades-running Eat Street institution."},
-    {name:"The Copper Hen",detail:"Whittier · Best reviewed",
+    {name:"The Copper Hen",detail:"Whittier · Best reviewed",neighborhood:"Whittier",
       note:"Whittier's highest-rated restaurant by local consensus."},
-    {name:"Seward Cafe",detail:"Seward · Since 1974",
+    {name:"Seward Cafe",detail:"Seward · Since 1974",neighborhood:"Seward",
       note:"Collectively owned and operated. The oldest restaurant of its kind in the city."},
-    {name:"W.A. Frost",detail:"Cathedral Hill · 1889 building",
+    {name:"W.A. Frost",detail:"Cathedral Hill · 1889 building",neighborhood:"Cathedral Hill",
       note:"One of the city's best patios. The neighborhood's fine-dining anchor."},
-    {name:"Estelle",detail:"Summit Hill · Sophisticated",
+    {name:"Estelle",detail:"Summit Hill · Sophisticated",neighborhood:"Summit Hill",
       note:"Elegant wines, refined dishes. A celebratory-dinner kind of place."},
-    {name:"Black Dog Cafe",detail:"Lowertown · Since 1998 · Live jazz",
+    {name:"Black Dog Cafe",detail:"Lowertown · Since 1998 · Live jazz",neighborhood:"Lowertown",
       note:"All-day gathering spot with live music most nights, especially Saturdays."},
-    {name:"Cossetta Alimentari",detail:"Lowertown · Since 1920",
+    {name:"Cossetta Alimentari",detail:"Lowertown · Since 1920",neighborhood:"Lowertown",
       note:"Saint Paul's red-sauce institution. Pizzeria, bakery, full rooftop dining."},
-    {name:"Coalition",detail:"Excelsior · Chef-driven",
+    {name:"Coalition",detail:"Excelsior · Chef-driven",neighborhood:"Excelsior",
       note:"Stylish New American menu in the heart of historic downtown Excelsior."},
-    {name:"The Main Cafe",detail:"Stillwater · Family-run since 1989",
+    {name:"The Main Cafe",detail:"Stillwater · Family-run since 1989",neighborhood:"Stillwater",
       note:"Right on Main Street. Everyone treated like family for over three decades."},
   ],
 
@@ -546,6 +571,16 @@ const DATA = {
       note:"Car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
     {name:"Lake Minnetonka",detail:"Day trip · 30 min from BMS",
       note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here.",url:"https://www.threeriversparks.org/location/lake-minnetonka-regional-park"},
+    {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",neighborhood:"St. Anthony Main",
+      note:"The best view of the Stone Arch Bridge and the Minneapolis skyline. Almost no one from outside the neighborhood knows it exists.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/father_hennepin_bluff_park/"},
+    {name:"Beard\'s Plaisance",detail:"Linden Hills · Lake Harriet",neighborhood:"Linden Hills",
+      note:"A sloping lawn above Lake Harriet that fills with picnic blankets on summer evenings. The quiet counterpart to the busy beach.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_harriet_regional_park/"},
+    {name:"Bohemian Flats",detail:"Cedar-Isles-Dean · River launch",neighborhood:"Cedar-Isles-Dean",
+      note:"A flat park at river level below the Washington Ave bridge. Kayak launch, morning fog, and almost no one after 8am.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bohemian_flats/"},
+    {name:"Gold Medal Park",detail:"Mill District · Mound with views",neighborhood:"Mill District",
+      note:"A small spiral-mound park next to the Guthrie with 360° views of the river and downtown. Almost no one stops here.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/gold_medal_park/"},
+    {name:"Boom Island",detail:"Northeast Arts District · Mississippi",neighborhood:"Northeast Arts District",
+      note:"Island park on the Mississippi with skyline views. Dog-friendly. Peaceful. Mostly locals.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/boom_island_park/"},
   ],
   wellness:[
     
@@ -557,6 +592,33 @@ const DATA = {
       note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub.",url:"https://wainanisup.com"},
   ],
   
+};
+
+
+const NB_WHY = {
+  "Kenwood":"Quiet, lake-adjacent, the kind of neighborhood that doesn't need to try.",
+  "Cedar-Isles-Dean":"Home water. The cardamom bun is the first thing to know about living here.",
+  "Linden Hills":"The city's best example of a walkable village center.",
+  "East Isles":"Lake access without the Kenwood premium — and a market on your doorstep.",
+  "North Loop":"Where the city's culinary heavyweights opened first.",
+  "Mill District":"Riverfront market culture, anchored by the Guthrie and Gold Medal Park.",
+  "St. Anthony Main":"Cobblestone, river views, the oldest part of the city still feels old.",
+  "Nicollet Island":"An actual island in the Mississippi, walkable from downtown.",
+  "Kingfield":"Eat Street energy and James Beard-level cooking in one stretch of Nicollet.",
+  "Tangletown":"Curved streets, low turnover, the quiet alternative to its neighbors.",
+  "Whittier":"The most diverse square mile in the city, and it shows up on every plate.",
+  "Northeast Arts District":"Working artists, James Beard pastry, coffee inside a converted seed warehouse.",
+  "Seward":"Cooperative housing and a restaurant that's been collectively run since 1974.",
+  "Loring Park":"Chef Ann Ahmed's two Laotian restaurants both live within walking distance of here.",
+  "Cathedral Hill":"Summit Avenue mansions and a coffee corner that's anchored the block for decades.",
+  "Summit Hill":"The longest stretch of preserved Victorian architecture in the country.",
+  "Mac-Groveland":"College-town energy, Grand Avenue institutions, genuinely walkable.",
+  "Lowertown":"Artist lofts since the 1980s, a deli since 1920, a café since 1998.",
+  "Excelsior":"Lake Minnetonka's oldest town, walkable in a way few suburbs manage.",
+  "Wayzata":"Lakeside, walkable, the crown jewel of Minnetonka's north shore.",
+  "Stillwater":"The birthplace of Minnesota, Main Street still feels like 1880.",
+  "Hopkins":"Once the Raspberry Capital of the World. Still genuinely small-town.",
+  "White Bear Lake":"One of the largest lakes in the metro, with a downtown right at the water."
 };
 
 // ─── TERRITORY ────────────────────────────────────────────────────────────────
@@ -608,7 +670,7 @@ function TerritoryPage({onBack}) {
         {collections.map(col=>(
           <div key={col.key}>
             <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
-            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:12,color:C.bone2,opacity:0.6,marginBottom:8}}>{col.blurb}</div>
+            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:"rgba(248,246,240,0.72)",marginBottom:10}}>{col.blurb}</div>
             {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
               <button key={i} onClick={()=>setNb(n)} style={{
                 width:"100%",background:"transparent",border:"none",
@@ -631,13 +693,13 @@ function TerritoryPage({onBack}) {
   if(sub==="beyond") return (
     <DetailPage title="Beyond the City" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,paddingBottom:20}}>
+        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:15,color:"rgba(248,246,240,0.75)",lineHeight:1.7,paddingBottom:20}}>
           Walkable towns beyond Minneapolis with their own sense of place.
         </div>
         {beyondCollections.map(col=>(
           <div key={col.key}>
             <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
-            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:12,color:C.bone2,opacity:0.6,marginBottom:8}}>{col.blurb}</div>
+            <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:"rgba(248,246,240,0.72)",marginBottom:10}}>{col.blurb}</div>
             {DATA.beyond.filter(n=>n.collection===col.key).map((n,i)=>(
               <button key={i} onClick={()=>setNb(n)} style={{
                 width:"100%",background:"transparent",border:"none",
@@ -657,18 +719,10 @@ function TerritoryPage({onBack}) {
     </DetailPage>
   );
 
-  if(sub==="hidden") return (
-    <DetailPage title="Hidden Gems" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
-      <div style={{paddingTop:20}}>
-        {DATA.hidden.map((item,i)=><ContentRow key={i} {...item} accent={C.teal}/>)}
-      </div>
-    </DetailPage>
-  );
-
   if(sub==="compare") return (
     <DetailPage title="Compare" dir="north" bg={C.tealBg} aurora="rgba(62,124,117,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:C.bone2,lineHeight:1.7,paddingBottom:16}}>
+        <div style={{fontFamily:serif,fontStyle:"italic",fontSize:15,color:"rgba(248,246,240,0.75)",lineHeight:1.7,paddingBottom:16}}>
           Metrics only. Context lives in each neighborhood.
         </div>
         {collections.map(col=>(
@@ -702,7 +756,6 @@ function TerritoryPage({onBack}) {
       items={[
         {label:"Neighborhood Collections",sub:"Around the Lakes · Urban Core · Saint Paul · more",id:"neighborhoods"},
         {label:"Beyond the City",sub:"Excelsior · Wayzata · Stillwater · Hopkins · White Bear Lake",id:"beyond"},
-        {label:"Hidden Gems",sub:"Small discoveries",id:"hidden"},
         {label:"Compare Neighborhoods",sub:"Market metrics by collection",id:"compare"},
       ]}
       onGo={setSub}/>
@@ -745,19 +798,26 @@ function SeasonPage({onBack}) {
 function TablePage({onBack}) {
   const [sub,setSub] = useState(null);
 
-  const views = {
+  const grouped = {
     markets:{title:"Markets",data:DATA.markets},
-    makers:{title:"Makers",data:DATA.makers},
     coffee:{title:"Coffee",data:DATA.coffee},
     bakeries:{title:"Bakeries",data:DATA.bakeries},
     restaurants:{title:"Restaurants",data:DATA.restaurants},
+  };
+  const flat = {
+    makers:{title:"Makers",data:DATA.makers},
     classes:{title:"Classes",data:DATA.classes},
   };
 
-  if(sub&&views[sub]) return (
-    <DetailPage title={views[sub].title} dir="south" bg={C.saffronBg} aurora="rgba(198,155,68,1)" onBack={()=>setSub(null)}>
+  if(sub && grouped[sub]) return (
+    <GroupedSectionView title={grouped[sub].title} dir="south" ground={C.saffronBg} atmoColor="rgba(198,155,68,1)"
+      items={grouped[sub].data} onBack={()=>setSub(null)}/>
+  );
+
+  if(sub && flat[sub]) return (
+    <DetailPage title={flat[sub].title} dir="south" bg={C.saffronBg} aurora="rgba(198,155,68,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        {views[sub].data.map((item,i)=><ContentRow key={i} {...item} accent={C.saffron}/>)}
+        {flat[sub].data.map((item,i)=><ContentRow key={i} {...item} accent={C.saffron}/>)}
       </div>
     </DetailPage>
   );
@@ -781,16 +841,20 @@ function TablePage({onBack}) {
 function BodyPage({onBack}) {
   const [sub,setSub] = useState(null);
 
-  const views = {
+  if(sub==="nature") return (
+    <GroupedSectionView title="Nature" dir="west" ground={C.mintBg} atmoColor="rgba(118,172,158,1)"
+      items={DATA.nature} onBack={()=>setSub(null)}/>
+  );
+
+  const flat = {
     movement:{title:"Movement",data:DATA.movement},
-    nature:{title:"Nature",data:DATA.nature},
     wellness:{title:"Wellness",data:DATA.wellness},
   };
 
-  if(sub&&views[sub]) return (
-    <DetailPage title={views[sub].title} dir="west" bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={()=>setSub(null)}>
+  if(sub && flat[sub]) return (
+    <DetailPage title={flat[sub].title} dir="west" bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={()=>setSub(null)}>
       <div style={{paddingTop:20}}>
-        {views[sub].data.map((item,i)=><ContentRow key={i} {...item} accent={C.mint}/>)}
+        {flat[sub].data.map((item,i)=><ContentRow key={i} {...item} accent={C.mint}/>)}
       </div>
     </DetailPage>
   );
