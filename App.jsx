@@ -90,8 +90,8 @@ function Aurora({ color, dir }) {
 }
 
 // ─── SHARED UI ────────────────────────────────────────────────────────────────
-const Cap = ({children,color=C.bone3,style={}}) => (
-  <div style={{fontFamily:sans,fontSize:8,fontWeight:500,letterSpacing:"0.26em",textTransform:"uppercase",color,...style}}>{children}</div>
+const Cap = ({children,color=C.bone2,style={}}) => (
+  <div style={{fontFamily:sans,fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color,opacity:0.85,...style}}>{children}</div>
 );
 
 const Rule = ({style={}}) => <div style={{height:1,background:C.bone3,...style}}/>;
@@ -665,7 +665,7 @@ function NeighborhoodDetail({nb, onBack}) {
         <div style={{display:"flex",gap:0}}>
           {[["Median",nb.price],["Days",nb.days+"d"],["vs Ask",nb.ratio],["Absorption",nb.abs]].map(([l,v],j)=>(
             <div key={l} style={{flex:1,padding:"0 "+(j>0?10:0)+"px",borderLeft:j>0?"1px solid "+C.bone3:"none"}}>
-              <Cap style={{fontSize:7,color:C.bone3,marginBottom:4}}>{l}</Cap>
+              <Cap style={{fontSize:9,color:C.bone2,opacity:0.65,marginBottom:5}}>{l}</Cap>
               <div style={{fontFamily:sans,fontSize:11,color:C.bone2}}>{v}</div>
             </div>
           ))}
@@ -762,12 +762,12 @@ function TerritoryPage({onBack}) {
           <div key={col.key}>
             <Cap style={{marginTop:24,marginBottom:8,color:C.bone3}}>{col.label}</Cap>
             <div style={{display:"flex",borderBottom:"1px solid "+C.bone3,paddingBottom:8}}>
-              <div style={{flex:2}}><Cap style={{fontSize:7,color:C.bone3}}>Neighborhood</Cap></div>
-              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Median</Cap></div>
-              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Trend</Cap></div>
-              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Days</Cap></div>
-              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>vs Ask</Cap></div>
-              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:7,color:C.bone3}}>Absorb</Cap></div>
+              <div style={{flex:2}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Neighborhood</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Median</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Trend</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Days</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>vs Ask</Cap></div>
+              <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Absorb</Cap></div>
             </div>
             {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
               <div key={i} style={{borderBottom:"1px solid "+C.bone3,padding:"14px 0",display:"flex",alignItems:"baseline"}}>
