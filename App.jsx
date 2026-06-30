@@ -146,7 +146,7 @@ function DirPage({dir,title,subhead,bg,aurora,items,onBack,onGo}) {
         <Rule style={{margin:"30px 32px 0"}}/>
         <div style={{padding:"0 32px 80px"}}>
           {items.map((item,i)=>{
-            if(item.type==="heading") return <Cap key={i} style={{marginTop:32,color:C.bone3}}>{item.label}</Cap>;
+            if(item.type==="heading") return <Cap key={i} style={{marginTop:32,color:C.bone,opacity:0.9}}>{item.label}</Cap>;
             return <NavRow key={i} label={item.label} sub={item.sub} delay={i*0.04} onPress={()=>onGo&&onGo(item.id)}/>;
           })}
         </div>
@@ -224,7 +224,7 @@ function GroupedSectionView({ title, dir, ground, atmoColor, items, onBack }) {
           const nbsInCollection = presentNeighborhoods.filter(nb => nbToCollection[nb] === col);
           return (
             <div key={col}>
-              <Cap style={{marginTop:32,marginBottom:14,color:C.bone3,letterSpacing:"0.14em"}}>{col}</Cap>
+              <Cap style={{marginTop:32,marginBottom:14,color:C.bone,opacity:0.9,letterSpacing:"0.14em"}}>{col}</Cap>
               {nbsInCollection.map(nb => (
                 <div key={nb} style={{marginBottom:18}}>
                   <div style={{fontFamily:serif,fontSize:17,color:accent,marginBottom:3}}>{nb}</div>
@@ -244,7 +244,7 @@ function GroupedSectionView({ title, dir, ground, atmoColor, items, onBack }) {
         })}
         {ungrouped.length > 0 && (
           <div>
-            <Cap style={{marginTop:32,marginBottom:10,color:C.bone3,letterSpacing:"0.14em"}}>Citywide</Cap>
+            <Cap style={{marginTop:32,marginBottom:10,color:C.bone,opacity:0.9,letterSpacing:"0.14em"}}>Citywide</Cap>
             {ungrouped.map((item,i) => (
               <ContentRow key={i} {...item} accent={accent}/>
             ))}
@@ -389,7 +389,7 @@ const DATA = {
     {name:"Riverview Theater",detail:"3800 42nd Ave S · South Minneapolis",note:"1950s neighborhood theater, still running. Classic and contemporary films. Real buttered popcorn. Tickets around $5.",url:"https://riverviewtheater.com"},
     {name:"Parkway Theater",detail:"4814 Chicago Ave · South Minneapolis",note:"Restored 1930s art deco. Films plus live events, themed nights, director Q&As. Full bar on site.",url:"https://theparkwaytheater.com"},
     {name:"Walker Cinema",detail:"Walker Art Center · Downtown",note:"Experimental and artist films in a gallery context. Summer series includes free outdoor screenings on the hillside.",url:"https://walkerart.org/visit/cinema"},
-    {name:"St. Anthony Main Theatre",detail:"115 SE Main St · St. Anthony Main",note:"Intimate independent cinema right on the riverfront. Mississippi views before the show.",url:"https://stanthonymain.com"},
+    {name:"The Main Cinema",detail:"115 SE Main St · St. Anthony Main",note:"Operated by MSP Film Society. Independent and international film right on the riverfront. Mississippi views before the show.",url:"https://mspfilm.org"},
   ],
   performances:[
     {name:"Guthrie Theater",detail:"818 S 2nd St · Downtown · Book ahead",note:"Come From Away running now. World-class regional theater. The endless bridge cantilevers over the Mississippi.",url:"https://guthrietheater.org"},
@@ -536,31 +536,31 @@ const DATA = {
     {name:"Gai Noi",detail:"Loring Park · Laotian · No reservations",neighborhood:"Loring Park",
       note:"Chef Ann Ahmed's second Laotian restaurant. Packed since the day it opened.",url:"https://www.gainoimpls.com"},
     {name:"Bar La Grassa",detail:"North Loop · Fresh pasta",neighborhood:"North Loop",
-      note:"Dark, loud, energetic. The neighborhood standard for pasta for over a decade."},
+      note:"Dark, loud, energetic. The neighborhood standard for pasta for over a decade.",url:"https://www.barlagrassa.com"},
     {name:"Aster Café",detail:"St. Anthony Main · Riverfront patio",neighborhood:"St. Anthony Main",
-      note:"Cobblestone street, skyline views, the social anchor of the neighborhood."},
+      note:"Cobblestone street, skyline views, the social anchor of the neighborhood.",url:"https://astercafe.com"},
     {name:"Nicollet Island Inn",detail:"Nicollet Island · Best of everything",neighborhood:"Nicollet Island",
-      note:"Best view, best brunch, best business lunch — frequently named all three."},
+      note:"Best view, best brunch, best business lunch — frequently named all three.",url:"https://www.nicolletislandinn.com"},
     {name:"Wise Acre Eatery",detail:"Tangletown · Farm-to-table",neighborhood:"Tangletown",
-      note:"Seasonal menu on the curved streets near Minnehaha Creek."},
+      note:"Seasonal menu on the curved streets near Minnehaha Creek.",url:"https://www.wiseacreeatery.com"},
     {name:"Quang Restaurant",detail:"Whittier · Eat Street · Vietnamese",neighborhood:"Whittier",
-      note:"Pho, bubble tea, banh mi — a decades-running Eat Street institution."},
-    {name:"The Copper Hen",detail:"Whittier · Best reviewed",neighborhood:"Whittier",
-      note:"Whittier's highest-rated restaurant by local consensus."},
+      note:"Pho, bubble tea, banh mi — a decades-running Eat Street institution.",url:"http://www.quangrestaurant.com"},
+    {name:"The Copper Hen Cakery & Kitchen",detail:"Whittier · Best reviewed",neighborhood:"Whittier",
+      note:"Farm-to-table bistro and bakery on Eat Street. Wedding cakes, brunch, and a full bar.",url:"https://www.copperhenkitchen.com"},
     {name:"Seward Cafe",detail:"Seward · Since 1974",neighborhood:"Seward",
-      note:"Collectively owned and operated. The oldest restaurant of its kind in the city."},
+      note:"Collectively owned and operated. The oldest restaurant of its kind in the city.",url:"https://www.sewardcafe.com"},
     {name:"W.A. Frost",detail:"Cathedral Hill · 1889 building",neighborhood:"Cathedral Hill",
-      note:"One of the city's best patios. The neighborhood's fine-dining anchor."},
-    {name:"Estelle",detail:"Summit Hill · Sophisticated",neighborhood:"Summit Hill",
-      note:"Elegant wines, refined dishes. A celebratory-dinner kind of place."},
-    {name:"Black Dog Cafe",detail:"Lowertown · Since 1998 · Live jazz",neighborhood:"Lowertown",
-      note:"All-day gathering spot with live music most nights, especially Saturdays."},
-    {name:"Cossetta Alimentari",detail:"Lowertown · Since 1920",neighborhood:"Lowertown",
-      note:"Saint Paul's red-sauce institution. Pizzeria, bakery, full rooftop dining."},
+      note:"One of the city's best patios. The neighborhood's fine-dining anchor.",url:"https://www.wafrost.com"},
+    {name:"Estelle",detail:"Mac-Groveland · Sophisticated",neighborhood:"Mac-Groveland",
+      note:"Spanish, Portuguese, and Italian flavors. Elegant wines and a covered back patio.",url:"https://www.estellestp.com"},
+    {name:"Black Dog Cafe",detail:"Lowertown · Live jazz",neighborhood:"Lowertown",
+      note:"All-day gathering spot facing the farmers market. Live jazz most nights, especially Saturdays.",url:"https://www.blackdogstpaul.com"},
+    {name:"Cossetta's",detail:"Lowertown · Since 1920",neighborhood:"Lowertown",
+      note:"Saint Paul's red-sauce institution. Pizzeria, bakery, deli, and rooftop dining at Louis.",url:"https://www.cossettas.com"},
     {name:"Coalition",detail:"Excelsior · Chef-driven",neighborhood:"Excelsior",
-      note:"Stylish New American menu in the heart of historic downtown Excelsior."},
+      note:"Stylish New American menu in the heart of historic downtown Excelsior.",url:"https://coalitionrestaurant.com"},
     {name:"The Main Cafe",detail:"Stillwater · Family-run since 1989",neighborhood:"Stillwater",
-      note:"Right on Main Street. Everyone treated like family for over three decades."},
+      note:"Right on Main Street. Everyone treated like family for over three decades.",url:"https://themaincafemn.com"},
   ],
 
   // BODY
@@ -702,7 +702,7 @@ function TerritoryPage({onBack}) {
       <div style={{paddingTop:20}}>
         {collections.map(col=>(
           <div key={col.key}>
-            <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
+            <Cap style={{marginTop:28,marginBottom:2,color:C.bone,opacity:0.9}}>{col.label}</Cap>
             <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:"rgba(248,246,240,0.72)",marginBottom:10}}>{col.blurb}</div>
             {DATA.neighborhoods.filter(n=>n.collection===col.key).map((n,i)=>(
               <button key={i} onClick={()=>setNb(n)} style={{
@@ -731,7 +731,7 @@ function TerritoryPage({onBack}) {
         </div>
         {beyondCollections.map(col=>(
           <div key={col.key}>
-            <Cap style={{marginTop:28,marginBottom:2,color:C.bone3}}>{col.label}</Cap>
+            <Cap style={{marginTop:28,marginBottom:2,color:C.bone,opacity:0.9}}>{col.label}</Cap>
             <div style={{fontFamily:serif,fontStyle:"italic",fontSize:14,color:"rgba(248,246,240,0.72)",marginBottom:10}}>{col.blurb}</div>
             {DATA.beyond.filter(n=>n.collection===col.key).map((n,i)=>(
               <button key={i} onClick={()=>setNb(n)} style={{
@@ -760,7 +760,7 @@ function TerritoryPage({onBack}) {
         </div>
         {collections.map(col=>(
           <div key={col.key}>
-            <Cap style={{marginTop:24,marginBottom:8,color:C.bone3}}>{col.label}</Cap>
+            <Cap style={{marginTop:24,marginBottom:8,color:C.bone,opacity:0.9}}>{col.label}</Cap>
             <div style={{display:"flex",borderBottom:"1px solid "+C.bone3,paddingBottom:8}}>
               <div style={{flex:2}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Neighborhood</Cap></div>
               <div style={{flex:1,textAlign:"right"}}><Cap style={{fontSize:9,color:C.bone2,opacity:0.65}}>Median</Cap></div>
@@ -912,7 +912,7 @@ function AboutPage({onBack}) {
       <div style={{position:"relative",zIndex:1}}>
         <div style={{padding:"28px 32px 0"}}><BackBtn onBack={onBack}/></div>
         <div style={{padding:"56px 40px 0"}}>
-          <Cap style={{marginBottom:32,color:C.bone3}}>About</Cap>
+          <Cap style={{marginBottom:32,color:C.bone,opacity:0.9}}>About</Cap>
           <div style={{fontFamily:serif,fontSize:22,fontWeight:300,color:C.bone,lineHeight:1.7,marginBottom:28}}>
             When you move to a new city, you don't lose yourself. You just have to find everything again.
           </div>
