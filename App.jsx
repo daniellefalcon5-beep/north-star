@@ -269,7 +269,7 @@ const DATA = {
     {name:"Lowertown",detail:"Saint Paul",collection:"stpaul",
       note:"19th-century brick warehouses became artist lofts starting in the 1980s, one of the country's first live-work arts districts. CHS Field, Mears Park, the Saturday farmers market, and a Green Line stop all within a few blocks.",
       price:"$220K–$480K",trend:"+6%",days:24,ratio:"98%",abs:"1.7 mo"},
-  ],,
+  ],
   beyond:[
     // Lakeside
     {name:"Excelsior",detail:"Lakeside",collection:"beyond-lakeside",
