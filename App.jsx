@@ -565,38 +565,44 @@ const DATA = {
 
   // BODY
   movement:[
-    {name:"SUP Calhoun",detail:"BMS · Tue & Thu 6:30pm",
+    {name:"SUP Calhoun",detail:"Cedar-Isles-Dean · Tue & Thu 6:30pm",neighborhood:"Cedar-Isles-Dean",
       note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis.",url:"https://supcalhoun.com"},
-    {name:"SUP Yoga — The Yoga Center",detail:"BMS · June–Aug mornings",
+    {name:"SUP Yoga — The Yoga Center",detail:"Cedar-Isles-Dean · June–Aug mornings",neighborhood:"Cedar-Isles-Dean",
       note:"SUP yoga on Bde Maka Ska. All levels.",url:"https://theyogacenterretreat.com"},
-    {name:"The Firm",detail:"Uptown · Pilates + strength",
-      note:"Pilates and strength training in the Uptown corridor. Walkable from CID and Kenwood."},
-    {name:"Movement Minneapolis",detail:"NE Minneapolis · Climbing + fitness",
-      note:"Climbing gym in Northeast. Good community."},
-    {name:"Mov Hot Yoga",detail:"Minneapolis · Hot yoga",
-      note:"Hot yoga studio in Minneapolis. Multiple class formats.",url:"https://www.movhotyoga.com"},
+    {name:"YogaFit Linden Hills",detail:"Linden Hills · Heated and unheated",neighborhood:"Linden Hills",
+      note:"Yoga, barre, and HIIT-style fitness formats. Accessible for every level.",url:"https://www.yogafitstudios.com/studios/linden-hills"},
+    {name:"Kingfield Pilates and Movement",detail:"Kingfield · Reformer studio",neighborhood:"Kingfield",
+      note:"Home-based studio with full Balanced Body equipment — reformer, Cadillac, chair, barrel. Built on a foundation of dance.",url:"https://www.kingfieldpilates.com"},
+    {name:"Purposeful Pilates",detail:"North Loop · Private + small group",neighborhood:"North Loop",
+      note:"Private sessions and small group reformer classes for all ages and abilities.",url:"https://www.purposefulpilatesmn.com"},
+    {name:"Greenway Yoga",detail:"Whittier · Speakeasy studio",neighborhood:"Whittier",
+      note:"Tucked behind Nicollet on Eat Street, blocks from the Greenway bike path. Intentional, community-minded practice.",url:"https://www.greenwayyoga.com"},
+    {name:"Northeast Fitness",detail:"Northeast Arts District · Reformer + river views",neighborhood:"Northeast Arts District",
+      note:"Pilates reformer and apparatus classes in a studio overlooking the Mississippi.",url:"https://ne.fitness"},
+    {name:"Mov Hot Yoga",detail:"Multiple locations · Hot yoga",
+      note:"Hot yoga studio with multiple Minneapolis locations and class formats.",url:"https://www.movhotyoga.com"},
     {name:"Loppet Foundation",detail:"Community paddling + winter trails",
       note:"SUP, canoe, lessons in summer. Nordic skiing and fat biking in winter. Good for meeting locals.",url:"https://loppet.org"},
   ],
   nature:[
-    {name:"Bde Maka Ska",detail:"Chain of Lakes · Home water",
+    {name:"Bde Maka Ska",detail:"Chain of Lakes · Home water",neighborhood:"Cedar-Isles-Dean",
       note:"Largest Chain of Lakes lake. SUP, swim, sail. Paddle through the channel to Lake of the Isles and Cedar Lake. 3.3mi perimeter loop.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/bde_maka_ska_park/"},
-    {name:"Lake of the Isles",detail:"2.7mi loop",
+    {name:"Lake of the Isles",detail:"2.7mi loop",neighborhood:"East Isles",
       note:"The paddle surrounded by CID and Kenwood homes. Quiet on weekday mornings.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_of_the_isles_park/"},
-    {name:"Lake Harriet",detail:"2.8mi loop · Bandshell",
+    {name:"Lake Harriet",detail:"2.8mi loop · Bandshell",neighborhood:"Linden Hills",
       note:"Swimming beach, sailing club, paddleboat rentals. Free Sunday concerts at the Bandshell all summer.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/lake_harriet_regional_park/"},
-    {name:"Cedar Lake",detail:"Connected to BMS via channel",
+    {name:"Cedar Lake",detail:"Connected to BMS via channel",neighborhood:"North Loop",
       note:"Quieter than BMS. Cedar Lake Trail connects to the Midtown Greenway.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/cedar_lake_park/"},
     {name:"Chain of Lakes Loop",detail:"13 miles · Paved · Car-free",
-      note:"BMS to Lake of the Isles to Cedar Lake to Lake Harriet to Nokomis. The definitive Minneapolis route. Before 8am on weekends."},
+      note:"BMS to Lake of the Isles to Cedar Lake to Lake Harriet to Nokomis. The definitive Minneapolis route. Before 8am on weekends.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/minneapolis_chain_of_lakes_regional_park/"},
     {name:"Minnehaha Falls Trail",detail:"5–8 miles · River gorge",
       note:"Mississippi River gorge to Minnehaha Falls. One of the best urban trail runs in the Midwest.",url:"https://www.minneapolisparks.org/parks-destinations/parks-lakes/minnehaha_regional_park/"},
     {name:"West River Parkway",detail:"8 miles · Riverfront",
-      note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental."},
-    {name:"Minnehaha Creek Greenway",detail:"Through Linden Hills",
-      note:"Follows the creek through residential neighborhoods. Beautiful urban waterway walk."},
-    {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free",
-      note:"Car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep."},
+      note:"Along the Mississippi from North Minneapolis to Minnehaha Falls. The city at its most elemental.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
+    {name:"Minnehaha Parkway Regional Trail",detail:"Through Tangletown",neighborhood:"Tangletown",
+      note:"Follows the creek from Lake Harriet to Minnehaha Falls, past Lynnhurst and Minnehaha Creek Park. Beautiful urban waterway walk.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
+    {name:"Kenwood Parkway Loop",detail:"3 miles · Car-free",neighborhood:"Kenwood",
+      note:"Car-free parkway through the heart of Kenwood. Sunday mornings when the city is still asleep.",url:"https://www.minneapolisparks.org/parks-destinations/trails-parkways/"},
     {name:"Lake Minnetonka",detail:"Day trip · 30 min from BMS",
       note:"A different scale entirely. Wai Nani SUP does group paddles and SUP yoga out here.",url:"https://www.threeriversparks.org/location/lake-minnetonka-regional-park"},
     {name:"Father Hennepin Bluff Park",detail:"St. Anthony Main · River overlook",neighborhood:"St. Anthony Main",
@@ -612,11 +618,11 @@ const DATA = {
   ],
   wellness:[
     
-    {name:"Löyly",detail:"NE Minneapolis · Nordic sauna",
+    {name:"Löyly",detail:"Northeast Arts District · Nordic sauna",neighborhood:"Northeast Arts District",
       note:"Nordic-inspired sauna and cold plunge. Community-focused, well designed.",url:"https://www.loyly.net"},
     {name:"The Nordic",detail:"Downtown · Year-round",
       note:"Urban wellness with sauna, cold plunge, steam room. Year-round operation.",url:"https://www.minneapolis.org/things-to-do/health-wellness/saunas/"},
-    {name:"Wai Nani SUP",detail:"Lake Minnetonka · Community",
+    {name:"Wai Nani SUP",detail:"Excelsior · Lake Minnetonka · Community",neighborhood:"Excelsior",
       note:"Group Tribe paddles, SUP yoga. Free community paddles. The Twin Cities SUP community hub.",url:"https://wainanisup.com"},
   ],
   
@@ -874,22 +880,15 @@ function TablePage({onBack}) {
 function BodyPage({onBack}) {
   const [sub,setSub] = useState(null);
 
-  if(sub==="nature") return (
-    <GroupedSectionView title="Nature" dir="west" ground={C.mintBg} atmoColor="rgba(118,172,158,1)"
-      items={DATA.nature} onBack={()=>setSub(null)}/>
-  );
-
-  const flat = {
+  const grouped = {
     movement:{title:"Movement",data:DATA.movement},
+    nature:{title:"Nature",data:DATA.nature},
     wellness:{title:"Wellness",data:DATA.wellness},
   };
 
-  if(sub && flat[sub]) return (
-    <DetailPage title={flat[sub].title} dir="west" bg={C.mintBg} aurora="rgba(118,172,158,1)" onBack={()=>setSub(null)}>
-      <div style={{paddingTop:20}}>
-        {flat[sub].data.map((item,i)=><ContentRow key={i} {...item} accent={C.mint}/>)}
-      </div>
-    </DetailPage>
+  if(sub && grouped[sub]) return (
+    <GroupedSectionView title={grouped[sub].title} dir="west" ground={C.mintBg} atmoColor="rgba(118,172,158,1)"
+      items={grouped[sub].data} onBack={()=>setSub(null)}/>
   );
 
   return (
