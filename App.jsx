@@ -565,8 +565,6 @@ const DATA = {
 
   // BODY
   movement:[
-    {name:"SUP Calhoun",detail:"Cedar-Isles-Dean · Tue & Thu 6:30pm",neighborhood:"Cedar-Isles-Dean",
-      note:"WPA-certified instructors on Bde Maka Ska. All levels. Private lessons ($75) with video analysis."},
     {name:"SUP Yoga — The Yoga Center",detail:"Cedar-Isles-Dean · June–Aug mornings",neighborhood:"Cedar-Isles-Dean",
       note:"SUP yoga on Bde Maka Ska. All levels.",url:"https://theyogacenterretreat.com"},
     {name:"YogaFit Linden Hills",detail:"Linden Hills · Heated and unheated",neighborhood:"Linden Hills",
@@ -622,8 +620,8 @@ const DATA = {
   ],
   wellness:[
     // Sauna & thermal bathing
-    {name:"Löyly",detail:"Northeast Arts District · Nordic sauna",neighborhood:"Northeast Arts District",
-      note:"Wood-paneled, community-focused Nordic sauna and cold plunge in Northeast. Thoughtfully designed and unpretentious.",url:"https://www.loyly.net"},
+    {name:"The Yard — Superior Sauna",detail:"Kingfield · 4355 Nicollet Ave · Community sauna",neighborhood:"Kingfield",
+      note:"Outdoor community sauna space and showroom right off Nicollet. Multiple saunas, fire pit, yard games between rounds. Free community steam on Thursdays. First session always free.",url:"https://superiorsaunas.com/pages/events"},
     {name:"PORTAL° Thermaculture",detail:"East Isles · 3120 Excelsior Blvd · Social sauna",neighborhood:"East Isles",
       note:"Scandinavian hot-cold contrast therapy steps from Bde Maka Ska. Three saunas, communal cold plunge pool, indoor-outdoor lounge. Open daily from early morning.",url:"https://www.portalthermaculture.com/minneapolis"},
     {name:"Cedar & Stone at Four Seasons",detail:"North Loop · Rooftop · Guided Nordic sauna",neighborhood:"North Loop",
