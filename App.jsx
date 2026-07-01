@@ -1003,13 +1003,12 @@ function Landing({onNavigate}) {
     );
 
     // E: star is to E's LEFT, so: E letter first (closest to star), then name to the right
-    // tagline centered below the full row — same as N/S
     if(dir==="east") return (
-      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-start",width:160}}>
+      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-start",width:180}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-start"}}>
-          <div style={cardStyle}>{card}</div>
+          <div style={{...cardStyle,width:44,textAlign:"center"}}>{card}</div>
           <div style={nameStyle}>{name}</div>
         </button>
         {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
@@ -1017,14 +1016,13 @@ function Landing({onNavigate}) {
     );
 
     // W: star is to W's RIGHT, so: name to the left, W letter closest to star
-    // tagline centered below the full row — same as N/S
     return (
-      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-end",width:160}}>
+      <div style={{...style,display:"flex",flexDirection:"column",alignItems:"flex-end",width:180}}>
         <button onMouseEnter={()=>setHov(dir)} onMouseLeave={()=>setHov(null)} onClick={()=>onNavigate(dir)}
           style={{background:"transparent",border:"none",cursor:"pointer",
             display:"flex",flexDirection:"row",alignItems:"center",gap:10,alignSelf:"flex-end"}}>
           <div style={nameStyle}>{name}</div>
-          <div style={cardStyle}>{card}</div>
+          <div style={{...cardStyle,width:44,textAlign:"center"}}>{card}</div>
         </button>
         {tagline&&<div style={{...tagStyle,textAlign:"center",marginTop:8,width:"100%"}}>{tagline}</div>}
       </div>
